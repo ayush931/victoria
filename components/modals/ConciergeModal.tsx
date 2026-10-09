@@ -73,10 +73,10 @@ export default function ConciergeModal({
 
         {submitted ? (
           <div className="py-12 text-center flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-[#B38F5B]/10 border border-[#B38F5B] flex items-center justify-center text-[#B38F5B] mb-6">
+            <div className="w-16 h-16 rounded-full bg-[#D49B44]/10 border border-[#D49B44] flex items-center justify-center text-[#D49B44] mb-6">
               <CheckIcon size={28} />
             </div>
-            <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#B38F5B] mb-2 block">
+            <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#B84A39] mb-2 block font-semibold">
               PRIVATE CONCIERGE CONFIRMED
             </span>
             <h3 className="text-3xl font-serif text-[#121210] mb-3">
@@ -89,7 +89,7 @@ export default function ConciergeModal({
             <button
               type="button"
               onClick={onClose}
-              className="px-8 py-3 bg-[#08130F] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.2em]"
+              className="px-8 py-3 bg-[#08130F] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.2em] rounded-full hover:bg-[#B84A39] transition-colors"
             >
               Return to Website
             </button>
@@ -97,7 +97,7 @@ export default function ConciergeModal({
         ) : (
           <div>
             <div className="mb-8">
-              <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#B38F5B] block mb-2 font-medium">
+              <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#B84A39] block mb-2 font-semibold">
                 PRIVATE VIEWING &amp; BESPOKE CONSULTATION
               </span>
               <h3 className="text-2xl sm:text-4xl font-serif text-[#121210] mb-3">
@@ -112,7 +112,7 @@ export default function ConciergeModal({
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[11px] font-sans uppercase tracking-wider text-[#121210]/70 mb-1">
+                  <label className="lux-label">
                     Full Name *
                   </label>
                   <input
@@ -121,11 +121,11 @@ export default function ConciergeModal({
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Lord / Lady / Dr. / Mr. / Ms."
-                    className="w-full px-4 py-2.5 bg-white border border-[#121210]/15 text-sm font-sans focus:outline-none focus:border-[#B38F5B] transition-colors"
+                    className="lux-input"
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-sans uppercase tracking-wider text-[#121210]/70 mb-1">
+                  <label className="lux-label">
                     Email Address *
                   </label>
                   <input
@@ -134,14 +134,14 @@ export default function ConciergeModal({
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="concierge@residence.com"
-                    className="w-full px-4 py-2.5 bg-white border border-[#121210]/15 text-sm font-sans focus:outline-none focus:border-[#B38F5B] transition-colors"
+                    className="lux-input"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[11px] font-sans uppercase tracking-wider text-[#121210]/70 mb-1">
+                  <label className="lux-label">
                     Phone / WhatsApp *
                   </label>
                   <input
@@ -150,17 +150,17 @@ export default function ConciergeModal({
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+91 98221 00000 / +44 / +971"
-                    className="w-full px-4 py-2.5 bg-white border border-[#121210]/15 text-sm font-sans focus:outline-none focus:border-[#B38F5B] transition-colors"
+                    className="lux-input"
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-sans uppercase tracking-wider text-[#121210]/70 mb-1">
+                  <label className="lux-label">
                     Residence of Interest
                   </label>
                   <select
                     value={activeResidence}
                     onChange={(e) => setSelectedResidence(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-white border border-[#121210]/15 text-sm font-sans focus:outline-none focus:border-[#B38F5B] transition-colors"
+                    className="lux-input"
                   >
                     <option value="Nature's Cove — Curtorim">Nature&apos;s Cove (13 Row Villas — Curtorim)</option>
                     <option value="Quinta Da Rosa — Curtorim">Quinta Da Rosa (Heritage Villa Estate)</option>
@@ -172,18 +172,18 @@ export default function ConciergeModal({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[11px] font-sans uppercase tracking-wider text-[#121210]/70 mb-1">
+                  <label className="lux-label">
                     Preferred Visit Date
                   </label>
                   <input
                     type="date"
                     value={formData.visitDate}
                     onChange={(e) => setFormData({ ...formData, visitDate: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-white border border-[#121210]/15 text-sm font-sans focus:outline-none focus:border-[#B38F5B] transition-colors"
+                    className="lux-input"
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-sans uppercase tracking-wider text-[#121210]/70 mb-1">
+                  <label className="lux-label">
                     Current Country of Residence
                   </label>
                   <input
@@ -191,7 +191,7 @@ export default function ConciergeModal({
                     value={formData.country}
                     onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                     placeholder="India / UAE / UK / USA / Singapore"
-                    className="w-full px-4 py-2.5 bg-white border border-[#121210]/15 text-sm font-sans focus:outline-none focus:border-[#B38F5B] transition-colors"
+                    className="lux-input"
                   />
                 </div>
               </div>
@@ -202,7 +202,7 @@ export default function ConciergeModal({
                   type="checkbox"
                   checked={formData.airportChauffeur}
                   onChange={(e) => setFormData({ ...formData, airportChauffeur: e.target.checked })}
-                  className="rounded border-[#121210]/30 text-[#B38F5B] focus:ring-[#B38F5B]"
+                  className="rounded border-[#121210]/30 text-[#D49B44] focus:ring-[#D49B44]"
                 />
                 <span>
                   Request complimentary private airport chauffeur transfer from Dabolim or Mopa Airport to Curtorim site
@@ -212,7 +212,7 @@ export default function ConciergeModal({
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-8 py-3.5 bg-[#08130F] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.22em] font-medium hover:bg-[#B38F5B] hover:text-[#08130F] transition-all duration-300 flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-3.5 bg-[#08130F] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.22em] font-medium hover:bg-[#D49B44] hover:text-[#08130F] transition-all duration-300 flex items-center justify-center gap-2 rounded-full"
                 >
                   <span>Request Private Viewing</span>
                   <ArrowUpRightIcon size={14} />
@@ -222,7 +222,7 @@ export default function ConciergeModal({
                   href="https://wa.me/919822100000?text=Hello%20Victorino%20Luxury%20Homes,%20I%20am%20interested%20in%20a%20private%20consultation%20for%20Nature's%20Cove%20Curtorim."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-sans tracking-wider text-[#121210]/70 hover:text-[#B38F5B] transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-sans tracking-wider text-[#121210]/70 hover:text-[#B84A39] transition-colors"
                 >
                   <PhoneIcon size={13} />
                   <span>Direct WhatsApp VIP Concierge</span>

@@ -18,6 +18,7 @@ import ConciergeEnquirySection from "@/components/sections/ConciergeEnquirySecti
 import ConciergeModal from "@/components/modals/ConciergeModal";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Marquee from "@/components/effects/Marquee";
 import { CoastalSideScrollSection, LayeredLivingSection } from "@/components/sections/ScrollJourneySections";
 
 export default function HomePage() {
@@ -30,6 +31,10 @@ export default function HomePage() {
 
       {/* 1. Hero with Light Goa Video Background */}
       <HeroSection onOpenConcierge={() => setIsConciergeOpen(true)} />
+
+      <Marquee
+        items={["Nature's Cove — Curtorim", "Susegad Living", "Hand-Dressed Laterite", "Balcão Verandas", "Goa RERA Approved"]}
+      />
 
       {/* 2. Introduction: Susegad Philosophy & Architectural Restraint */}
       <IntroSection />
@@ -44,10 +49,15 @@ export default function HomePage() {
       <HeritageMatrixSection />
 
       {/* 4. Bureau Directory: Curtorim, Margao, Verna */}
-      <OfficesSection />
+      <OfficesSection onEnquire={() => setIsConciergeOpen(true)} />
 
       {/* 5. Flagship Signature: Nature's Cove with 3D Villa Viewer */}
       <SignatureProjectSection onOpenConcierge={() => setIsConciergeOpen(true)} />
+
+      <Marquee
+        dark
+        items={["13 Lakefront Row Villas", "Sukabumi Pools", "Burma Teak Rafters", "Oyster-Shell Light", "Private Concierge"]}
+      />
 
       <LayeredLivingSection />
 
@@ -77,6 +87,11 @@ export default function HomePage() {
 
       {/* 12. Private Concierge & VIP Viewing */}
       <ConciergeEnquirySection />
+
+      <Marquee
+        items={["Book a Private Viewing", "Curtorim • Margao • Assagao", "Architects of Dreams", "Designers of Reality"]}
+        speed={32}
+      />
 
       {/* Grand Editorial Footer */}
       <Footer />

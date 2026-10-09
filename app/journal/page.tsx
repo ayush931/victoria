@@ -5,6 +5,7 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ConciergeModal from "@/components/modals/ConciergeModal";
+import PageHero from "@/components/layout/PageHero";
 import { ArrowUpRightIcon } from "@/components/ui/Icons";
 
 const ALL_ARTICLES = [
@@ -69,20 +70,13 @@ export default function JournalPage() {
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Hero Header with Expansive Whitespace */}
-      <section className="w-full pt-44 pb-24 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
-        <div className="max-w-4xl">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
-            EDITORIAL DISPATCHES • ESSAYS
-          </span>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-[#121210] font-light leading-tight mb-6">
-            The Victorino Journal
-          </h1>
-          <p className="text-sm sm:text-base font-sans text-[#7E796E] leading-relaxed max-w-2xl font-light">
-            Reflections on tropical modernism, Portuguese-Goan vernacular architecture,
-            materials that age with dignity, and the tranquil Susegad lifestyle of Goa.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        index="03"
+        eyebrow="Editorial Dispatches • Essays"
+        title={<>The Victorino <em className="text-[#B84A39]">Journal</em></>}
+        description="Reflections on tropical modernism, Portuguese-Goan vernacular architecture, materials that age with dignity, and the tranquil Susegad lifestyle of Goa."
+        meta={["Vernacular Essays", "Climate Studies", "Goa Dispatches"]}
+      />
 
       {/* Filter Tabs */}
       <section className="w-full py-8 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">

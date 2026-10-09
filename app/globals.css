@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 @layer base {
   :root {
+    --font-mono-name: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     --bg-light: #F8F5EF;
     --bg-sand: #F1EBE0;
     --bg-warm: #E9E0D2;
@@ -40,6 +47,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: auto;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
   }
 
   body {
@@ -49,6 +58,25 @@
     line-height: 1.45;
     selection-background-color: var(--brass);
     selection-color: #0C1A14;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  /* Universal scrollbar removal across all rendering engines */
+  *,
+  *::before,
+  *::after {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
   }
 
   ::selection {
@@ -299,3 +327,127 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ————— Awwwards SOTY layer ————— */
+
+/* Hide native cursor on fine pointer devices when awwwards-cursor is active, while preserving native text caret on inputs */
+@media (pointer: fine) {
+  html.awwwards-cursor,
+  html.awwwards-cursor body,
+  html.awwwards-cursor a,
+  html.awwwards-cursor button,
+  html.awwwards-cursor [role="button"],
+  html.awwwards-cursor [data-cursor],
+  html.awwwards-cursor label {
+    cursor: none !important;
+  }
+
+  html.awwwards-cursor input,
+  html.awwwards-cursor textarea,
+  html.awwwards-cursor select {
+    cursor: text !important;
+  }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Preloader serif tabular */
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* Line-mask reveal — JS sets initial state to avoid invisible text if GSAP fails */
+[data-reveal-line-inner] {
+  will-change: transform;
+}
+
+/* Image treatment: warm Goan grade */
+.goa-grade {
+  filter: brightness(0.92) contrast(1.04) saturate(1.08);
+}
+
+/* Mega footer type - completely visible */
+.mega-outline {
+  color: #FAF8F5;
+  -webkit-text-stroke: 1px rgba(250, 248, 245, 0.4);
+  transition: color 0.5s ease, -webkit-text-stroke-color 0.5s ease;
+}
+.mega-outline:hover {
+  color: #D49B44;
+  -webkit-text-stroke-color: #D49B44;
+}
+
+/* Fullscreen menu link sweep */
+.menu-link { position: relative; overflow: hidden; }
+.menu-link > span { display: block; transition: transform 0.6s cubic-bezier(0.76,0,0.24,1); }
+.menu-link:hover > span { transform: translateY(-100%); }
+.menu-link > span:last-child { position: absolute; inset: 0; transform: translateY(100%); font-style: italic; color: #D49B44; }
+.menu-link:hover > span:last-child { transform: translateY(0); }
+
+/* Scroll hint line */
+@keyframes scrollHint {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.scroll-hint-line { animation: scrollHint 2.2s cubic-bezier(0.76,0,0.24,1) infinite; }
+
+/* Hero video slow ken-burns when paused */
+@keyframes kenburns {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.12); }
+}
+
+/* Grain fixed overlay helper */
+.grain-fixed {
+  position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: 0.5;
+}
+
+/* ————— Unified luxury form controls ————— */
+.lux-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: #fff;
+  border: 1px solid rgba(18, 18, 16, 0.15);
+  font-size: 0.875rem;
+  border-radius: 2px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.lux-input::placeholder { color: rgba(18, 18, 16, 0.32); }
+.lux-input:focus {
+  outline: none;
+  border-color: #B84A39;
+  box-shadow: 0 0 0 3px rgba(184, 74, 57, 0.12);
+}
+.lux-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(18, 18, 16, 0.65);
+  margin-bottom: 0.4rem;
+}
+
+/* Marquee diamond separator */
+.diamond {
+  display: inline-block;
+  width: 7px; height: 7px;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* Patrons quote transition */
+@keyframes quoteIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.quote-enter { animation: quoteIn 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+
+/* Slow compass dial rotation (GPU-only, no re-renders) */
+@keyframes spinSlower {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slower { animation: spinSlower 90s linear infinite; }

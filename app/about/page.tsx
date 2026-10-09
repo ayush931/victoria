@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ConciergeModal from "@/components/modals/ConciergeModal";
 import ArchitecturalCompass from "@/components/effects/ArchitecturalCompass";
+import PageHero from "@/components/layout/PageHero";
 import { ArrowUpRightIcon } from "@/components/ui/Icons";
 
 export default function AboutPage() {
@@ -15,20 +16,13 @@ export default function AboutPage() {
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Hero Header with Expansive Whitespace */}
-      <section className="w-full pt-48 pb-32 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
-        <div className="max-w-4xl">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
-            ATELIER HERITAGE • 2014–2026
-          </span>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-[#121210] font-light leading-[0.95] mb-8">
-            Architects of dreams, <br />
-            <span className="font-serif italic text-[#D49B44]">designers of reality.</span>
-          </h1>
-          <p className="text-base sm:text-lg font-serif italic text-[#121210]/80 leading-relaxed max-w-2xl font-light">
-            &ldquo;Homes conceived as heirlooms. Built once, cherished for generations in the soul of Goa.&rdquo;
-          </p>
-        </div>
-      </section>
+      <PageHero
+        index="05"
+        eyebrow="Atelier Heritage • 2014–2026"
+        title={<>Architects of dreams, <em className="text-[#B84A39]">designers of reality.</em></>}
+        description="“Homes conceived as heirlooms. Built once, cherished for generations in the soul of Goa.”"
+        meta={["Est. 2014 Margao", "Salcete & Assagao", "Row Villas & Estates"]}
+      />
 
       {/* The 10-Year Narrative with Wide Breathing Room */}
       <section className="w-full py-36 md:py-48 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
@@ -135,7 +129,7 @@ export default function AboutPage() {
         <button
           type="button"
           onClick={() => setIsConciergeOpen(true)}
-          className="px-8 py-3.5 bg-[#0C1A14] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.22em] font-semibold hover:bg-[#D49B44] hover:text-[#0C1A14] transition-all rounded-sm inline-flex items-center gap-2 shadow-lg"
+          className="px-8 py-4 bg-[#0C1A14] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.22em] font-semibold hover:bg-[#D49B44] hover:text-[#0C1A14] transition-all rounded-full inline-flex items-center gap-2 shadow-lg"
         >
           <span>Schedule Private Consultation</span>
           <ArrowUpRightIcon size={14} />

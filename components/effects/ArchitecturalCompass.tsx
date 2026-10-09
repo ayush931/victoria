@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const PRINCIPLES = [
   {
@@ -63,14 +63,6 @@ const PRINCIPLES = [
 
 export default function ArchitecturalCompass() {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [rotation, setRotation] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRotation((prev) => (prev + 0.3) % 360);
-    }, 50);
-    return () => clearInterval(interval);
-  }, []);
 
   const active = PRINCIPLES[activeIdx];
 
@@ -101,11 +93,11 @@ export default function ArchitecturalCompass() {
       <div className="relative w-full max-w-[1200px] mx-auto px-6 py-12 flex flex-col lg:flex-row items-center justify-between gap-12 z-10">
         {/* Left: Active Principle Details */}
         <div className="w-full lg:w-5/12 text-left order-2 lg:order-1 transition-all duration-500">
-          <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full border border-[#C5A880]/30 bg-[#C5A880]/10 mb-6">
-            <span className="text-[11px] font-mono tracking-widest text-[#C5A880]">
+          <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full border border-[#D49B44]/30 bg-[#D49B44]/10 mb-6">
+            <span className="text-[11px] font-mono tracking-widest text-[#D49B44]">
               AXIOM {active.num}
             </span>
-            <span className="w-1 h-1 rounded-full bg-[#C5A880]" />
+            <span className="w-1 h-1 rounded-full bg-[#D49B44]" />
             <span className="text-[10px] font-sans tracking-[0.18em] uppercase text-[#FAF8F5]/80">
               {active.tag}
             </span>
@@ -121,13 +113,13 @@ export default function ArchitecturalCompass() {
 
           <div className="grid grid-cols-2 gap-4 pt-6 border-t border-[#FAF8F5]/10 text-xs font-sans text-[#FAF8F5]/60">
             <div>
-              <span className="block text-[#C5A880] tracking-wider uppercase text-[10px] mb-1">
+              <span className="block text-[#D49B44] tracking-wider uppercase text-[10px] mb-1">
                 LOCATION COORD
               </span>
               <span>15.2894° N, 74.0247° E</span>
             </div>
             <div>
-              <span className="block text-[#C5A880] tracking-wider uppercase text-[10px] mb-1">
+              <span className="block text-[#D49B44] tracking-wider uppercase text-[10px] mb-1">
                 VILLAGE SANCTUARY
               </span>
               <span>Curtorim, South Goa</span>
@@ -140,9 +132,8 @@ export default function ArchitecturalCompass() {
           <div className="relative w-[320px] h-[320px] sm:w-[460px] sm:h-[460px] md:w-[520px] md:h-[520px]">
             {/* Rotating Outer Dial Rings */}
             <svg
-              className="absolute inset-0 w-full h-full pointer-events-none"
+              className="absolute inset-0 w-full h-full pointer-events-none animate-spin-slower"
               viewBox="0 0 600 600"
-              style={{ transform: `rotate(${rotation}deg)` }}
             >
               <circle
                 cx="300"
@@ -161,7 +152,7 @@ export default function ArchitecturalCompass() {
                 stroke="currentColor"
                 strokeWidth="1"
                 strokeDasharray="4 8"
-                className="text-[#C5A880]/30"
+                className="text-[#D49B44]/30"
               />
               <circle
                 cx="300"
@@ -195,7 +186,7 @@ export default function ArchitecturalCompass() {
 
             {/* Static Center Core */}
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center">
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#C5A880] mb-1">
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#D49B44] mb-1">
                 VICTORINO
               </span>
               <span className="text-xl sm:text-2xl font-serif text-[#FAF8F5]">
@@ -224,8 +215,8 @@ export default function ArchitecturalCompass() {
                   onMouseEnter={() => setActiveIdx(idx)}
                   className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center transition-all duration-300 z-20 ${
                     isSelected
-                      ? "w-11 h-11 bg-[#B38F5B] text-[#08130F] scale-110 shadow-[0_0_24px_rgba(197,168,128,0.5)] font-semibold"
-                      : "w-8 h-8 bg-[#08130F] border border-[#FAF8F5]/20 text-[#FAF8F5]/70 hover:border-[#C5A880] hover:text-[#C5A880]"
+                      ? "w-11 h-11 bg-[#D49B44] text-[#08130F] scale-110 shadow-[0_0_24px_rgba(212,155,68,0.5)] font-semibold"
+                      : "w-8 h-8 bg-[#08130F] border border-[#FAF8F5]/20 text-[#FAF8F5]/70 hover:border-[#D49B44] hover:text-[#D49B44]"
                   }`}
                   style={{
                     left: `${pctX}%`,
@@ -252,11 +243,11 @@ export default function ArchitecturalCompass() {
               onClick={() => setActiveIdx(idx)}
               className={`py-2 px-1 text-left border-b-2 transition-all duration-300 ${
                 idx === activeIdx
-                  ? "border-[#C5A880] text-[#FAF8F5]"
+                  ? "border-[#D49B44] text-[#FAF8F5]"
                   : "border-transparent text-[#FAF8F5]/40 hover:text-[#FAF8F5]/80"
               }`}
             >
-              <span className="block font-mono text-[10px] text-[#C5A880]">
+              <span className="block font-mono text-[10px] text-[#D49B44]">
                 {item.num}
               </span>
               <span className="block text-xs font-sans truncate">

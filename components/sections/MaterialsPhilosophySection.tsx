@@ -110,12 +110,12 @@ export default function MaterialsPhilosophySection() {
                   : "text-[#FAF8F5]/40 hover:text-[#FAF8F5]/80"
               }`}
             >
-              <span className="font-mono text-[10px] text-[#C5A880] mr-2">
+              <span className="font-mono text-[10px] text-[#D49B44] mr-2">
                 0{idx + 1}
               </span>
               <span>{mat.name}</span>
               {activeIdx === idx && (
-                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C5A880]" />
+                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D49B44]" />
               )}
             </button>
           ))}
@@ -123,26 +123,33 @@ export default function MaterialsPhilosophySection() {
 
         {/* Selected Material Showcase: Split Visual & Editorial */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left: Macro Texture Image with Parallax Feel */}
-          <div className="lg:col-span-6 relative h-[440px] sm:h-[540px] rounded-sm overflow-hidden bg-[#08130F] border border-[#FAF8F5]/10">
-            <img
-              src={current.image}
-              alt={current.name}
-              className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05] transition-all duration-700 ease-out hover:scale-105"
-            />
-            <div className="absolute top-6 left-6 bg-[#08130F]/80 backdrop-blur-md px-3.5 py-1.5 text-[10px] font-mono tracking-widest text-[#C5A880] uppercase rounded-sm border border-[#FAF8F5]/10">
+          {/* Left: Macro Texture Image with crossfade */}
+          <div className="lg:col-span-6 relative h-[420px] sm:h-[520px] lg:h-[580px] max-h-[66vh] rounded-sm overflow-hidden bg-[#08130F] border border-[#FAF8F5]/10 shadow-xl">
+            {MATERIALS.map((mat, idx) => (
+              <img
+                key={mat.id}
+                src={mat.image}
+                alt={mat.name}
+                loading="lazy"
+                decoding="async"
+                className={`absolute inset-0 h-full w-full object-cover object-center filter brightness-[0.88] contrast-[1.05] transition-opacity duration-700 ease-out ${
+                  activeIdx === idx ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
+            <div className="absolute top-6 left-6 bg-[#08130F]/80 backdrop-blur-md px-3.5 py-1.5 text-[10px] font-mono tracking-widest text-[#D49B44] uppercase rounded-sm border border-[#FAF8F5]/10">
               {current.category}
             </div>
             <div className="absolute bottom-6 left-6 right-6 bg-[#08130F]/80 backdrop-blur-md p-4 text-[11px] font-sans text-[#FAF8F5]/80 rounded-sm border border-[#FAF8F5]/10 flex justify-between items-center">
               <span>Provenance:</span>
-              <span className="text-[#C5A880] font-medium">{current.origin}</span>
+              <span className="text-[#D49B44] font-medium">{current.origin}</span>
             </div>
           </div>
 
           {/* Right: Technical & Sensorial Narrative */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div className="mb-8">
-              <span className="text-[10px] font-mono tracking-widest uppercase text-[#C5A880] block mb-2">
+              <span className="text-[10px] font-mono tracking-widest uppercase text-[#D49B44] block mb-2">
                 MATERIAL STUDY 0{activeIdx + 1}
               </span>
               <h3 className="text-2xl sm:text-4xl font-serif text-[#FAF8F5] mb-4">

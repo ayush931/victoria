@@ -58,21 +58,23 @@ export default function PatronsSection() {
         </h2>
 
         {/* Central Quote Carousel */}
-        <div className="max-w-3xl mx-auto min-h-[220px] flex flex-col justify-center transition-all duration-700">
-          <p className="text-xl sm:text-2xl md:text-3xl font-serif text-[#FAF8F5]/90 font-light italic leading-relaxed mb-8">
-            &ldquo;{active.quote}&rdquo;
-          </p>
+        <div className="max-w-3xl mx-auto min-h-[300px] sm:min-h-[260px] flex flex-col justify-center">
+          <div key={activeIdx} className="quote-enter flex flex-col">
+            <p className="text-xl sm:text-2xl md:text-3xl font-serif text-[#FAF8F5]/90 font-light italic leading-relaxed mb-8">
+              &ldquo;{active.quote}&rdquo;
+            </p>
 
-          <div className="flex flex-col items-center">
-            <span className="text-sm font-sans font-medium text-[#FAF8F5] tracking-wide">
-              {active.author}
-            </span>
-            <span className="text-xs font-sans text-[#C5A880] mt-0.5">
-              {active.origin}
-            </span>
-            <span className="text-[11px] font-mono text-[#FAF8F5]/40 mt-1 uppercase">
-              {active.residence}
-            </span>
+            <div className="flex flex-col items-center">
+              <span className="text-sm font-sans font-medium text-[#FAF8F5] tracking-wide">
+                {active.author}
+              </span>
+              <span className="text-xs font-sans text-[#C5A880] mt-0.5">
+                {active.origin}
+              </span>
+              <span className="text-[11px] font-mono text-[#FAF8F5]/40 mt-1 uppercase">
+                {active.residence}
+              </span>
+            </div>
           </div>
         </div>
 

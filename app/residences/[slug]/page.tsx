@@ -5,7 +5,6 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ConciergeModal from "@/components/modals/ConciergeModal";
-import VillaViewer3D from "@/components/3d/VillaViewer3D";
 import { ArrowLeftIcon, ArrowUpRightIcon, SparklesIcon, MapPinIcon } from "@/components/ui/Icons";
 
 interface FeatureItem {
@@ -53,7 +52,7 @@ const RESIDENCES: Record<string, ResidenceData> = {
     builtUp: "420 – 540 Sq.M",
     beds: "4 BHK + Balcão Veranda",
     pools: "Private Sukabumi Emerald Plunge Pool",
-    heroImage: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1600&auto=format&fit=crop",
     overview:
       "Nestled along the pristine edge of Curtorim Lake, Nature's Cove comprises 13 individual row villas conceived as timeless heirlooms. The architecture draws directly upon the historic Portuguese-Goan vernacular — featuring expansive front balcãos with stone seating, double-height living volumes with exposed Burma teak trusses, translucent mother-of-pearl oyster shell windows (carepas), and hand-cut laterite accent walls that keep the interior naturally tempered year-round.",
     gallery: [
@@ -102,7 +101,7 @@ const RESIDENCES: Record<string, ResidenceData> = {
     builtUp: "650 Sq.M",
     beds: "5 BHK + Staff Quarters",
     pools: "Private Courtyard Lap Pool (12m x 4m)",
-    heroImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600&auto=format&fit=crop",
     overview:
       "Quinta Da Rosa is an exquisite homage to grand Goan quintas of the 18th century, re-engineered for the modern collector. Built around a central peristyle courtyard filled with fragrant frangipani and laterite stone arches, this estate delivers peerless privacy and timeless gravitas.",
     gallery: [
@@ -145,7 +144,7 @@ const RESIDENCES: Record<string, ResidenceData> = {
     builtUp: "520 Sq.M",
     beds: "4 BHK + Study",
     pools: "Private Infinity Ridge Pool",
-    heroImage: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2000&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=1600&auto=format&fit=crop",
     overview:
       "Perched high on the Assagao forest ridge, Casa Do Sol fuses contemporary tropical minimalism with classical Portuguese forms. Expansive floor-to-ceiling louvers capture refreshing valley breezes while preserving absolute acoustic sanctuary.",
     gallery: [
@@ -239,7 +238,7 @@ export default function ResidenceDetailPage({
               <button
                 type="button"
                 onClick={() => setIsConciergeOpen(true)}
-                className="px-6 py-3 bg-[#B84A39] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.2em] font-medium hover:bg-[#FAF8F5] hover:text-[#121210] transition-all rounded-sm flex items-center gap-2"
+                className="px-6 py-3 bg-[#D49B44] text-[#0C1A14] text-xs font-sans uppercase tracking-[0.2em] font-semibold hover:bg-[#FAF8F5] transition-all rounded-full flex items-center gap-2"
               >
                 <span>Book Private Site Visit</span>
                 <ArrowUpRightIcon size={14} />
@@ -281,7 +280,7 @@ export default function ResidenceDetailPage({
         </div>
       </section>
 
-      {/* Narrative & 3D Interactive Spatial Viewer with Expansive Whitespace */}
+      {/* Narrative & Cinematic Spatial Showcase with Expansive Whitespace */}
       <section className="w-full py-36 md:py-48">
         <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 mb-32 items-start">
@@ -306,9 +305,21 @@ export default function ResidenceDetailPage({
               </div>
             </div>
 
-            {/* Embedded 3D Villa Viewer */}
+            {/* Cinematic Spatial Showcase */}
             <div className="lg:col-span-7">
-              <VillaViewer3D />
+              <div className="relative h-[54vh] min-h-[380px] md:h-[72vh] overflow-hidden rounded-sm bg-[#0C1A14]">
+                <img
+                  src={residence.gallery[0] || residence.heroImage}
+                  alt={residence.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover object-center goa-grade"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-6 left-6 bg-[#0C1A14]/80 backdrop-blur-md px-4 py-2 text-[10px] font-sans tracking-[0.22em] uppercase text-[#FAF8F5] rounded-sm border border-[#FAF8F5]/10">
+                  {residence.title} • {residence.category}
+                </div>
+              </div>
             </div>
           </div>
 

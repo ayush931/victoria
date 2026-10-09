@@ -39,10 +39,10 @@ const ARTICLES = [
 
 export default function JournalSection() {
   return (
-    <section className="w-full py-36 md:py-48 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
+    <section className="w-full py-24 md:py-36 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
         {/* Section Header with Generous Whitespace */}
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-6 mb-20 md:mb-24">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-6 mb-16 md:mb-20">
           <div>
             <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-3 font-semibold">
               THE VICTORINO JOURNAL • GOAN DISPATCHES
@@ -87,7 +87,7 @@ export default function JournalSection() {
                   <span>{article.readTime}</span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-serif text-[#121210] group-hover:text-[#B38F5B] transition-colors mb-3 leading-snug">
+                <h3 className="text-xl sm:text-2xl font-serif text-[#121210] group-hover:text-[#B84A39] transition-colors mb-3 leading-snug">
                   {article.title}
                 </h3>
 
@@ -97,10 +97,10 @@ export default function JournalSection() {
               </div>
 
               <div className="pt-6 mt-4 border-t border-[#121210]/10 flex items-center justify-between text-xs font-sans">
-                <span className="arch-link font-medium group-hover:text-[#B38F5B]">
+                <span className="arch-link font-medium group-hover:text-[#B84A39]">
                   Read Essay
                 </span>
-                <ArrowUpRightIcon size={14} className="text-[#B38F5B] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRightIcon size={14} className="text-[#B84A39] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
             </Link>
           ))}

@@ -5,7 +5,8 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ConciergeModal from "@/components/modals/ConciergeModal";
-import { ArrowUpRightIcon } from "@/components/ui/Icons";
+import PageHero from "@/components/layout/PageHero";
+import { ArrowUpRightIcon, GridIcon, ListIcon, GalleryIcon } from "@/components/ui/Icons";
 
 type ViewMode = "grid" | "list" | "gallery";
 
@@ -118,23 +119,13 @@ export default function WorkArchivePage() {
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Header with Expansive Whitespace */}
-      <section className="w-full pt-48 pb-20 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <div>
-            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
-              PORTFOLIO ARCHIVE • GOA 2014–2026
-            </span>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-[#121210] font-light leading-none">
-              Selected Works <sup className="text-2xl font-serif text-[#B84A39]">({ALL_WORKS.length})</sup>
-            </h1>
-          </div>
-
-          <p className="text-xs sm:text-sm font-sans text-[#7E796E] max-w-sm leading-relaxed">
-            A comprehensive record of bespoke row villas, private estates, and boutique residences
-            crafted across South Goa&apos;s historic enclaves.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        index="04"
+        eyebrow="Portfolio Archive • Goa 2014–2026"
+        title={<>Selected Works <sup className="font-serif text-[0.35em] text-[#B84A39]">({ALL_WORKS.length})</sup></>}
+        description="A comprehensive record of bespoke row villas, private estates, and boutique residences crafted across South Goa's historic enclaves."
+        meta={["Row Villas", "Heritage Manors", "Boutique Homes", "6 Commissions"]}
+      />
 
       {/* Typology Filter Bar */}
       <section className="w-full py-6 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
@@ -283,7 +274,7 @@ export default function WorkArchivePage() {
                     </div>
                     <Link
                       href={proj.slug}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#B84A39] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.2em] font-medium rounded-sm hover:bg-[#FAF8F5] hover:text-[#121210] transition-colors"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#08130F] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.2em] font-medium rounded-full hover:bg-[#D49B44] hover:text-[#08130F] transition-colors"
                     >
                       <span>Explore Residence</span>
                       <ArrowUpRightIcon size={14} />
@@ -308,7 +299,7 @@ export default function WorkArchivePage() {
                 : "text-[#FAF8F5]/60 hover:text-[#FAF8F5]"
             }`}
           >
-            <span className="text-[10px]">⊞</span>
+            <GridIcon size={12} />
             <span>Grid</span>
           </button>
           <button
@@ -320,7 +311,7 @@ export default function WorkArchivePage() {
                 : "text-[#FAF8F5]/60 hover:text-[#FAF8F5]"
             }`}
           >
-            <span className="text-[10px]">≡</span>
+            <ListIcon size={12} />
             <span>List</span>
           </button>
           <button
@@ -332,7 +323,7 @@ export default function WorkArchivePage() {
                 : "text-[#FAF8F5]/60 hover:text-[#FAF8F5]"
             }`}
           >
-            <span className="text-[10px]">▥</span>
+            <GalleryIcon size={12} />
             <span>Gallery</span>
           </button>
         </div>

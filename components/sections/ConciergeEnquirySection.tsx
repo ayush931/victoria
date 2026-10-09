@@ -36,8 +36,8 @@ export default function ConciergeEnquirySection() {
             </p>
 
             {submitted ? (
-              <div className="p-8 bg-white border border-[#B38F5B] rounded-sm text-center">
-                <div className="w-12 h-12 rounded-full bg-[#B38F5B]/10 text-[#B38F5B] flex items-center justify-center mx-auto mb-4">
+              <div className="p-8 bg-white border border-[#D49B44] rounded-sm text-center">
+                <div className="w-12 h-12 rounded-full bg-[#D49B44]/10 text-[#D49B44] flex items-center justify-center mx-auto mb-4">
                   <CheckIcon size={24} />
                 </div>
                 <h3 className="text-2xl font-serif text-[#121210] mb-2">
@@ -51,7 +51,7 @@ export default function ConciergeEnquirySection() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[11px] font-sans uppercase tracking-wider text-[#121210]/70 mb-1.5">
+                    <label className="lux-label">
                       Your Name *
                     </label>
                     <input
@@ -60,11 +60,11 @@ export default function ConciergeEnquirySection() {
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       placeholder="e.g. Alistair Fernandes"
-                      className="w-full px-4 py-3 bg-white border border-[#121210]/15 text-sm font-sans focus:outline-none focus:border-[#B38F5B] transition-colors rounded-sm"
+                      className="lux-input"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-sans uppercase tracking-wider text-[#121210]/70 mb-1.5">
+                    <label className="lux-label">
                       Email Address *
                     </label>
                     <input
@@ -73,14 +73,14 @@ export default function ConciergeEnquirySection() {
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="patron@domain.com"
-                      className="w-full px-4 py-3 bg-white border border-[#121210]/15 text-sm font-sans focus:outline-none focus:border-[#B38F5B] transition-colors rounded-sm"
+                      className="lux-input"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-[11px] font-sans uppercase tracking-wider text-[#121210]/70 mb-1.5">
+                    <label className="lux-label">
                       Phone / WhatsApp *
                     </label>
                     <input
@@ -89,17 +89,17 @@ export default function ConciergeEnquirySection() {
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       placeholder="+91 / +44 / +971"
-                      className="w-full px-4 py-3 bg-white border border-[#121210]/15 text-sm font-sans focus:outline-none focus:border-[#B38F5B] transition-colors rounded-sm"
+                      className="lux-input"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-sans uppercase tracking-wider text-[#121210]/70 mb-1.5">
+                    <label className="lux-label">
                       Residence of Interest
                     </label>
                     <select
                       value={form.residence}
                       onChange={(e) => setForm({ ...form, residence: e.target.value })}
-                      className="w-full px-4 py-3 bg-white border border-[#121210]/15 text-sm font-sans focus:outline-none focus:border-[#B38F5B] transition-colors rounded-sm"
+                      className="lux-input"
                     >
                       <option value="Nature's Cove — Curtorim">Nature&apos;s Cove (13 Bespoke Row Villas)</option>
                       <option value="Quinta Da Rosa — Curtorim">Quinta Da Rosa (Heritage Manor)</option>
@@ -110,7 +110,7 @@ export default function ConciergeEnquirySection() {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-sans uppercase tracking-wider text-[#121210]/70 mb-1.5">
+                  <label className="lux-label">
                     Your Requirements &amp; Preferred Timeframe
                   </label>
                   <textarea
@@ -118,14 +118,14 @@ export default function ConciergeEnquirySection() {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     placeholder="Tell us about your spatial needs, timeline for possession, or specific village preferences..."
-                    className="w-full px-4 py-3 bg-white border border-[#121210]/15 text-sm font-sans focus:outline-none focus:border-[#B38F5B] transition-colors rounded-sm resize-none"
+                    className="lux-input resize-none"
                   />
                 </div>
 
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
                   <button
                     type="submit"
-                    className="px-8 py-3.5 bg-[#08130F] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.22em] font-medium hover:bg-[#B38F5B] hover:text-[#08130F] transition-all duration-300 rounded-sm flex items-center justify-center gap-2"
+                    className="px-8 py-3.5 bg-[#08130F] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.22em] font-medium hover:bg-[#D49B44] hover:text-[#08130F] transition-all duration-300 rounded-full flex items-center justify-center gap-2"
                   >
                     <span>Submit Private Enquiry</span>
                     <ArrowUpRightIcon size={14} />
@@ -141,13 +141,13 @@ export default function ConciergeEnquirySection() {
           {/* Right Column: Address, Telephone & Muted Map Visual */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div className="bg-[#FAF8F5] p-8 sm:p-10 border border-[#121210]/10 rounded-sm mb-8">
-              <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#B38F5B] block mb-6 font-semibold">
+              <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#B84A39] block mb-6 font-semibold">
                 HEAD ATELIER &amp; CONCIERGE DESK
               </span>
 
               <div className="flex flex-col gap-6 text-xs font-sans">
                 <div className="flex items-start gap-4">
-                  <MapPinIcon size={18} className="text-[#B38F5B] shrink-0 mt-0.5" />
+                  <MapPinIcon size={18} className="text-[#B84A39] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-serif text-base text-[#121210] mb-1">
                       Curtorim Lake Enclave
@@ -156,14 +156,14 @@ export default function ConciergeEnquirySection() {
                       Nature&apos;s Cove Atelier, Salcete Taluka,<br />
                       South Goa 403701, India
                     </p>
-                    <span className="text-[10px] font-mono text-[#B38F5B] mt-1 block">
+                    <span className="text-[10px] font-mono text-[#B84A39] mt-1 block">
                       Coordinates: 15.2894° N, 74.0247° E
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4 border-t border-[#121210]/10 pt-4">
-                  <PhoneIcon size={18} className="text-[#B38F5B] shrink-0 mt-0.5" />
+                  <PhoneIcon size={18} className="text-[#B84A39] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-serif text-base text-[#121210] mb-1">
                       Direct Concierge Line
@@ -178,7 +178,7 @@ export default function ConciergeEnquirySection() {
                 </div>
 
                 <div className="flex items-start gap-4 border-t border-[#121210]/10 pt-4">
-                  <MailIcon size={18} className="text-[#B38F5B] shrink-0 mt-0.5" />
+                  <MailIcon size={18} className="text-[#B84A39] shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-serif text-base text-[#121210] mb-1">
                       Electronic Correspondence
@@ -204,10 +204,10 @@ export default function ConciergeEnquirySection() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#08130F] via-[#08130F]/40 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-sans text-[#FAF8F5]">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#B38F5B] animate-ping" />
+                  <span className="w-2 h-2 rounded-full bg-[#D49B44] animate-ping" />
                   <span className="font-medium">Nature&apos;s Cove, Curtorim</span>
                 </div>
-                <span className="text-[10px] font-mono text-[#C5A880]">SOUTH GOA</span>
+                <span className="text-[10px] font-mono text-[#D49B44]">SOUTH GOA</span>
               </div>
             </div>
           </div>

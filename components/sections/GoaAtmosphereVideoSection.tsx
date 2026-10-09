@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import Link from "next/link";
-import { ArrowUpRightIcon, SparklesIcon } from "@/components/ui/Icons";
+import { ArrowUpRightIcon, SparklesIcon, PauseIcon, PlayIcon } from "@/components/ui/Icons";
 
 interface AtmospherePreset {
   id: string;
@@ -27,7 +27,7 @@ const ATMOSPHERES: AtmospherePreset[] = [
     narrative:
       "Derived from the Portuguese 'sossegado' — a state of unhurried contentment and inner peace. In our homes, the balcão is not merely an architectural porch; it is the sacred threshold where morning coffee is sipped, neighbors are greeted, and the gentle breeze from Curtorim's ancient lakes cools the laterite stone underfoot.",
     videoSrc: "/videos/goa-porch-palms.webm",
-    poster: "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?q=80&w=2400&auto=format&fit=crop",
+    poster: "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?q=80&w=1600&auto=format&fit=crop",
     location: "Curtorim Lake Enclave, South Goa",
     coords: "15.2894° N, 74.0247° E",
     metricLabel: "PASSIVE COOLING GAIN",
@@ -41,7 +41,7 @@ const ATMOSPHERES: AtmospherePreset[] = [
     narrative:
       "Goa’s 105 kilometers of coastline have drawn artists, writers, and aristocrats for centuries. In South Goa, the beaches remain expansive, tranquil, and pristine. Our private villas are secluded in agrarian hamlets just minutes from the Arabian Sea, ensuring absolute acoustic privacy with immediate coastal access.",
     videoSrc: "/videos/goa-coast.webm",
-    poster: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2400&auto=format&fit=crop",
+    poster: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop",
     location: "Vainguinim & Benaulim Littoral, Goa",
     coords: "15.2638° N, 73.9142° E",
     metricLabel: "PROXIMITY TO SEA",
@@ -55,7 +55,7 @@ const ATMOSPHERES: AtmospherePreset[] = [
     narrative:
       "The monsoon is Goa’s lifeblood. Deep red laterite walls absorb the downpours, while steep Mangalore-tiled roof slopes guide cascading rainwater into underground aquifers. Double-height teak ceilings create soothing acoustic resonance as emerald paddy fields outside awaken in vibrant green.",
     videoSrc: "/videos/goa-monsoon.webm",
-    poster: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2400&auto=format&fit=crop",
+    poster: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=1600&auto=format&fit=crop",
     location: "Salcete Paddy Basins, South Goa",
     coords: "15.2912° N, 74.0321° E",
     metricLabel: "ANNUAL HARVESTING",
@@ -138,7 +138,7 @@ export default function GoaAtmosphereVideoSection() {
         {/* Split Cinematic Video Showcase & Editorial Matrix */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Ambient Video Viewport */}
-          <div className="lg:col-span-7 relative h-[460px] sm:h-[580px] md:h-[680px] rounded-sm overflow-hidden bg-[#07120D] border border-[#FAF8F5]/10 shadow-2xl">
+          <div className="lg:col-span-7 relative h-[440px] sm:h-[540px] md:h-[600px] max-h-[70vh] rounded-sm overflow-hidden bg-[#07120D] border border-[#FAF8F5]/10 shadow-2xl">
             <video
               key={active.videoSrc}
               ref={videoRef}
@@ -166,7 +166,7 @@ export default function GoaAtmosphereVideoSection() {
                 className="bg-[#0C1A14]/80 backdrop-blur-md w-9 h-9 rounded-full border border-[#FAF8F5]/15 text-[#FAF8F5] flex items-center justify-center text-xs hover:text-[#D49B44] transition-colors pointer-events-auto"
                 title={isPlaying ? "Pause Video" : "Play Video"}
               >
-                {isPlaying ? "❚❚" : "▶"}
+                {isPlaying ? <PauseIcon size={13} /> : <PlayIcon size={13} />}
               </button>
             </div>
 

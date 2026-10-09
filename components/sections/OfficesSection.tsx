@@ -30,9 +30,9 @@ const LOCATIONS = [
   },
 ];
 
-export default function OfficesSection() {
+export default function OfficesSection({ onEnquire }: { onEnquire?: () => void }) {
   return (
-    <section className="w-full py-36 md:py-48 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
+    <section className="w-full py-24 md:py-36 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
         {/* Indented Headline with Expansive Whitespace */}
         <div className="mb-24 md:mb-32">
@@ -47,14 +47,16 @@ export default function OfficesSection() {
         {/* Directory Row List (Kononenko .jke .rsp style) */}
         <div className="flex flex-col border-t border-[#121210]/15">
           {LOCATIONS.map((loc, idx) => (
-            <div
+            <button
               key={loc.role}
-              className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-8 px-4 sm:px-6 border-b border-[#121210]/15 transition-all duration-500 hover:bg-[#08130F] hover:text-[#FAF8F5] cursor-pointer"
+              type="button"
+              onClick={onEnquire}
+              className="group relative flex w-full flex-col text-left sm:flex-row sm:items-center justify-between gap-4 py-8 px-4 sm:px-6 border-b border-[#121210]/15 transition-all duration-500 hover:bg-[#08130F] hover:text-[#FAF8F5] cursor-pointer"
               data-cursor="VISIT"
             >
               {/* Col 1: Number & Role */}
               <div className="flex items-center gap-4 sm:w-4/12">
-                <span className="text-xs font-mono text-[#B38F5B]">
+                <span className="text-xs font-mono text-[#B84A39]">
                   0{idx + 1}
                 </span>
                 <h3 className="text-base sm:text-lg font-serif group-hover:text-[#FAF8F5] transition-colors">
@@ -63,7 +65,7 @@ export default function OfficesSection() {
               </div>
 
               {/* Col 2: Region / City */}
-              <div className="sm:w-3/12 text-xs font-sans text-[#7E796E] group-hover:text-[#C5A880] transition-colors">
+              <div className="sm:w-3/12 text-xs font-sans text-[#7E796E] group-hover:text-[#D49B44] transition-colors">
                 {loc.city}
               </div>
 
@@ -77,11 +79,11 @@ export default function OfficesSection() {
 
               {/* Col 4: Arrow Icon */}
               <div className="sm:w-1/12 flex justify-end">
-                <div className="w-8 h-8 rounded-full border border-current/20 flex items-center justify-center text-current transition-all duration-300 group-hover:border-[#B38F5B] group-hover:text-[#B38F5B] group-hover:scale-110">
+                <div className="w-8 h-8 rounded-full border border-current/20 flex items-center justify-center text-current transition-all duration-300 group-hover:border-[#D49B44] group-hover:text-[#D49B44] group-hover:scale-110">
                   <ArrowUpRightIcon size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>

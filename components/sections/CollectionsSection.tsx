@@ -29,10 +29,10 @@ const COLLECTIONS = [
 
 export default function CollectionsSection() {
   return (
-    <section className="w-full py-36 md:py-48 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
+    <section className="w-full py-24 md:py-36 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
         {/* Section Header with Generous Whitespace */}
-        <div className="mb-24 md:mb-32 max-w-4xl">
+        <div className="mb-20 md:mb-28 max-w-4xl">
           <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
             PORTFOLIO TYPOLOGY • GOAN DISCIPLINES
           </span>
@@ -51,7 +51,7 @@ export default function CollectionsSection() {
               data-cursor="EXPLORE"
             >
               {/* Tall Image with Hover Scale */}
-              <div className="relative w-full h-[480px] sm:h-[600px] md:h-[680px] overflow-hidden rounded-sm mb-8 bg-[#0C1A14]">
+              <div className="relative w-full h-[400px] sm:h-[500px] md:h-[560px] max-h-[62vh] overflow-hidden rounded-sm mb-8 bg-[#0C1A14]">
                 <img
                   src={col.image}
                   alt={col.title}

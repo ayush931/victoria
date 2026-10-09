@@ -5,6 +5,7 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ConciergeModal from "@/components/modals/ConciergeModal";
+import PageHero from "@/components/layout/PageHero";
 import { ArrowUpRightIcon } from "@/components/ui/Icons";
 
 const HOMES = [
@@ -54,21 +55,13 @@ export default function PremiumHomesPage() {
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Hero Header with Expansive Whitespace */}
-      <section className="w-full pt-44 pb-24 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
-        <div className="max-w-4xl">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
-            ATELIER PORTFOLIO • BOUTIQUE MANORS
-          </span>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-[#121210] font-light leading-tight mb-6">
-            Heritage Portuguese Homes of Goa
-          </h1>
-          <p className="text-sm sm:text-base font-sans text-[#7A756B] leading-relaxed max-w-2xl font-light">
-            Boutique low-density residences in Curtorim and Assagao engineered for lock-and-leave ease.
-            Ideal for international NRIs and second-home patrons who require flawless security,
-            zero-maintenance estate management, and tranquil Goan Susegad serenity.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        index="02"
+        eyebrow="Atelier Portfolio • Boutique Manors"
+        title={<>Heritage Portuguese <em className="text-[#B84A39]">Homes</em></>}
+        description="Boutique low-density residences in Curtorim and Assagao engineered for lock-and-leave ease. Ideal for international NRIs and second-home patrons who require flawless security, zero-maintenance estate management, and tranquil Goan Susegad serenity."
+        meta={["Curtorim Village", "Verna Plateau", "Lock-and-Leave", "Estate Concierge"]}
+      />
 
       {/* Portfolio Grid with Generous Spacing */}
       <section className="w-full py-28 md:py-36 px-6 md:px-12 max-w-[1720px] mx-auto">

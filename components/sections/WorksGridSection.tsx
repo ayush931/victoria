@@ -61,22 +61,22 @@ const PROJECTS = [
 
 export default function WorksGridSection() {
   return (
-    <section className="w-full py-36 md:py-48 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
+    <section className="w-full py-24 md:py-36 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
         {/* Section Header (Kononenko Selected Projects <sup>(4+)</sup>) */}
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-6 mb-20">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-6 mb-16 md:mb-20">
           <div>
-            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.28em] text-[#B38F5B] block mb-2 font-medium">
+            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.28em] text-[#B84A39] block mb-2 font-medium">
               SELECTED PORTFOLIO • RESIDENCES
             </span>
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-serif text-[#121210] font-light">
-              Selected Residences <sup className="text-2xl font-serif text-[#B38F5B]">(4+)</sup>
+              Selected Residences <sup className="text-2xl font-serif text-[#B84A39]">(4+)</sup>
             </h2>
           </div>
 
           <Link
             href="/villas"
-            className="arch-link text-xs font-sans uppercase tracking-[0.2em] text-[#121210] hover:text-[#B38F5B]"
+            className="arch-link text-xs font-sans uppercase tracking-[0.2em] text-[#121210] hover:text-[#B84A39]"
           >
             Explore Complete Archive
           </Link>
@@ -106,7 +106,7 @@ export default function WorksGridSection() {
               {/* Bottom Caption Bar with Dual Sliding Text (Kononenko .i-w & .i-c style) */}
               <div className="flex items-center justify-between border-b border-[#121210]/15 pb-3 pt-1">
                 <div>
-                  <h3 className="text-base sm:text-lg font-serif text-[#121210] group-hover:text-[#B38F5B] transition-colors">
+                  <h3 className="text-base sm:text-lg font-serif text-[#121210] group-hover:text-[#B84A39] transition-colors">
                     {proj.title}
                   </h3>
                   <p className="text-[11px] font-sans text-[#7E796E]">
@@ -119,7 +119,7 @@ export default function WorksGridSection() {
                   <span className="slide-swap-item slide-swap-default font-mono text-[#7E796E]">
                     {proj.area}
                   </span>
-                  <span className="slide-swap-item slide-swap-hover text-[#B38F5B] font-medium flex items-center gap-1 justify-end">
+                  <span className="slide-swap-item slide-swap-hover text-[#B84A39] font-medium flex items-center gap-1 justify-end">
                     <span>Visit</span>
                     <ArrowUpRightIcon size={12} />
                   </span>
