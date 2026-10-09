@@ -1,26 +1,195 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-light: #F7F5F0;
+    --bg-dark: #08130F;
+    --bg-noir: #0B1914;
+    --surface-light: #FFFFFF;
+    --surface-warm: #EFEAE0;
+    --text-primary: #121210;
+    --text-muted: #7E796E;
+    --text-light: #FAF8F5;
+    --text-light-muted: #95A19C;
+    --brass: #C5A880;
+    --brass-gold: #B38F5B;
+    --brass-glow: rgba(197, 168, 128, 0.25);
+    --hairline: rgba(18, 18, 16, 0.12);
+    --hairline-dark: rgba(250, 248, 245, 0.12);
+    --font-serif-name: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    --font-sans-name: "Plus Jakarta Sans", var(--font-geist), system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    font-family: var(--font-sans-name);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: auto;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    line-height: 1.35;
+    selection-background-color: var(--brass);
+    selection-color: #08130F;
+  }
+
+  ::selection {
+    background-color: #C5A880;
+    color: #08130F;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Kononenko Architectural 15-Column Grid */
+.arch-grid {
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .arch-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+/* Kononenko Signature Indentation */
+.arch-indent {
+  text-indent: 7.5rem;
+}
+
+@media (max-width: 768px) {
+  .arch-indent {
+    text-indent: 2rem;
+  }
+}
+
+/* Hairline Dividers */
+.hairline {
+  height: 1px;
+  width: 100%;
+  background-color: var(--hairline);
+}
+
+.hairline-dark {
+  height: 1px;
+  width: 100%;
+  background-color: var(--hairline-dark);
+}
+
+/* Kononenko Underline Hover Animation */
+.arch-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.arch-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.65s cubic-bezier(0.17, 0.84, 0.44, 1);
+}
+
+.arch-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Brass Underline Variant */
+.arch-link-brass::after {
+  background-color: var(--brass-gold);
+}
+
+/* Custom Scrollbar - Sleek & Hidden on luxury viewports */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 168, 128, 0.35);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(197, 168, 128, 0.6);
+}
+
+/* Smooth Image Reveal & Parallax */
+.clip-reveal {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Glass & Travertine Textures */
+.glass-luxury {
+  background: rgba(247, 245, 240, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-dark {
+  background: rgba(8, 19, 15, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Dual Sliding Text Animation for Work Cards */
+.slide-swap {
+  overflow: hidden;
+  position: relative;
+  display: block;
+  height: 1.25em;
+}
+
+.slide-swap-item {
+  transition: transform 0.55s cubic-bezier(0.17, 0.84, 0.44, 1);
+  will-change: transform;
+  display: block;
+}
+
+.slide-swap-default {
+  transform: translateY(0);
+}
+
+.slide-swap-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(105%);
+}
+
+.group:hover .slide-swap-default {
+  transform: translateY(-105%);
+}
+
+.group:hover .slide-swap-hover {
+  transform: translateY(0);
+}
+
+/* Film Grain Texture */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
 }
