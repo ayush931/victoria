@@ -7,45 +7,45 @@ import { ArrowUpRightIcon } from "@/components/ui/Icons";
 const ARTICLES = [
   {
     slug: "/journal/art-of-the-balcao",
-    title: "The Art of the Balcão: How Ancestral Porches Shape Modern Living",
+    title: "The Art of the Balcão: How Ancestral Porches Shape Susegad Living",
     category: "VERNACULAR ESSAY",
     date: "Autumn 2026",
     readTime: "6 Min Read",
     excerpt:
       "A historical study of the Portuguese-Goan porch as a social threshold and passive ventilation instrument in contemporary Curtorim estates.",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?q=80&w=800&auto=format&fit=crop",
   },
   {
     slug: "/journal/south-goa-quiet-luxury",
-    title: "Why South Goa is the Global Epicenter of Restraint",
+    title: "Why South Goa is the Global Epicenter of Susegad Restraint",
     category: "GEOGRAPHIC DISPATCH",
     date: "Late Summer 2026",
     readTime: "8 Min Read",
     excerpt:
-      "Far from the crowded northern beaches, Curtorim, Margao, and Verna offer ancient water systems, dense coconut canopies, and uncompromised privacy for HNIs.",
-    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&auto=format&fit=crop",
+      "Far from crowded tourist corridors, Curtorim, Margao, and Verna offer ancient water systems, dense coconut canopies, and uncompromised privacy for HNIs.",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop",
   },
   {
     slug: "/journal/passive-cooling-tropical-modernism",
-    title: "Thermal Damping & Monsoons: Passive Cooling with Laterite",
+    title: "Thermal Damping & Monsoons: Passive Cooling with Goan Laterite",
     category: "CLIMATE ARCHITECTURE",
     date: "Monsoon 2026",
     readTime: "5 Min Read",
     excerpt:
       "How we harness 12km local quarry stone and soaring 5-meter Burma teak volumes to keep indoor temperatures 6°C cooler than the Goan outdoors.",
-    image: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
 export default function JournalSection() {
   return (
-    <section className="w-full py-28 md:py-36 bg-[#F7F5F0] text-[#121210] border-b border-[#121210]/10">
+    <section className="w-full py-36 md:py-48 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-6 mb-16">
+        {/* Section Header with Generous Whitespace */}
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-6 mb-20 md:mb-24">
           <div>
-            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.28em] text-[#B38F5B] block mb-2 font-medium">
-              THE VICTORINO JOURNAL • INSIGHTS
+            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-3 font-semibold">
+              THE VICTORINO JOURNAL • GOAN DISPATCHES
             </span>
             <h2 className="text-4xl sm:text-6xl font-serif text-[#121210] font-light">
               Architectural Writings
@@ -54,7 +54,7 @@ export default function JournalSection() {
 
           <Link
             href="/journal"
-            className="arch-link text-xs font-sans uppercase tracking-[0.2em] text-[#121210] hover:text-[#B38F5B]"
+            className="arch-link text-xs font-sans uppercase tracking-[0.2em] text-[#121210] hover:text-[#B84A39]"
           >
             Read All Essays
           </Link>

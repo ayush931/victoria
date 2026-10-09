@@ -75,24 +75,24 @@ export default function ArchitecturalCompass() {
   const active = PRINCIPLES[activeIdx];
 
   return (
-    <section className="relative w-full min-h-[90vh] lg:min-h-screen py-24 bg-[#08130F] text-[#FAF8F5] overflow-hidden flex flex-col justify-between">
+    <section className="relative w-full min-h-[90vh] lg:min-h-screen py-36 md:py-48 bg-[#0C1A14] text-[#FAF8F5] overflow-hidden flex flex-col justify-between border-b border-[#FAF8F5]/10">
       {/* Subtle background radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(197,168,128,0.06)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,155,68,0.08)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Top Header */}
-      <div className="w-full px-6 md:px-12 max-w-[1400px] mx-auto z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#FAF8F5]/10">
+      <div className="w-full px-6 md:px-12 max-w-[1500px] mx-auto z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-16 border-b border-[#FAF8F5]/10">
           <div>
-            <span className="text-[10px] md:text-xs font-sans uppercase tracking-[0.25em] text-[#C5A880] block mb-3">
-              PASSIVE LOGIC • ARCHITECTURAL MATRIX
+            <span className="text-[10px] md:text-xs font-sans uppercase tracking-[0.32em] text-[#D49B44] block mb-4 font-semibold">
+              PASSIVE LOGIC • SUSEGAD CLIMATE AXIOMS
             </span>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-normal tracking-tight text-[#FAF8F5]">
-              Simplicity &amp; Clarity of Approach
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-light tracking-tight text-[#FAF8F5] leading-tight">
+              Vernacular Clarity &amp; Ecology
             </h2>
           </div>
-          <p className="text-xs md:text-sm font-sans text-[#FAF8F5]/60 max-w-md">
-            Goan vernacular wisdom codified into 8 immutable engineering axioms.
-            Hover each node to inspect our site-specific climate intelligence.
+          <p className="text-xs md:text-sm font-sans text-[#FAF8F5]/70 max-w-lg leading-relaxed font-light">
+            Indo-Portuguese vernacular intelligence codified into 8 passive climate axioms.
+            Hover each node to inspect how our residences harness the natural rhythm of Goa.
           </p>
         </div>
       </div>

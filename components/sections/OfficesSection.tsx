@@ -32,15 +32,15 @@ const LOCATIONS = [
 
 export default function OfficesSection() {
   return (
-    <section className="w-full py-28 md:py-36 bg-[#F7F5F0] text-[#121210] border-b border-[#121210]/10">
+    <section className="w-full py-36 md:py-48 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
-        {/* Kononenko-inspired Indented Headline */}
-        <div className="mb-20">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.28em] text-[#B38F5B] block mb-3 font-medium">
-            GEOGRAPHIC PRESENCE • ATELIERS
+        {/* Indented Headline with Expansive Whitespace */}
+        <div className="mb-24 md:mb-32">
+          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
+            GEOGRAPHIC PRESENCE • ATELIERS IN GOA
           </span>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#121210] font-light max-w-4xl arch-indent leading-[1.05]">
-            Curtorim atelier, Margao design studio, Verna engineering office.
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#121210] font-light max-w-4xl arch-indent leading-[1.08]">
+            Curtorim lake atelier, Margao heritage studio, Verna engineering office.
           </h2>
         </div>
 

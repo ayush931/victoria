@@ -17,7 +17,7 @@ const VILLAS = [
     beds: "4 BHK",
     plot: "4,400 Sq.Ft",
     builtUp: "480 Sq.M",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop",
     tag: "FLAGSHIP LAUNCH",
   },
   {
@@ -29,31 +29,31 @@ const VILLAS = [
     beds: "4 BHK",
     plot: "3,800 Sq.Ft",
     builtUp: "420 Sq.M",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200&auto=format&fit=crop",
     tag: "ROW VILLA",
   },
   {
     slug: "/residences/quinta-da-rosa",
     title: "Quinta Da Rosa Manor",
-    location: "Curtorim Heritage Belt",
+    location: "Salcete Heritage Belt, South Goa",
     status: "Private Bespoke Handover",
     price: "Price on Private Request",
     beds: "5 BHK",
     plot: "6,200 Sq.Ft",
     builtUp: "650 Sq.M",
-    image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop",
     tag: "HERITAGE MANOR",
   },
   {
     slug: "/residences/natures-cove",
     title: "Villa Miramar",
-    location: "Salcete Estuary Belt",
+    location: "Assagao Palm Ridge, North Goa",
     status: "Completed • Fully Commissioned",
     price: "Price on Private Request",
     beds: "4 BHK",
     plot: "5,100 Sq.Ft",
     builtUp: "540 Sq.M",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=1200&auto=format&fit=crop",
     tag: "WATERFRONT ESTATE",
   },
 ];
@@ -62,28 +62,28 @@ export default function VillasPage() {
   const [isConciergeOpen, setIsConciergeOpen] = useState(false);
 
   return (
-    <main className="relative w-full min-h-screen bg-[#F7F5F0] text-[#121210]">
+    <main className="relative w-full min-h-screen bg-[#FAF8F5] text-[#121210]">
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
-      {/* Hero Header */}
-      <section className="w-full pt-40 pb-20 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
+      {/* Hero Header with Expansive Whitespace */}
+      <section className="w-full pt-44 pb-24 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
         <div className="max-w-4xl">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-[#B38F5B] block mb-3 font-medium">
-            ATELIER PORTFOLIO • TYPOLOGY 01
+          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
+            ATELIER PORTFOLIO • GOAN ESTATES
           </span>
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-[#121210] font-light leading-tight mb-6">
-            Luxury Villas of South Goa
+            Luxury Villas of Goa
           </h1>
-          <p className="text-sm sm:text-base font-sans text-[#7E796E] leading-relaxed max-w-2xl">
-            Bespoke low-density row villas and independent manor estates in Curtorim and Margao.
-            Crafted for generational longevity with private travertine plunge pools, hand-cut laterite, and soaring timber eaves.
+          <p className="text-sm sm:text-base font-sans text-[#7A756B] leading-relaxed max-w-2xl font-light">
+            Bespoke low-density row villas and independent manor estates in Curtorim and Assagao.
+            Crafted for generational Susegad living with private Sukabumi plunge pools, hand-cut red laterite, and soaring teak eaves.
           </p>
         </div>
       </section>
 
-      {/* Portfolio Grid */}
-      <section className="w-full py-20 px-6 md:px-12 max-w-[1720px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+      {/* Portfolio Grid with Generous Spacing */}
+      <section className="w-full py-28 md:py-36 px-6 md:px-12 max-w-[1720px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-20">
           {VILLAS.map((villa) => (
             <Link
               key={villa.title}
@@ -105,21 +105,21 @@ export default function VillasPage() {
               <div className="flex flex-col gap-3">
                 <div className="flex items-baseline justify-between border-b border-[#121210]/15 pb-4">
                   <div>
-                    <h3 className="text-2xl font-serif text-[#121210] group-hover:text-[#B38F5B] transition-colors">
+                    <h3 className="text-2xl font-serif text-[#121210] group-hover:text-[#B84A39] transition-colors">
                       {villa.title}
                     </h3>
                     <p className="text-xs font-sans text-[#7E796E] mt-0.5">
                       {villa.location} • {villa.beds}
                     </p>
                   </div>
-                  <span className="text-xs font-mono text-[#B38F5B]">
+                  <span className="text-xs font-mono text-[#B84A39]">
                     {villa.builtUp}
                   </span>
                 </div>
 
                 <div className="flex justify-between items-center text-xs font-sans text-[#7E796E] pt-1">
                   <span>{villa.status}</span>
-                  <span className="text-[#121210] font-medium flex items-center gap-1 group-hover:text-[#B38F5B]">
+                  <span className="text-[#121210] font-medium flex items-center gap-1 group-hover:text-[#B84A39]">
                     <span>Inspect Residence</span>
                     <ArrowUpRightIcon size={12} />
                   </span>

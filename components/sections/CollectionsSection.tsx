@@ -7,42 +7,42 @@ import { ArrowUpRightIcon } from "@/components/ui/Icons";
 const COLLECTIONS = [
   {
     slug: "/villas",
-    title: "Luxury Villas",
-    subtitle: "Curtorim & Margao Enclaves",
+    title: "Goan Luxury Villas",
+    subtitle: "Curtorim & Assagao Enclaves",
     count: "07 BESPOKE ESTATES",
     description:
-      "Independent private estates set amidst ancestral coconut groves and peaceful riverfronts. Featuring private travertine plunge pools, high vaulted teak rafters, and secluded inner courtyards.",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop",
+      "Independent private sanctuaries set amidst ancestral coconut groves, tranquil waterways, and emerald paddy terraces. Featuring Sukabumi stone plunge pools, double-height Burma teak rafters, and secluded inner rain courtyards.",
+    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1600&auto=format&fit=crop",
     specs: "3,800 – 6,500 Sq.Ft • Private Pools • Gated Seclusion",
   },
   {
     slug: "/premium-homes",
-    title: "Premium Homes",
-    subtitle: "Verna Hills & Curtorim",
+    title: "Heritage Portuguese Manors",
+    subtitle: "Fontainhas & Salcete Ridge",
     count: "12 BOUTIQUE RESIDENCES",
     description:
-      "Low-density residences crafted for seamless, low-maintenance living. Perfect for HNIs and NRIs seeking a lock-and-leave sanctuary in South Goa with biometric security and lush private gardens.",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600&auto=format&fit=crop",
-    specs: "2,400 – 3,600 Sq.Ft • Hillside Views • Curated Amenity",
+      "Low-density residences celebrating 450 years of Indo-Portuguese architecture. Wrap-around balcãos, hand-painted azulejos, mother-of-pearl oyster shell windows, and lock-and-leave ease with dedicated estate concierge.",
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1600&auto=format&fit=crop",
+    specs: "2,400 – 3,600 Sq.Ft • Heritage Verandas • Concierge Handover",
   },
 ];
 
 export default function CollectionsSection() {
   return (
-    <section className="w-full py-28 md:py-36 bg-[#F7F5F0] text-[#121210] border-b border-[#121210]/10">
+    <section className="w-full py-36 md:py-48 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
-        {/* Section Header with Indentation */}
-        <div className="mb-20">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.28em] text-[#B38F5B] block mb-3 font-medium">
-            PORTFOLIO TYPOLOGY • COLLECTIONS
+        {/* Section Header with Generous Whitespace */}
+        <div className="mb-24 md:mb-32 max-w-4xl">
+          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
+            PORTFOLIO TYPOLOGY • GOAN DISCIPLINES
           </span>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#121210] font-light max-w-4xl arch-indent leading-[1.05]">
-            Two deliberate disciplines of living: Luxury Villas and Premium Homes.
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#121210] font-light arch-indent leading-[1.08]">
+            Two deliberate disciplines of living: Luxury Villas and Heritage Portuguese Manors.
           </h2>
         </div>
 
-        {/* Two Tall Editorial Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        {/* Two Tall Editorial Cards with Expansive Breathing Room */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
           {COLLECTIONS.map((col) => (
             <Link
               key={col.title}
@@ -51,37 +51,37 @@ export default function CollectionsSection() {
               data-cursor="EXPLORE"
             >
               {/* Tall Image with Hover Scale */}
-              <div className="relative w-full h-[460px] sm:h-[580px] md:h-[660px] overflow-hidden rounded-sm mb-6 bg-[#08130F]">
+              <div className="relative w-full h-[480px] sm:h-[600px] md:h-[680px] overflow-hidden rounded-sm mb-8 bg-[#0C1A14]">
                 <img
                   src={col.image}
                   alt={col.title}
-                  className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.02] transition-transform duration-[1200ms] ease-[cubic-bezier(0.17,0.84,0.44,1)] group-hover:scale-105"
+                  className="w-full h-full object-cover object-center filter brightness-[0.9] contrast-[1.03] transition-transform duration-[1200ms] ease-[cubic-bezier(0.17,0.84,0.44,1)] group-hover:scale-105"
                 />
-                <div className="absolute top-6 left-6 bg-[#08130F]/80 backdrop-blur-md px-3.5 py-1.5 text-[10px] font-mono tracking-widest text-[#FAF8F5] uppercase rounded-sm border border-[#FAF8F5]/10">
+                <div className="absolute top-6 left-6 bg-[#0C1A14]/85 backdrop-blur-md px-4 py-2 text-[10px] font-mono tracking-widest text-[#FAF8F5] uppercase rounded-sm border border-[#FAF8F5]/10">
                   {col.count}
                 </div>
-                <div className="absolute bottom-6 right-6 w-10 h-10 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md text-[#121210] flex items-center justify-center transition-all duration-300 group-hover:bg-[#B38F5B] group-hover:text-[#08130F] group-hover:scale-110">
-                  <ArrowUpRightIcon size={16} />
+                <div className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-[#FAF8F5]/90 backdrop-blur-md text-[#121210] flex items-center justify-center transition-all duration-300 group-hover:bg-[#D49B44] group-hover:text-[#0C1A14] group-hover:scale-110 shadow-lg">
+                  <ArrowUpRightIcon size={18} />
                 </div>
               </div>
 
-              {/* Card Meta Content with Brass Underline Transition */}
-              <div className="flex flex-col gap-3">
-                <div className="flex items-baseline justify-between border-b border-[#121210]/15 pb-4">
+              {/* Card Meta Content with Terracotta Accent */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-baseline justify-between border-b border-[#121210]/15 pb-5">
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-serif text-[#121210] group-hover:text-[#B38F5B] transition-colors">
+                    <h3 className="text-2xl sm:text-3xl font-serif text-[#121210] group-hover:text-[#B84A39] transition-colors">
                       {col.title}
                     </h3>
-                    <p className="text-xs font-sans text-[#7E796E] mt-0.5">
+                    <p className="text-xs font-sans text-[#7A756B] mt-1 font-light">
                       {col.subtitle}
                     </p>
                   </div>
-                  <span className="text-[11px] font-mono text-[#B38F5B] uppercase tracking-wider">
+                  <span className="text-[11px] font-mono text-[#B84A39] uppercase tracking-wider">
                     {col.specs}
                   </span>
                 </div>
 
-                <p className="text-xs sm:text-sm font-sans text-[#7E796E] leading-relaxed max-w-xl pt-2">
+                <p className="text-xs sm:text-sm font-sans text-[#7A756B] leading-relaxed max-w-xl pt-2 font-light">
                   {col.description}
                 </p>
               </div>

@@ -2,20 +2,32 @@
 
 @layer base {
   :root {
-    --bg-light: #F7F5F0;
-    --bg-dark: #08130F;
-    --bg-noir: #0B1914;
+    --bg-light: #F8F5EF;
+    --bg-sand: #F1EBE0;
+    --bg-warm: #E9E0D2;
+    --bg-dark: #102725;
+    --bg-noir: #091B1D;
     --surface-light: #FFFFFF;
-    --surface-warm: #EFEAE0;
+    --surface-warm: #F4EFE6;
     --text-primary: #121210;
-    --text-muted: #7E796E;
+    --text-muted: #7A756B;
     --text-light: #FAF8F5;
-    --text-light-muted: #95A19C;
-    --brass: #C5A880;
-    --brass-gold: #B38F5B;
-    --brass-glow: rgba(197, 168, 128, 0.25);
-    --hairline: rgba(18, 18, 16, 0.12);
-    --hairline-dark: rgba(250, 248, 245, 0.12);
+    --text-light-muted: #9BA6A1;
+    --brass: #C9A976;
+    --brass-gold: #B99058;
+    --brass-glow: rgba(201, 169, 118, 0.25);
+    --sea-glass: #79A99A;
+    --sea-deep: #173E40;
+    --shoreline: #D8D0BE;
+    /* Authentic Goa Architectural Color Tokens */
+    --goa-terracotta: #B84A39;
+    --goa-laterite: #8F392B;
+    --goa-ochre: #D49B44;
+    --goa-palm: #1C4540;
+    --goa-oyster: #EAE3D5;
+    --goa-azulejo: #2B5775;
+    --hairline: rgba(18, 18, 16, 0.09);
+    --hairline-dark: rgba(250, 248, 245, 0.1);
     --font-serif-name: "Cormorant Garamond", "Playfair Display", Georgia, serif;
     --font-sans-name: "Plus Jakarta Sans", var(--font-geist), system-ui, -apple-system, sans-serif;
   }
@@ -34,14 +46,14 @@
     overflow-x: hidden;
     background-color: var(--bg-light);
     color: var(--text-primary);
-    line-height: 1.35;
+    line-height: 1.45;
     selection-background-color: var(--brass);
-    selection-color: #08130F;
+    selection-color: #0C1A14;
   }
 
   ::selection {
-    background-color: #C5A880;
-    color: #08130F;
+    background-color: #79A99A;
+    color: #102725;
   }
 }
 
@@ -128,12 +140,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(197, 168, 128, 0.35);
+  background: rgba(23, 62, 64, 0.28);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(197, 168, 128, 0.6);
+  background: rgba(23, 62, 64, 0.55);
 }
 
 /* Smooth Image Reveal & Parallax */
@@ -192,4 +204,98 @@
 /* Film Grain Texture */
 .grain-overlay {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Goan Architectural Sheens & Atmospheric Accents */
+.oyster-sheen {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(234, 227, 213, 0.7) 50%, rgba(255, 255, 255, 0.85) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.video-mask-radial {
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.8) 75%, rgba(0, 0, 0, 0.4) 100%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0.8) 75%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.terracotta-accent {
+  color: var(--goa-terracotta);
+}
+
+.bg-terracotta-subtle {
+  background-color: rgba(184, 74, 57, 0.08);
+  border-color: rgba(184, 74, 57, 0.22);
+}
+
+.palm-accent {
+  color: var(--goa-palm);
+}
+
+:focus-visible {
+  outline: 2px solid var(--sea-glass);
+  outline-offset: 3px;
+}
+
+/* A restrained coastal palette: sea-glass highlights against warm limestone and deep tidal green. */
+.coastal-wash {
+  background-image: linear-gradient(115deg, rgba(121, 169, 154, 0.12), transparent 48%, rgba(201, 169, 118, 0.12));
+}
+
+.coastal-rule {
+  background: linear-gradient(90deg, transparent, rgba(121, 169, 154, 0.7), rgba(201, 169, 118, 0.6), transparent);
+}
+
+.coastal-glass {
+  background: rgba(244, 241, 233, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 18px 54px rgba(20, 44, 41, 0.1);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+[data-stack-stage][data-stack-ready="true"] {
+  position: relative;
+  display: block;
+  height: min(68vh, 760px);
+  min-height: 460px;
+}
+
+[data-stack-stage][data-stack-ready="true"] [data-stack-card] {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+  transform-origin: center top;
+  will-change: transform, opacity;
+}
+
+.scroll-horizontal-window {
+  scrollbar-width: none;
+}
+
+.scroll-horizontal-window::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .scroll-horizontal-window {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  [data-horizontal-track] > * {
+    scroll-snap-align: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

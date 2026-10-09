@@ -4,45 +4,45 @@ import React from "react";
 
 export default function HeritageMatrixSection() {
   return (
-    <section className="w-full py-28 md:py-36 bg-[#F7F5F0] text-[#121210] border-b border-[#121210]/10">
+    <section className="w-full py-36 md:py-48 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
-        {/* Top Split: Atelier Info vs Master Statement (Kononenko .xnm) */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-24 pb-20 border-b border-[#121210]/10">
+        {/* Top Split: Atelier Info vs Master Statement with Generous Spacing */}
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-28 pb-24 border-b border-[#121210]/10">
           {/* Left Column: Metadata */}
           <div className="w-full lg:w-4/12 flex flex-col gap-8 text-xs font-sans">
-            <div className="flex flex-col gap-1 border-b border-[#121210]/10 pb-4">
-              <span className="font-serif text-sm text-[#B38F5B]">Founded</span>
+            <div className="flex flex-col gap-1 border-b border-[#121210]/10 pb-5">
+              <span className="font-serif text-sm text-[#B84A39]">Founded</span>
               <p className="text-sm font-medium text-[#121210]">2014 in Margao, South Goa</p>
             </div>
-            <div className="flex flex-col gap-1 border-b border-[#121210]/10 pb-4">
-              <span className="font-serif text-sm text-[#B38F5B]">Founding Vision</span>
-              <p className="text-sm font-medium text-[#121210]">Victorino Family Atelier</p>
+            <div className="flex flex-col gap-1 border-b border-[#121210]/10 pb-5">
+              <span className="font-serif text-sm text-[#B84A39]">Founding Vision</span>
+              <p className="text-sm font-medium text-[#121210]">Victorino Family Atelier • Goan Vernacular</p>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="font-serif text-sm text-[#B38F5B]">Services</span>
-              <p className="text-xs text-[#7E796E] leading-relaxed">
-                From architectural conception to final turnkey handover — including vernacular facades,
-                plunge pool engineering, teakwood millwork, landscape preservation, and HNI property concierge.
+              <span className="font-serif text-sm text-[#B84A39]">Bespoke Disciplines</span>
+              <p className="text-xs text-[#7A756B] leading-relaxed font-light">
+                From architectural conception to turnkey handover — including hand-dressed laterite masonry,
+                veranda balcãos, oyster shell carepas fenestration, plunge pool engineering, and private estate concierge.
               </p>
             </div>
           </div>
 
           {/* Right Column: Master Statement */}
           <div className="w-full lg:w-8/12">
-            <p className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#121210] leading-snug font-normal">
-              An architectural development atelier rooted in precision and heritage.
-              We build with a deep understanding of South Goan village context, tropical climate,
-              and timeless form — shaping sanctuaries that feel effortless, restorative, and distinctly refined.
-              From lakefront row villas in Curtorim to private boutique estates in Verna, each residence is conceived as an heirloom.
+            <p className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#121210] leading-snug font-light">
+              An architectural real estate atelier born in Goa.
+              We build with an intimate reverence for South Goan village context, tropical climate,
+              and 450 years of Indo-Portuguese design — shaping sanctuaries that feel effortless, restorative, and distinctly refined.
+              From lakefront row villas in Curtorim to private boutique estates in Assagao, each residence is conceived as an heirloom.
             </p>
           </div>
         </div>
 
-        {/* Bottom Multi-Column Grid: Achievements, Honors, Publications (Kononenko .zlz grd) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pt-16">
+        {/* Bottom Multi-Column Grid: Achievements, Honors, Publications */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20 pt-20">
           {/* Achievements */}
           <div>
-            <h3 className="font-serif text-lg text-[#B38F5B] mb-6 flex items-center gap-2">
+            <h3 className="font-serif text-lg text-[#B84A39] mb-6 flex items-center gap-2">
               <span>Achievements</span>
               <span className="text-[10px] font-sans tracking-widest text-[#121210]/40 uppercase">
                 (2014–2026)
@@ -66,7 +66,7 @@ export default function HeritageMatrixSection() {
 
           {/* Honors & Accolades */}
           <div>
-            <h3 className="font-serif text-lg text-[#B38F5B] mb-6 flex items-center gap-2">
+            <h3 className="font-serif text-lg text-[#B84A39] mb-6 flex items-center gap-2">
               <span>Honors &amp; Accolades</span>
               <span className="text-[10px] font-sans tracking-widest text-[#121210]/40 uppercase">
                 (RECOGNITION)
@@ -90,7 +90,7 @@ export default function HeritageMatrixSection() {
 
           {/* Publications */}
           <div>
-            <h3 className="font-serif text-lg text-[#B38F5B] mb-6 flex items-center gap-2">
+            <h3 className="font-serif text-lg text-[#B84A39] mb-6 flex items-center gap-2">
               <span>Publications</span>
               <span className="text-[10px] font-sans tracking-widest text-[#121210]/40 uppercase">
                 (PRESS)

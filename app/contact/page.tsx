@@ -24,34 +24,34 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="relative w-full min-h-screen bg-[#F7F5F0] text-[#121210]">
+    <main className="relative w-full min-h-screen bg-[#FAF8F5] text-[#121210]">
       <Navbar />
 
-      {/* Hero Header */}
-      <section className="w-full pt-40 pb-20 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
+      {/* Hero Header with Expansive Whitespace */}
+      <section className="w-full pt-48 pb-24 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
         <div className="max-w-4xl">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-[#B38F5B] block mb-3 font-medium">
-            VIP CONCIERGE &amp; ATELIERS
+          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
+            VIP CONCIERGE &amp; ATELIERS IN GOA
           </span>
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-[#121210] font-light leading-tight mb-6">
             Private Consultation &amp; Concierge
           </h1>
-          <p className="text-sm sm:text-base font-sans text-[#7E796E] leading-relaxed max-w-2xl">
+          <p className="text-sm sm:text-base font-sans text-[#7A756B] leading-relaxed max-w-2xl font-light">
             We operate with the discretion of a private family office. Schedule a bespoke site visit to Nature’s Cove in Curtorim,
-            or arrange a private meeting with our principal architects in Margao.
+            or arrange a private meeting with our principal architects in Margao and Assagao.
           </p>
         </div>
       </section>
 
-      {/* Main Content Split */}
-      <section className="w-full py-20 px-6 md:px-12 max-w-[1720px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+      {/* Main Content Split with Generous Spacing */}
+      <section className="w-full py-28 md:py-36 px-6 md:px-12 max-w-[1720px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-28 items-start">
           {/* Left Column: Comprehensive VIP Scheduler Form */}
-          <div className="lg:col-span-7 bg-white p-8 sm:p-12 border border-[#121210]/10 rounded-sm">
-            <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#B38F5B] block mb-3 font-semibold">
+          <div className="lg:col-span-7 bg-white p-8 sm:p-12 border border-[#121210]/10 rounded-sm shadow-sm">
+            <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#B84A39] block mb-3 font-semibold">
               SCHEDULE PRIVATE VIEWING
             </span>
-            <h2 className="text-2xl sm:text-4xl font-serif text-[#121210] mb-8">
+            <h2 className="text-2xl sm:text-4xl font-serif text-[#121210] mb-8 font-light">
               Bespoke Site Appointment
             </h2>
 

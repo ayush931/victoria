@@ -10,99 +10,99 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#08130F] text-[#FAF8F5] pt-28 pb-12 overflow-hidden border-t border-[#FAF8F5]/10">
+    <footer className="w-full bg-[#0C1A14] text-[#FAF8F5] pt-36 pb-16 overflow-hidden border-t border-[#FAF8F5]/10">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto flex flex-col justify-between min-h-[600px]">
-        {/* Top Bureau Directory Grid (Kononenko 15-Column / Multi-column Grid) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-20 border-b border-[#FAF8F5]/10">
+        {/* Top Bureau Directory Grid with Generous Spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10 pb-24 border-b border-[#FAF8F5]/10">
           {/* Col 1-4: Bureau Identity & Brand Line */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
-              <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#C5A880] block mb-4">
-                ARCHITECTS OF DREAMS, DESIGNERS OF REALITY
+              <span className="text-[10px] font-sans uppercase tracking-[0.32em] text-[#D49B44] block mb-4 font-semibold">
+                ARCHITECTS OF DREAMS • DESIGNERS OF REALITY
               </span>
               <h3 className="text-2xl sm:text-3xl font-serif text-[#FAF8F5] max-w-sm mb-6 leading-tight">
                 Homes conceived as heirlooms. Built once, cherished for generations.
               </h3>
             </div>
-            <p className="text-xs font-sans text-[#FAF8F5]/50 max-w-xs leading-relaxed">
+            <p className="text-xs font-sans text-[#FAF8F5]/60 max-w-xs leading-relaxed font-light">
               Victorino Luxury Homes is a boutique architectural development bureau
-              operating with quiet restraint across South Goa&apos;s historic enclaves since 2014.
+              born in Goa, operating with quiet restraint across historic enclaves since 2014.
             </p>
           </div>
 
           {/* Col 5-6: Curtorim Flagship Atelier */}
           <div className="lg:col-span-2 flex flex-col gap-3 text-xs font-sans">
-            <span className="font-serif text-sm text-[#C5A880] tracking-wide block mb-1">
+            <span className="font-serif text-sm text-[#D49B44] tracking-wide block mb-1">
               Curtorim Flagship
             </span>
-            <p className="text-[#FAF8F5]/70 leading-relaxed">
+            <p className="text-[#FAF8F5]/70 leading-relaxed font-light">
               Nature&apos;s Cove Atelier<br />
               Curtorim Lake Enclave<br />
-              Salcete, South Goa 403701
+              Salcete, Goa 403701
             </p>
-            <p className="text-[#FAF8F5]/50 text-[11px] mt-2">
+            <p className="text-[#FAF8F5]/50 text-[11px] mt-2 font-mono">
               15.2894° N, 74.0247° E
             </p>
           </div>
 
           {/* Col 7-8: Margao Design Studio */}
           <div className="lg:col-span-2 flex flex-col gap-3 text-xs font-sans">
-            <span className="font-serif text-sm text-[#C5A880] tracking-wide block mb-1">
+            <span className="font-serif text-sm text-[#D49B44] tracking-wide block mb-1">
               Margao Studio
             </span>
-            <p className="text-[#FAF8F5]/70 leading-relaxed">
+            <p className="text-[#FAF8F5]/70 leading-relaxed font-light">
               Quinta Heritage Office<br />
               Near Holy Spirit Church<br />
               Margao, Goa 403601
             </p>
-            <p className="text-[#FAF8F5]/50 text-[11px] mt-2">
+            <p className="text-[#FAF8F5]/50 text-[11px] mt-2 font-mono">
               By Private Appointment
             </p>
           </div>
 
           {/* Col 9-10: Verna Engineering HQ */}
           <div className="lg:col-span-2 flex flex-col gap-3 text-xs font-sans">
-            <span className="font-serif text-sm text-[#C5A880] tracking-wide block mb-1">
+            <span className="font-serif text-sm text-[#D49B44] tracking-wide block mb-1">
               Verna Engineering
             </span>
-            <p className="text-[#FAF8F5]/70 leading-relaxed">
+            <p className="text-[#FAF8F5]/70 leading-relaxed font-light">
               Victorino Projects HQ<br />
               Phase II, Verna Industrial<br />
               Goa 403722
             </p>
-            <p className="text-[#FAF8F5]/50 text-[11px] mt-2">
+            <p className="text-[#FAF8F5]/50 text-[11px] mt-2 font-mono">
               RERA Goa: PRGO02241982
             </p>
           </div>
 
           {/* Col 11-12: Navigation & Concierge */}
           <div className="lg:col-span-2 flex flex-col gap-3 text-xs font-sans">
-            <span className="font-serif text-sm text-[#C5A880] tracking-wide block mb-1">
+            <span className="font-serif text-sm text-[#D49B44] tracking-wide block mb-1">
               Portfolios
             </span>
-            <ul className="flex flex-col gap-2 text-[#FAF8F5]/80">
+            <ul className="flex flex-col gap-2 text-[#FAF8F5]/80 font-light">
               <li>
-                <Link href="/residences/natures-cove" className="arch-link hover:text-[#C5A880]">
+                <Link href="/residences/natures-cove" className="arch-link hover:text-[#D49B44]">
                   Nature&apos;s Cove (Curtorim)
                 </Link>
               </li>
               <li>
-                <Link href="/villas" className="arch-link hover:text-[#C5A880]">
-                  Luxury Villas
+                <Link href="/villas" className="arch-link hover:text-[#D49B44]">
+                  Goan Luxury Villas
                 </Link>
               </li>
               <li>
-                <Link href="/premium-homes" className="arch-link hover:text-[#C5A880]">
-                  Premium Homes
+                <Link href="/premium-homes" className="arch-link hover:text-[#D49B44]">
+                  Heritage Manors
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="arch-link hover:text-[#C5A880]">
+                <Link href="/about" className="arch-link hover:text-[#D49B44]">
                   The 10-Year Craft Story
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="arch-link hover:text-[#C5A880]">
+                <Link href="/contact" className="arch-link hover:text-[#D49B44]">
                   Private Concierge
                 </Link>
               </li>
@@ -110,19 +110,21 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Massive Kononenko-inspired Brand Display Title */}
-        <div className="py-16 md:py-24 text-center select-none overflow-hidden">
-          <h2 className="text-[18vw] font-serif font-light tracking-[-0.04em] text-[#FAF8F5]/90 leading-[0.8] hover:text-[#C5A880] transition-colors duration-700 cursor-default">
+        {/* Massive Brand Display Title */}
+        <div className="py-20 md:py-28 text-center select-none overflow-hidden">
+          <h2 className="text-[17vw] font-serif font-light tracking-[-0.04em] text-[#FAF8F5]/90 leading-[0.8] hover:text-[#D49B44] transition-colors duration-700 cursor-default">
             VICTORINO
           </h2>
-          <div className="flex items-center justify-between text-[11px] sm:text-xs font-sans uppercase tracking-[0.28em] text-[#C5A880] max-w-4xl mx-auto mt-4 px-4">
+          <div className="flex flex-wrap items-center justify-between text-[11px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#D49B44] max-w-4xl mx-auto mt-6 px-4">
             <span>CURTORIM</span>
             <span>•</span>
             <span>MARGAO</span>
             <span>•</span>
+            <span>ASSAGAO</span>
+            <span>•</span>
             <span>VERNA</span>
             <span>•</span>
-            <span>SOUTH GOA</span>
+            <span>GOA</span>
           </div>
         </div>
 

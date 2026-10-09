@@ -39,21 +39,21 @@ export default function PatronsSection() {
   const active = VOICES[activeIdx];
 
   return (
-    <section className="relative w-full py-28 md:py-36 bg-[#08130F] text-[#FAF8F5] border-b border-[#FAF8F5]/10 overflow-hidden flex flex-col justify-between">
+    <section className="relative w-full py-36 md:py-48 bg-[#0C1A14] text-[#FAF8F5] border-b border-[#FAF8F5]/10 overflow-hidden flex flex-col justify-between">
       {/* Subtle background ambient ring */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(197,168,128,0.05)_0%,transparent_75%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,155,68,0.06)_0%,transparent_75%)] pointer-events-none" />
 
       <div className="w-full px-6 md:px-12 max-w-[1400px] mx-auto text-center relative z-10">
         {/* Eyebrow */}
-        <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-[#C5A880] block mb-6 font-medium">
-          PATRON VOICES • QUIET REPUTATION
+        <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#D49B44] block mb-6 font-semibold">
+          PATRON VOICES • QUIET GOAN REPUTATION
         </span>
 
-        {/* Kononenko-inspired Headline (.ucu) */}
-        <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-light text-[#FAF8F5] max-w-4xl mx-auto leading-tight mb-16">
+        {/* Headline with Generous Spacing */}
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-light text-[#FAF8F5] max-w-4xl mx-auto leading-tight mb-20 md:mb-24">
           The World’s Most Discerning Patrons <br />
-          <span className="font-serif italic text-[#C5A880]">
-            Build Their Legacy In South Goa
+          <span className="font-serif italic text-[#D49B44]">
+            Build Their Susegad Legacy In Goa
           </span>
         </h2>
 

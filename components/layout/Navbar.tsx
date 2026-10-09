@@ -40,9 +40,9 @@ function NavbarContent({ onOpenConcierge }: NavbarProps) {
 
   return (
     <>
-      {/* Kononenko-inspired Top Scroll Progress Bar */}
+      {/* Top Scroll Progress Bar */}
       <div
-        className="fixed top-0 left-0 h-[2px] bg-[#B38F5B] z-[10001] transition-transform duration-100 ease-out origin-left pointer-events-none"
+        className="fixed top-0 left-0 h-[2px] bg-[#B84A39] z-[10001] transition-transform duration-100 ease-out origin-left pointer-events-none"
         style={{ transform: `scaleX(${scrollProgress / 100})`, width: "100%" }}
       />
 
@@ -50,12 +50,12 @@ function NavbarContent({ onOpenConcierge }: NavbarProps) {
       <header
         className={`fixed top-0 left-0 w-full z-[10000] transition-all duration-500 ${
           isScrolled
-            ? "py-4 bg-[#F7F5F0]/90 backdrop-blur-md border-b border-[#121210]/10 text-[#121210] shadow-[0_4px_24px_rgba(0,0,0,0.03)]"
-            : "py-7 text-[#121210]"
+            ? "py-4 bg-[#F8F5EF]/88 backdrop-blur-xl border-b border-[#173E40]/10 text-[#173E40] shadow-[0_8px_30px_rgba(14,39,37,0.06)]"
+            : `py-7 ${pathname === "/" ? "text-[#FAF8F5]" : "text-[#173E40]"}`
         }`}
       >
         <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto flex items-center justify-between">
-          {/* Brand Wordmark (Kononenko Stacked Typographic Treatment) */}
+          {/* Brand Wordmark */}
           <Link
             href="/"
             className="group flex flex-col tracking-tight text-left select-none"
@@ -65,11 +65,11 @@ function NavbarContent({ onOpenConcierge }: NavbarProps) {
               VICTORINO
             </span>
             <div className="flex items-center gap-1.5 mt-1">
-              <span className="text-[10px] sm:text-xs font-sans tracking-[0.22em] text-[#B38F5B] uppercase leading-none font-semibold">
+              <span className="text-[10px] sm:text-xs font-sans tracking-[0.22em] text-[#B84A39] uppercase leading-none font-semibold">
                 LUXURY HOMES
               </span>
-              <span className="text-[9px] font-serif italic text-current/50 leading-none">
-                • South Goa
+              <span className="text-[9px] font-serif italic text-current/60 leading-none">
+                • Goa
               </span>
             </div>
           </Link>
@@ -85,7 +85,7 @@ function NavbarContent({ onOpenConcierge }: NavbarProps) {
                       href={item.href}
                       className={`arch-link py-1 transition-colors duration-300 ${
                         isActive
-                          ? "text-[#B38F5B] font-medium"
+                          ? "text-[#B84A39] font-medium"
                           : "text-current/80 hover:text-current"
                       }`}
                     >

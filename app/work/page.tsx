@@ -20,7 +20,7 @@ const ALL_WORKS = [
     beds: "4 BHK",
     year: "2026",
     status: "Under Construction",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-8",
     marginTop: "",
     height: "h-[420px] sm:h-[540px] lg:h-[620px]",
@@ -35,7 +35,7 @@ const ALL_WORKS = [
     beds: "4 BHK",
     year: "2026",
     status: "Under Construction",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-7",
     marginTop: "lg:mt-32",
     height: "h-[380px] sm:h-[480px] lg:h-[560px]",
@@ -44,13 +44,13 @@ const ALL_WORKS = [
     slug: "/residences/quinta-da-rosa",
     title: "Quinta Da Rosa Manor",
     subtitle: "Ancestral Balcão Estate",
-    location: "Curtorim Heritage Belt",
+    location: "Salcete Heritage Belt, South Goa",
     typology: "HERITAGE MANOR",
     area: "650 m²",
     beds: "5 BHK",
     year: "2025",
     status: "Completed Commission",
-    image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-6",
     marginTop: "lg:mt-16",
     height: "h-[400px] sm:h-[500px] lg:h-[580px]",
@@ -58,14 +58,14 @@ const ALL_WORKS = [
   {
     slug: "/residences/casa-do-sol",
     title: "Casa Do Sol",
-    subtitle: "Verna Ridge Residence",
-    location: "Verna Hills Plateau",
+    subtitle: "Assagao Ridge Residence",
+    location: "Assagao, North Goa",
     typology: "BOUTIQUE HILLSIDE",
-    area: "380 m²",
-    beds: "3 BHK",
+    area: "520 m²",
+    beds: "4 BHK",
     year: "2025",
     status: "Ready for Handover",
-    image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=1600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-9",
     marginTop: "lg:mt-24",
     height: "h-[420px] sm:h-[520px] lg:h-[600px]",
@@ -74,13 +74,13 @@ const ALL_WORKS = [
     slug: "/residences/natures-cove",
     title: "Villa Miramar",
     subtitle: "Salcete Waterway Enclave",
-    location: "Salcete River Estuary",
+    location: "Salcete River Estuary, Goa",
     typology: "WATERFRONT ESTATE",
     area: "540 m²",
     beds: "4 BHK",
     year: "2024",
     status: "Commissioned",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-7",
     marginTop: "lg:mt-12",
     height: "h-[380px] sm:h-[480px] lg:h-[540px]",
@@ -88,14 +88,14 @@ const ALL_WORKS = [
   {
     slug: "/residences/casa-do-sol",
     title: "Aldeia Curtorim",
-    location: "Curtorim Village Edge",
-    subtitle: "Low-Density Garden Home",
+    location: "Curtorim Village Edge, Goa",
+    subtitle: "Low-Density Balcão Home",
     typology: "GARDEN ENCLAVE",
     area: "340 m²",
     beds: "3 BHK",
     year: "2027",
     status: "Under Construction",
-    image: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?q=80&w=1600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-8",
     marginTop: "lg:mt-28",
     height: "h-[400px] sm:h-[500px] lg:h-[580px]",
@@ -114,18 +114,18 @@ export default function WorkArchivePage() {
     : ALL_WORKS.filter((w) => w.typology === activeFilter);
 
   return (
-    <main className="relative w-full min-h-screen bg-[#F7F5F0] text-[#121210] pb-24">
+    <main className="relative w-full min-h-screen bg-[#FAF8F5] text-[#121210] pb-24">
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
-      {/* Header */}
-      <section className="w-full pt-40 pb-16 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
+      {/* Header with Expansive Whitespace */}
+      <section className="w-full pt-48 pb-20 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-[#B38F5B] block mb-3 font-medium">
-              PORTFOLIO ARCHIVE • 2014–2026
+            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
+              PORTFOLIO ARCHIVE • GOA 2014–2026
             </span>
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-[#121210] font-light leading-none">
-              Selected Works <sup className="text-2xl font-serif text-[#B38F5B]">({ALL_WORKS.length})</sup>
+              Selected Works <sup className="text-2xl font-serif text-[#B84A39]">({ALL_WORKS.length})</sup>
             </h1>
           </div>
 
@@ -152,7 +152,7 @@ export default function WorkArchivePage() {
             >
               <span>{f}</span>
               {activeFilter === f && (
-                <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#B38F5B]" />
+                <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#B84A39]" />
               )}
             </button>
           ))}
@@ -161,7 +161,7 @@ export default function WorkArchivePage() {
 
       {/* VIEW MODE 1: Kononenko Asymmetric Masonry Grid */}
       {viewMode === "grid" && (
-        <section className="w-full py-20 px-6 md:px-12 max-w-[1720px] mx-auto">
+        <section className="w-full py-24 md:py-32 px-6 md:px-12 max-w-[1720px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-15 gap-8 lg:gap-12">
             {filteredWorks.map((proj) => (
               <Link
@@ -183,7 +183,7 @@ export default function WorkArchivePage() {
 
                 <div className="flex items-center justify-between border-b border-[#121210]/15 pb-3 pt-1">
                   <div>
-                    <h3 className="text-base sm:text-lg font-serif text-[#121210] group-hover:text-[#B38F5B] transition-colors">
+                    <h3 className="text-base sm:text-lg font-serif text-[#121210] group-hover:text-[#B84A39] transition-colors">
                       {proj.title}
                     </h3>
                     <p className="text-[11px] font-sans text-[#7E796E]">
@@ -195,7 +195,7 @@ export default function WorkArchivePage() {
                     <span className="slide-swap-item slide-swap-default font-mono text-[#7E796E]">
                       {proj.area}
                     </span>
-                    <span className="slide-swap-item slide-swap-hover text-[#B38F5B] font-medium flex items-center gap-1 justify-end">
+                    <span className="slide-swap-item slide-swap-hover text-[#B84A39] font-medium flex items-center gap-1 justify-end">
                       <span>Visit</span>
                       <ArrowUpRightIcon size={12} />
                     </span>
@@ -220,16 +220,16 @@ export default function WorkArchivePage() {
               >
                 {/* Col 1: Number & Title */}
                 <div className="md:w-4/12 flex items-center gap-6">
-                  <span className="text-xs font-mono text-[#B38F5B]">0{idx + 1}</span>
+                  <span className="text-xs font-mono text-[#B84A39]">0{idx + 1}</span>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-serif">{proj.title}</h3>
-                    <span className="text-xs text-[#7E796E] group-hover:text-[#C5A880]">{proj.subtitle}</span>
+                    <span className="text-xs text-[#7E796E] group-hover:text-[#D49B44]">{proj.subtitle}</span>
                   </div>
                 </div>
 
                 {/* Col 2: Typology & Location */}
                 <div className="md:w-3/12 text-xs font-sans text-[#7E796E] group-hover:text-[#FAF8F5]/70">
-                  <p className="font-mono text-[#B38F5B] mb-0.5">{proj.typology}</p>
+                  <p className="font-mono text-[#B84A39] mb-0.5">{proj.typology}</p>
                   <p>{proj.location}</p>
                 </div>
 
@@ -250,7 +250,7 @@ export default function WorkArchivePage() {
                   <div className="w-16 h-11 rounded-sm overflow-hidden bg-black/20 shrink-0">
                     <img src={proj.image} alt={proj.title} className="w-full h-full object-cover" />
                   </div>
-                  <div className="w-8 h-8 rounded-full border border-current/20 flex items-center justify-center text-current group-hover:border-[#B38F5B] group-hover:text-[#B38F5B]">
+                  <div className="w-8 h-8 rounded-full border border-current/20 flex items-center justify-center text-current group-hover:border-[#B84A39] group-hover:text-[#B84A39]">
                     <ArrowUpRightIcon size={14} />
                   </div>
                 </div>
@@ -275,7 +275,7 @@ export default function WorkArchivePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#08130F] via-transparent to-transparent" />
                   <div className="absolute bottom-8 left-8 right-8 flex flex-col sm:flex-row sm:items-end justify-between gap-6 text-[#FAF8F5]">
                     <div>
-                      <span className="text-[10px] font-mono tracking-widest text-[#C5A880] uppercase block mb-1">
+                      <span className="text-[10px] font-mono tracking-widest text-[#D49B44] uppercase block mb-1">
                         0{idx + 1} / {proj.typology}
                       </span>
                       <h3 className="text-3xl sm:text-5xl font-serif">{proj.title}</h3>
@@ -283,7 +283,7 @@ export default function WorkArchivePage() {
                     </div>
                     <Link
                       href={proj.slug}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#B38F5B] text-[#08130F] text-xs font-sans uppercase tracking-[0.2em] font-medium rounded-sm hover:bg-[#FAF8F5] transition-colors"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#B84A39] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.2em] font-medium rounded-sm hover:bg-[#FAF8F5] hover:text-[#121210] transition-colors"
                     >
                       <span>Explore Residence</span>
                       <ArrowUpRightIcon size={14} />
@@ -304,7 +304,7 @@ export default function WorkArchivePage() {
             onClick={() => setViewMode("grid")}
             className={`px-3 py-1 text-xs font-sans uppercase tracking-wider rounded-full transition-all flex items-center gap-1.5 ${
               viewMode === "grid"
-                ? "bg-[#B38F5B] text-[#08130F] font-semibold"
+                ? "bg-[#B84A39] text-[#FAF8F5] font-semibold"
                 : "text-[#FAF8F5]/60 hover:text-[#FAF8F5]"
             }`}
           >
@@ -316,7 +316,7 @@ export default function WorkArchivePage() {
             onClick={() => setViewMode("list")}
             className={`px-3 py-1 text-xs font-sans uppercase tracking-wider rounded-full transition-all flex items-center gap-1.5 ${
               viewMode === "list"
-                ? "bg-[#B38F5B] text-[#08130F] font-semibold"
+                ? "bg-[#B84A39] text-[#FAF8F5] font-semibold"
                 : "text-[#FAF8F5]/60 hover:text-[#FAF8F5]"
             }`}
           >
@@ -328,7 +328,7 @@ export default function WorkArchivePage() {
             onClick={() => setViewMode("gallery")}
             className={`px-3 py-1 text-xs font-sans uppercase tracking-wider rounded-full transition-all flex items-center gap-1.5 ${
               viewMode === "gallery"
-                ? "bg-[#B38F5B] text-[#08130F] font-semibold"
+                ? "bg-[#B84A39] text-[#FAF8F5] font-semibold"
                 : "text-[#FAF8F5]/60 hover:text-[#FAF8F5]"
             }`}
           >

@@ -19,20 +19,20 @@ export default function ConciergeEnquirySection() {
   };
 
   return (
-    <section id="enquire" className="w-full py-28 md:py-36 bg-[#F7F5F0] text-[#121210]">
+    <section id="enquire" className="w-full py-36 md:py-48 bg-[#FAF8F5] text-[#121210]">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
-          {/* Left Column: Refined Concierge Enquiry Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-28">
+          {/* Left Column: Refined Concierge Enquiry Form with Generous Space */}
           <div className="lg:col-span-7">
-            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.28em] text-[#B38F5B] block mb-3 font-medium">
-              CONCIERGE DESK • PRIVATE ENQUIRY
+            <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
+              CONCIERGE DESK • PRIVATE GOAN ENQUIRY
             </span>
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#121210] font-light mb-6">
               Initiate a Private Dialogue
             </h2>
-            <p className="text-xs sm:text-sm font-sans text-[#7E796E] leading-relaxed max-w-xl mb-12">
+            <p className="text-xs sm:text-sm font-sans text-[#7A756B] leading-relaxed max-w-xl mb-14 font-light">
               For patrons seeking second homes, ancestral row villas, or bespoke architectural commissions
-              in South Goa. We value your privacy and respond with prompt discretion.
+              in Curtorim, Assagao, and Margao. We value your privacy and respond with prompt discretion.
             </p>
 
             {submitted ? (

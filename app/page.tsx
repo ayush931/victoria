@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import HeroSection from "@/components/sections/HeroSection";
 import IntroSection from "@/components/sections/IntroSection";
+import GoaAtmosphereVideoSection from "@/components/sections/GoaAtmosphereVideoSection";
 import HeritageMatrixSection from "@/components/sections/HeritageMatrixSection";
 import OfficesSection from "@/components/sections/OfficesSection";
 import SignatureProjectSection from "@/components/sections/SignatureProjectSection";
@@ -17,22 +18,29 @@ import ConciergeEnquirySection from "@/components/sections/ConciergeEnquirySecti
 import ConciergeModal from "@/components/modals/ConciergeModal";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { CoastalSideScrollSection, LayeredLivingSection } from "@/components/sections/ScrollJourneySections";
 
 export default function HomePage() {
   const [isConciergeOpen, setIsConciergeOpen] = useState(false);
 
   return (
-    <main className="relative w-full min-h-screen bg-[#F7F5F0] text-[#121210]">
+    <main className="relative w-full min-h-screen bg-[#FAF8F5] text-[#121210]">
       {/* Fixed Luxury Navigation */}
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
-      {/* 1. Hero */}
+      {/* 1. Hero with Light Goa Video Background */}
       <HeroSection onOpenConcierge={() => setIsConciergeOpen(true)} />
 
-      {/* 2. Introduction: Systematic Clarity & Craftsmanship */}
+      {/* 2. Introduction: Susegad Philosophy & Architectural Restraint */}
       <IntroSection />
 
-      {/* 3. Heritage Matrix: Founded 2014, Philosophy, Awards & Publications */}
+      {/* 3. Goa Atmosphere Cinematic Video Reel & Coastal Ambience */}
+      <GoaAtmosphereVideoSection />
+
+      {/* Scroll-driven journey across Goa's landscape and shoreline */}
+      <CoastalSideScrollSection />
+
+      {/* 4. Heritage Matrix: Founded 2014 in Margao, Accolades & Press */}
       <HeritageMatrixSection />
 
       {/* 4. Bureau Directory: Curtorim, Margao, Verna */}
@@ -40,6 +48,8 @@ export default function HomePage() {
 
       {/* 5. Flagship Signature: Nature's Cove with 3D Villa Viewer */}
       <SignatureProjectSection onOpenConcierge={() => setIsConciergeOpen(true)} />
+
+      <LayeredLivingSection />
 
       {/* 6. Collections: Luxury Villas & Premium Homes */}
       <CollectionsSection />

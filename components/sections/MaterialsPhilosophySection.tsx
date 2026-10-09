@@ -19,18 +19,18 @@ const MATERIALS = [
     },
   },
   {
-    id: "travertine",
-    name: "Cross-Cut Italian Travertine",
-    category: "TACTILE HONED STONE",
-    origin: "Tivoli Quarries, Italy",
-    image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=1200&auto=format&fit=crop",
+    id: "carepas",
+    name: "Mother-of-Pearl Oyster Shells (Carepas)",
+    category: "VERNACULAR FENESTRATION",
+    origin: "Windowpane Oyster Shells (Placuna placenta), Goa Littoral",
+    image: "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=80&w=1200&auto=format&fit=crop",
     narrative:
-      "Chosen for its velvet-matte honed finish and low thermal conductivity. Travertine remains naturally cool under bare feet even during midsummer afternoons, creating a tactile sanctuary in our bathrooms, living galleries, and pool coping.",
+      "As celebrated across historic Latin quarters in Panaji and Old Goa, traditional carepas window panes were crafted from thin oyster shells fitted into wooden lattices instead of clear glass. They filter the fierce Konkan midday sun into a serene, pearlescent golden luminescence.",
     properties: {
-      thermalMass: "Tactile Coolness Underfoot",
-      acoustic: "Solid Sound Reflection with Soft Reverb",
-      longevity: "Impervious to Coastal Humidity",
-      finish: "Silky Unfilled Cross-Cut Honed Matte",
+      thermalMass: "Natural Solar Glare Diffusion",
+      acoustic: "Shields Interiors from Coastal Winds",
+      longevity: "Immune to Saline Coastal Degradation",
+      finish: "Translucent Pearlescent Shell Sheen",
     },
   },
   {
@@ -49,18 +49,18 @@ const MATERIALS = [
     },
   },
   {
-    id: "brass",
-    name: "Living Antique Champagne Brass",
-    category: "ARTISANAL METALLURGY",
-    origin: "Hand-Forged Custom Hardware Studio",
-    image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=1200&auto=format&fit=crop",
+    id: "azulejos",
+    name: "Hand-Painted Azulejos & Mineral Ochre",
+    category: "INDO-PORTUGUESE ARTISTRY",
+    origin: "Bespoke Ceramic Atelier, Margao",
+    image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=1200&auto=format&fit=crop",
     narrative:
-      "We reject lacquered synthetic finishes. Our brass hardware is hand-hammered and left to develop a living patina that records the passage of hands, ocean air, and tropical seasons — growing more magnificent with each passing decade.",
+      "Honoring the 450-year heritage of Old Goa, our verandas and courtyard borders feature hand-painted cobalt azulejos paired with natural yellow and terracotta mineral ochre washes that age with graceful dignity under coastal rain.",
     properties: {
-      thermalMass: "Rapid Thermal Equilibrium",
-      acoustic: "Solid Heavy Damped Click on Latches",
-      longevity: "Maritime Salt-Air Corrosion Resistance",
-      finish: "Hand-Aged Antique Champagne Brushed",
+      thermalMass: "Breathable Natural Lime Wash Substrate",
+      acoustic: "Non-Reflective Matt Mineral Surface",
+      longevity: "Unglazed Terracotta and Cobalt Fired at 1050°C",
+      finish: "Hand-Stroked Artisanal Brush Finish",
     },
   },
   {
@@ -68,7 +68,7 @@ const MATERIALS = [
     name: "Natural Sukabumi Pool Emeralds",
     category: "HYDRO-MICROCLIMATE",
     origin: "Natural Volcanic Mineral Stone",
-    image: "https://images.unsplash.com/photo-1572331165267-854da2b10ccc?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1200&auto=format&fit=crop",
     narrative:
       "Every plunge pool at Nature's Cove is lined with natural volcanic green stone, imparting a deep crystalline emerald hue reminiscent of Curtorim’s monsoon lakes. Natural zeolite minerals in the stone aid in continuous water purification.",
     properties: {
@@ -85,14 +85,14 @@ export default function MaterialsPhilosophySection() {
   const current = MATERIALS[activeIdx];
 
   return (
-    <section className="w-full py-28 md:py-36 bg-[#0B1914] text-[#FAF8F5] border-b border-[#FAF8F5]/10">
+    <section className="w-full py-36 md:py-48 bg-[#0C1A14] text-[#FAF8F5] border-b border-[#FAF8F5]/10">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
-        {/* Header with Indentation */}
-        <div className="mb-20">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.28em] text-[#C5A880] block mb-3 font-medium">
-            TACTILE PHILOSOPHY • MATERIAL HONESTY
+        {/* Header with Generous Whitespace */}
+        <div className="mb-24 md:mb-32">
+          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#D49B44] block mb-4 font-semibold">
+            TACTILE PHILOSOPHY • INDO-PORTUGUESE HONESTY
           </span>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#FAF8F5] font-light max-w-4xl arch-indent leading-[1.05]">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#FAF8F5] font-light max-w-4xl arch-indent leading-[1.08]">
             Materials that age with dignity. Five tactile elements of our Goan architecture.
           </h2>
         </div>

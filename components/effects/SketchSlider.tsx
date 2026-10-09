@@ -11,9 +11,9 @@ interface SketchSliderProps {
 
 export default function SketchSlider({
   sketchImage = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1800&auto=format&fit=crop",
-  realityImage = "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1800&auto=format&fit=crop",
-  title = "From Sketch to Sanctuary",
-  caption = "Early-stage charcoal outlines distilled into precise Goan architectural frameworks.",
+  realityImage = "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1800&auto=format&fit=crop",
+  title = "From Charcoal Sketch to Sanctuary",
+  caption = "Early-stage schematic outlines distilled into authentic Indo-Portuguese architectural reality in Curtorim.",
 }: SketchSliderProps) {
   const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -48,12 +48,12 @@ export default function SketchSlider({
   };
 
   return (
-    <section className="w-full py-24 md:py-36 bg-[#F7F5F0] text-[#121210] border-b border-[#121210]/10">
+    <section className="w-full py-36 md:py-48 bg-[#FAF8F5] text-[#121210] border-b border-[#121210]/10">
       <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
-        {/* Kononenko-inspired Centered Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-[#B38F5B] block mb-3 font-medium">
-            PRECISION IN DEVELOPMENT • PROCESS
+        {/* Centered Heading with Generous Whitespace */}
+        <div className="text-center max-w-3xl mx-auto mb-20 md:mb-28">
+          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
+            PRECISION IN DEVELOPMENT • GOAN ATELIER
           </span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif text-[#121210] font-light mb-4 leading-tight">
             {title}

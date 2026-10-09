@@ -65,21 +65,21 @@ export default function JournalPage() {
     : ALL_ARTICLES.filter((a) => a.category === activeCategory);
 
   return (
-    <main className="relative w-full min-h-screen bg-[#F7F5F0] text-[#121210]">
+    <main className="relative w-full min-h-screen bg-[#FAF8F5] text-[#121210]">
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
-      {/* Hero Header */}
-      <section className="w-full pt-40 pb-20 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
+      {/* Hero Header with Expansive Whitespace */}
+      <section className="w-full pt-44 pb-24 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
         <div className="max-w-4xl">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-[#B38F5B] block mb-3 font-medium">
+          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
             EDITORIAL DISPATCHES • ESSAYS
           </span>
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-[#121210] font-light leading-tight mb-6">
             The Victorino Journal
           </h1>
-          <p className="text-sm sm:text-base font-sans text-[#7E796E] leading-relaxed max-w-2xl">
+          <p className="text-sm sm:text-base font-sans text-[#7E796E] leading-relaxed max-w-2xl font-light">
             Reflections on tropical modernism, Portuguese-Goan vernacular architecture,
-            materials that age with dignity, and the tranquil lifestyle of Curtorim.
+            materials that age with dignity, and the tranquil Susegad lifestyle of Goa.
           </p>
         </div>
       </section>
@@ -100,16 +100,16 @@ export default function JournalPage() {
             >
               <span>{cat}</span>
               {activeCategory === cat && (
-                <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#B38F5B]" />
+                <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#B84A39]" />
               )}
             </button>
           ))}
         </div>
       </section>
 
-      {/* Articles Grid */}
-      <section className="w-full py-20 px-6 md:px-12 max-w-[1720px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+      {/* Articles Grid with Generous Spacing */}
+      <section className="w-full py-28 md:py-36 px-6 md:px-12 max-w-[1720px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-20">
           {filtered.map((article) => (
             <Link
               key={article.title}
@@ -137,20 +137,20 @@ export default function JournalPage() {
                   <span>By {article.author}</span>
                 </div>
 
-                <h3 className="text-2xl font-serif text-[#121210] group-hover:text-[#B38F5B] transition-colors mb-3 leading-snug">
+                <h3 className="text-2xl font-serif text-[#121210] group-hover:text-[#B84A39] transition-colors mb-3 leading-snug">
                   {article.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm font-sans text-[#7E796E] leading-relaxed">
+                <p className="text-xs sm:text-sm font-sans text-[#7E796E] leading-relaxed font-light">
                   {article.excerpt}
                 </p>
               </div>
 
               <div className="pt-6 mt-6 border-t border-[#121210]/10 flex items-center justify-between text-xs font-sans">
-                <span className="arch-link font-medium group-hover:text-[#B38F5B]">
+                <span className="arch-link font-medium group-hover:text-[#B84A39]">
                   Read Complete Essay
                 </span>
-                <ArrowUpRightIcon size={14} className="text-[#B38F5B] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRightIcon size={14} className="text-[#B84A39] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
             </Link>
           ))}
