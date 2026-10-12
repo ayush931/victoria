@@ -1,31 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import EnquiryForm from "@/components/forms/EnquiryForm";
+import ConciergeModal from "@/components/modals/ConciergeModal";
+import { useEnquiry } from "@/lib/enquiry";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
-import { ArrowUpRightIcon, CheckIcon, PhoneIcon } from "@/components/ui/Icons";
+import { ArrowUpRightIcon, PhoneIcon } from "@/components/ui/Icons";
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    country: "India",
-    residence: "Nature's Cove — Curtorim",
-    visitDate: "",
-    chauffeur: true,
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+  const enquiry = useEnquiry();
 
   return (
-    <main className="relative w-full min-h-screen bg-[#FAF8F5] text-[#121210]">
+    <main className="relative w-full min-h-screen vx-site-page">
       <Navbar />
 
       {/* Hero Header with Expansive Whitespace */}
@@ -49,148 +37,7 @@ export default function ContactPage() {
               Bespoke Site Appointment
             </h2>
 
-            {submitted ? (
-              <div className="py-12 text-center flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-[#D49B44]/10 border border-[#D49B44] flex items-center justify-center text-[#D49B44] mb-6">
-                  <CheckIcon size={28} />
-                </div>
-                <h3 className="text-3xl font-serif text-[#121210] mb-3">
-                  Appointment Requested
-                </h3>
-                <p className="text-sm font-sans text-[#7E796E] max-w-md mx-auto mb-8 leading-relaxed">
-                  Our Senior Private Concierge will reach out via WhatsApp and phone within two hours to
-                  finalize your private itinerary, site visit timing, and chauffeur arrangements.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="px-6 py-2.5 bg-[#08130F] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.2em] rounded-full hover:bg-[#B84A39] transition-colors"
-                >
-                  Edit Information
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="lux-label">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      placeholder="e.g. Alistair Fernandes"
-                      className="lux-input"
-                    />
-                  </div>
-                  <div>
-                    <label className="lux-label">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      placeholder="patron@domain.com"
-                      className="lux-input"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="lux-label">
-                      Phone / WhatsApp *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      placeholder="+91 / +44 / +971"
-                      className="lux-input"
-                    />
-                  </div>
-                  <div>
-                    <label className="lux-label">
-                      Country of Residence
-                    </label>
-                    <input
-                      type="text"
-                      value={form.country}
-                      onChange={(e) => setForm({ ...form, country: e.target.value })}
-                      placeholder="India / UAE / UK / Singapore"
-                      className="lux-input"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="lux-label">
-                      Residence of Interest
-                    </label>
-                    <select
-                      value={form.residence}
-                      onChange={(e) => setForm({ ...form, residence: e.target.value })}
-                      className="lux-input"
-                    >
-                      <option value="Nature's Cove — Curtorim">Nature&apos;s Cove (13 Bespoke Row Villas)</option>
-                      <option value="Quinta Da Rosa — Curtorim">Quinta Da Rosa (Heritage Manor)</option>
-                      <option value="Casa Do Sol — Verna">Casa Do Sol (Boutique Home)</option>
-                      <option value="Custom Architectural Commission">Custom Architectural Commission</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="lux-label">
-                      Preferred Date of Visit
-                    </label>
-                    <input
-                      type="date"
-                      value={form.visitDate}
-                      onChange={(e) => setForm({ ...form, visitDate: e.target.value })}
-                      className="lux-input"
-                    />
-                  </div>
-                </div>
-
-                <label className="flex items-center gap-3 cursor-pointer pt-2 text-xs font-sans text-[#121210]/80">
-                  <input
-                    type="checkbox"
-                    checked={form.chauffeur}
-                    onChange={(e) => setForm({ ...form, chauffeur: e.target.checked })}
-                    className="rounded border-[#121210]/30 text-[#D49B44] focus:ring-[#D49B44]"
-                  />
-                  <span>
-                    Request private airport chauffeur pickup from Dabolim (GOI) or Mopa (GOX) International Airport
-                  </span>
-                </label>
-
-                <div>
-                  <label className="lux-label">
-                    Specific Architectural Questions / Confidential Requests
-                  </label>
-                  <textarea
-                    rows={4}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="Share any details about your second-home requirements, family preferences, or investment timeline..."
-                    className="lux-input resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-4 bg-[#08130F] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.25em] font-medium hover:bg-[#D49B44] hover:text-[#08130F] transition-all rounded-full flex items-center justify-center gap-2"
-                >
-                  <span>Confirm Private Viewing Request</span>
-                  <ArrowUpRightIcon size={14} />
-                </button>
-              </form>
-            )}
+            <EnquiryForm />
           </div>
 
           {/* Right Column: Three Ateliers & Direct Contact */}
@@ -268,6 +115,7 @@ export default function ContactPage() {
       </section>
 
       <Footer />
+      <ConciergeModal isOpen={enquiry.isOpen} onClose={enquiry.close} preselectedResidence={enquiry.residence} />
     </main>
   );
 }

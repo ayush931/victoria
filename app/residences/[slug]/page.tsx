@@ -196,7 +196,7 @@ export default function ResidenceDetailPage({
   const residence = RESIDENCES[slug] || RESIDENCES["natures-cove"];
 
   return (
-    <main className="relative w-full min-h-screen bg-[#FAF8F5] text-[#121210]">
+    <main className="relative w-full min-h-screen vx-site-page">
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Hero Header */}
@@ -238,7 +238,7 @@ export default function ResidenceDetailPage({
               <button
                 type="button"
                 onClick={() => setIsConciergeOpen(true)}
-                className="px-6 py-3 bg-[#D49B44] text-[#0C1A14] text-xs font-sans uppercase tracking-[0.2em] font-semibold hover:bg-[#FAF8F5] transition-all rounded-full flex items-center gap-2"
+                className="px-6 py-3 bg-[#D49B44] text-[#0C1A14] text-xs font-sans uppercase tracking-[0.2em] font-semibold hover:bg-[var(--paper)] transition-all rounded-full flex items-center gap-2"
               >
                 <span>Book Private Site Visit</span>
                 <ArrowUpRightIcon size={14} />
@@ -249,7 +249,7 @@ export default function ResidenceDetailPage({
       </section>
 
       {/* Key Metric Specs Bar */}
-      <section className="w-full bg-[#FAF8F5] border-b border-[#121210]/10 py-6">
+      <section className="w-full bg-[var(--paper)] border-b border-[#121210]/10 py-6">
         <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 text-xs font-sans">
             <div>
@@ -294,7 +294,7 @@ export default function ResidenceDetailPage({
               <p className="text-sm sm:text-base font-sans text-[#7E796E] leading-relaxed mb-6 font-light">
                 {residence.overview}
               </p>
-              <div className="p-6 bg-[#FAF8F5] border border-[#121210]/10 rounded-sm">
+              <div className="p-6 bg-[var(--paper)] border border-[#121210]/10 rounded-sm">
                 <span className="block text-xs font-mono text-[#B84A39] uppercase mb-1">
                   HERITAGE CONSERVATION NOTE
                 </span>
@@ -342,7 +342,7 @@ export default function ResidenceDetailPage({
           </div>
 
           {/* Interactive Floorplan Levels Switcher */}
-          <div className="mb-32 p-8 sm:p-14 bg-[#FAF8F5] border border-[#121210]/10 rounded-sm">
+          <div className="mb-32 p-8 sm:p-14 bg-[var(--paper)] border border-[#121210]/10 rounded-sm">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8 pb-6 border-b border-[#121210]/10">
               <div>
                 <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#B84A39] block mb-1">

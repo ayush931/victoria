@@ -27,9 +27,10 @@ export function Reveal({
   useEffect(() => {
     let ctx: { revert: () => void } | undefined;
     const run = async () => {
-      // Wait for preloader so hero intro choreographs after curtain
+      // Wait for the preloader only when one is actually mounted
       await new Promise<void>((resolve) => {
-        if ((window as unknown as { __preloaderDone?: boolean }).__preloaderDone) return resolve();
+        const flags = window as unknown as { __preloaderDone?: boolean; __preloaderPending?: boolean };
+        if (flags.__preloaderDone || !flags.__preloaderPending) return resolve();
         const h = () => resolve();
         window.addEventListener("victorino:preloader-done", h, { once: true });
         setTimeout(resolve, 4000); // fallback
@@ -61,7 +62,7 @@ export function Reveal({
   const M = Tag as unknown as "div";
   return (
     // @ts-expect-error dynamic tag
-    <M ref={ref} className={className}>
+    <M ref={ref} className={className} data-anim-owned>
       {lines.map((line, i) => (
         <span key={i} className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
           <span data-reveal-line-inner className={`block will-change-transform ${lineClassName}`}>
@@ -112,7 +113,7 @@ export function FadeUp({
     };
   }, [delay, y]);
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={className} data-anim-owned>
       {children}
     </div>
   );

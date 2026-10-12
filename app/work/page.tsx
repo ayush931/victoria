@@ -115,7 +115,7 @@ export default function WorkArchivePage() {
     : ALL_WORKS.filter((w) => w.typology === activeFilter);
 
   return (
-    <main className="relative w-full min-h-screen bg-[#FAF8F5] text-[#121210] pb-24">
+    <main className="relative w-full min-h-screen vx-site-page pb-24">
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Header with Expansive Whitespace */}

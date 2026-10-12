@@ -63,7 +63,7 @@ export default function VillasPage() {
   const [isConciergeOpen, setIsConciergeOpen] = useState(false);
 
   return (
-    <main className="relative w-full min-h-screen bg-[#FAF8F5] text-[#121210]">
+    <main className="relative w-full min-h-screen vx-site-page">
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Hero Header with Expansive Whitespace */}
