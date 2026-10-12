@@ -48,8 +48,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Armed before first paint so motion targets start hidden, not flashed; globals.css fails safe after 3s. */}
-        <script dangerouslySetInnerHTML={{ __html: "if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('vx-motion')" }} />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/favicon.svg" />

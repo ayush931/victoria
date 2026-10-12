@@ -1,5 +1,6 @@
 "use client";
-import { Suspense } from 'react';
+import { Suspense, useRef } from 'react';
+import { useFooterMotion } from '@/components/effects/FooterMotion';
 import Motion from "@/components/effects/Motion";
 import Link from 'next/link';
 import { ArrowUpRightIcon } from '@/components/ui/Icons';
@@ -36,14 +37,16 @@ const DIRECTORY = [
 ];
 
 export default function Footer() {
+  const ref = useRef<HTMLElement>(null);
+  useFooterMotion(ref);
   const toTop = () => {
     const locomotive = (window as unknown as { __locomotive?: { scrollTo: (t: number, o?: object) => void } }).__locomotive;
     if (locomotive) locomotive.scrollTo(0, { duration: 1.4 });
-    else window.scrollTo({ top: 0, behavior: 'smooth' });
+    else window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   };
 
   return (
-    <footer className="vx-footer">
+    <footer ref={ref} className="vx-footer" data-anim-owned>
       <Suspense fallback={null}><Motion /></Suspense>
       <div className="vx-wrap">
         <div className="vx-head__meta">
@@ -54,21 +57,21 @@ export default function Footer() {
 
         <div className="vx-footer__top">
           <div>
-            <h3>Planning a home in South Goa?<br />Start with a conversation.</h3>
+            <h3>Looking for a home in Goa?<br />Start with a conversation.</h3>
           </div>
           <div className="vx-stack-gap">
             <p className="vx-lede">
-              We take on a small number of commissions each year, from a single residence to a
-              thirteen-villa enclave. Tell us about the site and the life you want on it.
+              Explore our villas and premium homes. Speak with our team about the location,
+              the home you have in mind, and arranging a personal viewing.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
-              <Magnetic>
+              <Magnetic strength={0.12}>
                 <button type="button" className="vx-button" onClick={() => openEnquiry()}>
                   Open an enquiry <ArrowUpRightIcon size={14} />
                 </button>
               </Magnetic>
               <Link href="/contact" className="vx-button vx-button--ghost">
-                Visit the studio <ArrowUpRightIcon size={14} />
+                Contact our team <ArrowUpRightIcon size={14} />
               </Link>
             </div>
           </div>
@@ -80,14 +83,14 @@ export default function Footer() {
               <h4>{column.heading}</h4>
               <ul>
                 {column.links.map(([label, href]) => (
-                  <li key={label}><Link href={href} className="vx-link">{label}</Link></li>
+                  <li key={label}><Link href={href} className="vx-link">{label}<span className="vx-footer__link-arrow" aria-hidden="true">↗</span></Link></li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
 
-        <p className="vx-footer__mega" aria-hidden="true">victorino</p>
+        <p className="vx-footer__mega" aria-hidden="true">{Array.from("victorino").map((letter, index) => <span key={index}>{letter}</span>)}</p>
 
         <div className="vx-footer__base">
           <span className="vx-mono">© 2026 Victorino Luxury Homes · Goa RERA PRGO02241982</span>

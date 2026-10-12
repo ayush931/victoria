@@ -1,15 +1,15 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { openEnquiry } from '@/lib/enquiry';
 
 const ROUTES = [
-  { href: '/', label: 'Index', index: '01' },
+  { href: '/', label: 'Home', index: '01' },
   { href: '/residences/natures-cove', label: "Nature's Cove", index: '02' },
   { href: '/villas', label: 'Villas', index: '03' },
   { href: '/premium-homes', label: 'Premium Homes', index: '04' },
   { href: '/work', label: 'Work', index: '05' },
-  { href: '/about', label: 'Studio', index: '06' },
+  { href: '/about', label: 'About', index: '06' },
   { href: '/journal', label: 'Journal', index: '07' },
   { href: '/contact', label: 'Contact', index: '08' },
 ];
@@ -42,20 +42,38 @@ function Clock() {
 
 /** `onOpenConcierge` is honoured for pages that still own their modal state; otherwise the enquiry event opens it. */
 export default function Navbar({ onOpenConcierge, overHero }: { onOpenConcierge?: () => void; overHero?: boolean } = {}) {
+  const headerRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
-  const [light, setLight] = useState(false);
+  const [light, setLight] = useState(Boolean(overHero));
   // On the index the bar floats clear over the film, then settles onto paper once the hero is behind it.
   useEffect(() => {
     if (!overHero) return;
-    const hero = document.getElementById('top');
-    if (!hero) return;
+    const header = headerRef.current;
+    // Scope to this page: cached routes can retain hidden hero elements in the DOM.
+    const hero = header?.nextElementSibling?.querySelector<HTMLElement>('#top');
+    if (!header || !hero) return;
     let frame = 0;
-    const measure = () => { frame = 0; setLight(hero.getBoundingClientRect().bottom > 80); };
+    const measure = () => {
+      frame = 0;
+      const bounds = hero.getBoundingClientRect();
+      setLight(bounds.height > 0 && bounds.bottom > header.getBoundingClientRect().height);
+    };
     const request = () => { if (!frame) frame = requestAnimationFrame(measure); };
+    const observer = new ResizeObserver(request);
+    observer.observe(hero);
     request();
     window.addEventListener('scroll', request, { passive: true });
     window.addEventListener('resize', request);
-    return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', request); window.removeEventListener('resize', request); };
+    window.addEventListener('pageshow', request);
+    window.addEventListener('popstate', request);
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener('scroll', request);
+      window.removeEventListener('resize', request);
+      window.removeEventListener('pageshow', request);
+      window.removeEventListener('popstate', request);
+    };
   }, [overHero]);
   useEffect(() => {
     if (!open) return;
@@ -68,7 +86,7 @@ export default function Navbar({ onOpenConcierge, overHero }: { onOpenConcierge?
 
   return (
     <>
-      <header className="vx-bar" data-tone={light ? 'light' : undefined}>
+      <header ref={headerRef} className="vx-bar" data-tone={light ? 'light' : undefined}>
         <Link href="/" className="vx-bar__brand" aria-label="Victorino, home">
           <Mark />
           <span className="vx-bar__name">victorino</span>

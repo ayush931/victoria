@@ -31,19 +31,17 @@ Victorino is a property-discovery and architectural brand site for people consid
 
 ## Visual system
 
-The direction combines an architectural field notebook with cinematic coastal imagery: near-white paper, slate ink, hairline rules, oversized serif headlines, bracketed monospace labels and forest-green scenes. Runtime tokens and shared styling are owned by `app/globals.css`; this document records intent rather than creating a second theme. Secondary routes retain their existing layouts with shared navigation, footer and motion. Their base page background uses the same `--paper` token as the homepage, while photographs and dark feature panels remain distinct.
+The direction combines editorial property discovery with cinematic coastal imagery: near-white paper, slate ink, hairline rules, oversized serif headlines, bracketed monospace labels and forest-green scenes. Runtime tokens and shared styling are owned by `app/globals.css`; this document records intent rather than creating a second theme. Secondary routes retain their existing layouts with shared navigation, footer and motion. Their base page background uses the same `--paper` token as the homepage, while photographs and dark feature panels remain distinct.
 
-## Motion and performance
+## Homepage and motion
 
-GSAP owns scroll choreography and Locomotive Scroll v5 owns smooth scrolling, driven by the same GSAP ticker. Never assign GSAP transforms and Locomotive speed to the same element. Motion mounts with the page footer after hydration, within Suspense for route data. Headline splits preserve explicit word spaces. Reduced-motion visitors receive readable static content, posters and vertical Method panels.
+The homepage is a property discovery experience: coastal film, a clear real-estate introduction, three linked residences, a Nature’s Cove feature, Goa lifestyle imagery and a viewing enquiry. Staggered portrait cards, large serif type and generous spacing create an editorial rhythm. Shared page backgrounds retain the existing paper token. Property imagery uses local responsive derivatives of credited 4K stock originals and is explicitly labeled inspiration.
 
-The hero opens from a framed film into full bleed, handing over between three statements. Its first media layer remains opaque throughout forward and reverse scrolling. A local poster and CSS background remain beneath the film. Only the selected visible hero video plays; the background film pauses while the hero is visible or reading sections cover it. Background playback uses local 1080p derivatives of retained 4K originals to limit decode and transfer costs. Video sources attach lazily and pause offscreen, in background tabs, under reduced motion or data saving.
+Content is visible in server-rendered HTML and stays visible when navigating back. Do not hide headings, copy or cards while waiting for fonts, hydration, scroll observers or route transitions. No document-wide text splitting or entry curtain is used. GSAP adds short transform-only entrances after below-fold content enters view; contexts and observers clean up when the route is hidden or unmounted. Above-fold content is static and immediately readable. Reduced motion receives static content.
 
-Distinct surfaces use distinct effects: Fabric has GLSL sea-glass ripples; Programme has fluted-glass refraction; Monsoon has procedural rain; Drawing has masked lateral type. Shader rendering is capped at 30fps with bounded pixel ratio, pauses offscreen and preserves underlying imagery on decode or WebGL failure.
+Locomotive Scroll v5 and GSAP share a ticker. The homepage uses one 1080p architectural villa film with a matching persistent poster, retaining the original 4K asset on disk. Playback pauses offscreen, in hidden tabs, under reduced motion, on data-saving connections and through a visible film control. The homepage has no fixed full-page film, continuous WebGL renderer or pinned multi-screen section.
 
-Method is a six-stage horizontal journey with alternating pale and dark panels, architectural imagery and authored plan/detail SVGs. Previous/next buttons and a skip link supplement scrolling. Mobile and reduced-motion layouts stack the stages vertically. Imagery is labeled design inspiration or concept study.
-
-The native pointer remains visible. A small decorative accent follows fine-pointer movement and hides inside forms and dialogs, on touch and under reduced motion. No continuous cursor animation runs while idle.
+The native pointer remains visible. Its decorative accent is disabled on touch and under reduced motion and hides inside forms and dialogs.
 
 ## Enquiry and consent
 
@@ -51,8 +49,33 @@ Contact and modal enquiries share `components/forms/EnquiryForm.tsx`, including 
 
 Enquiries are reviewed locally, then handed to the existing studio WhatsApp number. The visitor must press Send in WhatsApp. Never display a submitted success message before actual delivery; no backend delivery service is configured. Clipboard failure leaves selectable preview text available.
 
-Cookie choices have equal emphasis: Accept, Reject and Essentials. Reject and Essentials both disable optional categories. Preferences persist for up to 180 days and can be revised from the footer or persistent privacy control. No optional trackers are installed. Future integrations must check consent before loading and handle revocation.
+Cookie choices have equal emphasis: Accept, Reject and Essentials. Reject and Essentials both disable optional categories. Preferences remain current for 180 days and can be revised through the single footer Privacy settings control. Valid saved choices suppress the banner on later visits. The banner links to /privacy-policy, which documents current storage, enquiry and external-resource behavior. No optional trackers are installed. Future integrations must check consent before loading and handle revocation.
 
 ## Verification
 
-Use the production build, ESLint and the premium static audit, plus browser checks for repeated bottom-to-top scrolling, form validation and review, modal keyboard dismissal, Method controls, reduced motion and narrow-screen overflow. Animation budgets are implementation limits, not a guarantee of frame rate on every device.
+Use the production build, ESLint and the premium static audit, plus browser checks for repeated bottom-to-top scrolling, form validation and review, modal keyboard dismissal, first-render visibility, browser Back/Forward navigation, reduced motion and narrow-screen overflow. Animation budgets are implementation limits, not a guarantee of frame rate on every device.
+
+The homepage header measures its own hero instead of querying cached routes globally. It uses explicit ink on paper after the hero leaves view and remeasures after history navigation and resizing.
+
+## Expanded discovery and subtle motion
+
+The homepage now includes neighbourhoods, a design consideration section, a four-step viewing guide and native-disclosure buyer FAQs. Copy guides buyers toward current project information without inventing live availability, pricing or completion promises. Large feature, lifestyle and interior images use small Locomotive speed offsets with overscan; captions and interactive content remain stationary. The exploration anchor uses Locomotive scrolling with header clearance.
+
+The footer owns a scoped GSAP context: visible JSX letter spans create a small scrubbed wordmark wave, headings and directory links enter with short staggered translations, and a decorative rule extends. No opacity-zero states, text DOM mutations, route curtains or layout pinning are used. Footer contexts and observers clean up when routes are hidden, unmounted or reduced motion changes. Link arrows and button icons respond to hover and keyboard focus. Magnetic movement is capped at eight pixels and disabled for coarse pointers and reduced motion.
+
+Hero entry uses a short, transform-only settle inside a clipped film frame. Image parallax uses viewport-based overscan to keep every frame covered. Motion preferences update live: switching to reduced motion destroys the smooth-scroll engine, restores image transforms and reverts footer animation contexts.
+
+## Reference-led scroll sequences
+
+Motion study: https://en.manayerbamate.com/. Observed patterns include a held central scene, independently rotating layers, large moving typography and curved section transitions. Victorino translates these into original photography-based sequences; no reference artwork, text or source code is copied.
+
+Each major sequence has a different mechanism:
+- Homepage Goa scene: native sticky photographic composition with counter-moving type, independently tilted cards, a rotating seal and a curved handoff.
+- Nature’s Cove: an arched image window opens into a full rectangular frame while its image retains gentle Locomotive depth.
+- Property collection: alternating scroll-linked image tilt.
+- Viewing guide: native sticky horizontal chapter track with previous/next controls and a skip link.
+- About page: a courtyard concept diagram draws progressively beside a vertical reading timeline.
+- Closing typography: two large lines travel in opposite directions through curved boundaries.
+- Footer: a curved letter arrangement settles into the wordmark as it enters view.
+
+GSAP ScrollTrigger reads Locomotive’s existing scroll driver. Native CSS sticky scenes only enable after the motion module loads, on sufficiently large desktop viewports with no reduced-motion preference. Mobile, short screens, reduced motion and JavaScript failure keep readable document-flow layouts. Every scene owns and reverts its transforms, media queries and enhancement attributes when cached routes become inactive. Never add a loader or an opacity-zero content gate.

@@ -16,3 +16,5 @@ Licenses: https://unsplash.com/license and https://www.pexels.com/license/.
 Original 4K video files are retained locally. Background playback uses 18-second, 1920px-wide, 24fps HD derivatives (`*-hd.mp4`) to reduce decode cost and bandwidth. Photos use responsive WebP delivery. Still posters remain available when video cannot play or motion/data-saving preferences apply.
 
 `public/images/method-plan.svg` and `method-detail.svg` are original schematic illustrations authored for this site. They are conceptual studies, not construction documents.
+
+The homepage currently plays `architectural-villa-hd.mp4`. `public/images/property-film-poster.jpg` is a frame extracted from this credited villa film. The film and poster show architecture inspiration, not a Victorino project.

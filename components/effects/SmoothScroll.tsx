@@ -1,10 +1,19 @@
 "use client";
 
-import { useEffect, ReactNode, Suspense } from "react";
+import { useEffect, useSyncExternalStore, ReactNode, Suspense } from "react";
 import { usePathname } from "next/navigation";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Any = any;
+
+const motionQuery = '(prefers-reduced-motion: reduce)';
+function subscribeMotionPreference(callback: () => void) {
+  const query = matchMedia(motionQuery);
+  query.addEventListener('change', callback);
+  return () => query.removeEventListener('change', callback);
+}
+const allowsMotion = () => !matchMedia(motionQuery).matches;
+const serverMotion = () => false;
 
 /**
  * Locomotive Scroll v5 drives the page: it owns Lenis, the [data-scroll] element
@@ -14,7 +23,9 @@ type Any = any;
  */
 function ScrollEngine() {
   const pathname = usePathname();
+  const motionAllowed = useSyncExternalStore(subscribeMotionPreference, allowsMotion, serverMotion);
   useEffect(() => {
+    if (!motionAllowed) return;
     let locomotive: Any = null;
     let gsapInstance: Any = null;
     let scrollTrigger: Any = null;
@@ -40,8 +51,8 @@ function ScrollEngine() {
           locomotive = new LocomotiveScroll({
             lenisOptions: {
               // Damped rather than timed: the page glides to a stop under the film like a camera on a gimbal.
-              lerp: 0.075,
-              wheelMultiplier: 0.9,
+              lerp: 0.085,
+              wheelMultiplier: 0.95,
               orientation: "vertical",
               gestureOrientation: "vertical",
               smoothWheel: true,
@@ -139,7 +150,7 @@ function ScrollEngine() {
         win.__lenis = undefined;
       }
     };
-  }, [pathname]);
+  }, [pathname, motionAllowed]);
 
   return null;
 }

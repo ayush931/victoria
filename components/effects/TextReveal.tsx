@@ -2,18 +2,40 @@
 
 import React, { useEffect, useRef } from "react";
 
-/**
- * Line-masked serif reveal — the SOTY headline signature.
- * Splits children text by <br/> boundaries passed as array, or auto-splits words.
- * Usage: <Reveal lines={["Victorino", "Luxury Homes"]} delay={2.2} />
- */
+/** Content stays visible before hydration and throughout navigation restoration. */
+function useEntrance(ref: React.RefObject<HTMLElement | null>, delay: number, y: number) {
+  useEffect(() => {
+    const element = ref.current;
+    const preference = matchMedia('(prefers-reduced-motion: reduce)');
+    if (!element || preference.matches || element.getBoundingClientRect().top < innerHeight) return;
+    let disposed = false;
+    let context: { revert: () => void } | undefined;
+    const observer = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      observer.disconnect();
+      void import('gsap').then(({ default: gsap }) => {
+        if (disposed || preference.matches) return;
+        context = gsap.context(() => {
+          gsap.fromTo(element, { y: Math.min(y, 24) }, {
+            y: 0, duration: .9, delay: Math.min(delay, .2), ease: 'power3.out', clearProps: 'transform',
+          });
+        }, element);
+      });
+    }, { threshold: .05 });
+    observer.observe(element);
+    const restore = () => context?.revert();
+    preference.addEventListener('change', restore);
+    return () => { disposed = true; observer.disconnect(); restore(); preference.removeEventListener('change', restore); };
+  }, [ref, delay, y]);
+}
+
+/** Semantic multiline heading with an optional, non-hiding entrance. */
 export function Reveal({
   lines,
   className = "",
   lineClassName = "",
   delay = 0,
   as: Tag = "h2",
-  stagger = 0.12,
 }: {
   lines: React.ReactNode[];
   className?: string;
@@ -24,40 +46,7 @@ export function Reveal({
 }) {
   const ref = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    let ctx: { revert: () => void } | undefined;
-    const run = async () => {
-      // Wait for the preloader only when one is actually mounted
-      await new Promise<void>((resolve) => {
-        const flags = window as unknown as { __preloaderDone?: boolean; __preloaderPending?: boolean };
-        if (flags.__preloaderDone || !flags.__preloaderPending) return resolve();
-        const h = () => resolve();
-        window.addEventListener("victorino:preloader-done", h, { once: true });
-        setTimeout(resolve, 4000); // fallback
-      });
-      const { default: gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
-      const el = ref.current as unknown as HTMLElement | null;
-      if (!el) return;
-      const targets = el.querySelectorAll("[data-reveal-line-inner]");
-      gsap.set(targets, { yPercent: 110 });
-      const tween = gsap.to(targets, {
-        yPercent: 0,
-        duration: 1.4,
-        ease: "power4.out",
-        stagger,
-        delay,
-        scrollTrigger: { trigger: el, start: "top 88%", once: true },
-      });
-      // If already in view (hero), force play
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.9) tween.play();
-      ctx = { revert: () => { tween.scrollTrigger?.kill(); tween.kill(); } };
-    };
-    void run();
-    return () => ctx?.revert();
-  }, [delay, stagger]);
+  useEntrance(ref, delay, 20);
 
   const M = Tag as unknown as "div";
   return (
@@ -65,7 +54,7 @@ export function Reveal({
     <M ref={ref} className={className} data-anim-owned>
       {lines.map((line, i) => (
         <span key={i} className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
-          <span data-reveal-line-inner className={`block will-change-transform ${lineClassName}`}>
+          <span data-reveal-line-inner className={`block ${lineClassName}`}>
             {line}
           </span>
         </span>
@@ -87,31 +76,8 @@ export function FadeUp({
   y?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let killed = false;
-    const run = async () => {
-      const { default: gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
-      if (killed) return;
-      gsap.set(el, { autoAlpha: 0, y });
-      gsap.to(el, {
-        autoAlpha: 1,
-        y: 0,
-        duration: 1.1,
-        ease: "power3.out",
-        delay,
-        scrollTrigger: { trigger: el, start: "top 90%", once: true },
-      });
-    };
-    void run();
-    return () => {
-      killed = true;
-    };
-  }, [delay, y]);
+  useEntrance(ref, delay, y);
+
   return (
     <div ref={ref} className={className} data-anim-owned>
       {children}

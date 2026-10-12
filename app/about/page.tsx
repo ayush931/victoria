@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ConciergeModal from "@/components/modals/ConciergeModal";
 import ArchitecturalCompass from "@/components/effects/ArchitecturalCompass";
+import StudioTimeline from "@/components/sections/StudioTimeline";
 import PageHero from "@/components/layout/PageHero";
 import { ArrowUpRightIcon } from "@/components/ui/Icons";
 
@@ -26,8 +27,8 @@ export default function AboutPage() {
 
       {/* The 10-Year Narrative with Wide Breathing Room */}
       <section className="w-full py-36 md:py-48 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-28 items-start">
-          <div className="lg:col-span-5">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-16 lg:gap-28 items-start">
+          <div>
             <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#B84A39] block mb-3 font-semibold">
               THE GOAN MEMOIR
             </span>
@@ -41,7 +42,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 flex flex-col gap-6 text-sm sm:text-base font-sans text-[#7A756B] leading-relaxed font-light">
+          <div className="flex flex-col gap-6 text-sm sm:text-base font-sans text-[#7A756B] leading-relaxed font-light">
             <p>
               When Victorino Luxury Homes was founded in Margao over a decade ago,
               Goa was undergoing rapid commercialization. We made an intentional,
@@ -64,6 +65,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <StudioTimeline />
 
       {/* The 4 Architectural Pillars */}
       <section className="w-full py-36 md:py-48 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
