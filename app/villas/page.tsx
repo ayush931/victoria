@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import EditorialScrollScene from "@/components/sections/EditorialScrollScene";
 import Footer from "@/components/layout/Footer";
 import ConciergeModal from "@/components/modals/ConciergeModal";
 import PageHero from "@/components/layout/PageHero";
@@ -73,6 +74,15 @@ export default function VillasPage() {
         title={<>Luxury Villas <em className="text-[#B84A39]">of Goa</em></>}
         description="Bespoke low-density row villas and independent manor estates in Curtorim and Assagao. Crafted for generational Susegad living with private Sukabumi plunge pools, hand-cut red laterite, and soaring teak eaves."
         meta={["Curtorim Lakefront", "Assagao Ridge", "4–5 BHK Estates", "Goa RERA Approved"]}
+      />
+
+      <EditorialScrollScene
+        variant="fan"
+        label="Room for a different everyday"
+        title="Open the door."
+        emphasis="Let life unfold."
+        description="From garden mornings to evenings on the veranda, consider the spaces that make a villa feel like your own."
+        word="room to live."
       />
 
       {/* Portfolio Grid with Generous Spacing */}

@@ -829,6 +829,7 @@ header.vx-bar[data-tone="light"] .vx-bar__menu { background: rgba(255, 255, 255,
 .estate-feature .estate-text-link { display:flex; margin-top:12px; }
 .estate-living { padding-block:80px 110px; border-top:1px solid var(--rule); }
 .estate-living .estate-section-head > p { max-width:290px; color:var(--ink-soft); font-size:14px; line-height:1.9; }
+.estate-living [data-living-line] { display:block; }
 .estate-living figure { margin:0; }
 .estate-living figure img { width:100%; height:clamp(300px,48vw,650px); object-fit:cover; }
 .estate-living figcaption { display:flex; justify-content:space-between; gap:20px; font-size:10px; padding-block:16px; border-bottom:1px solid var(--rule); }
@@ -915,6 +916,7 @@ header.vx-bar[data-tone="light"] .vx-bar__menu { background: rgba(255, 255, 255,
 .estate-living__frame { position:relative; height:clamp(300px,48vw,650px); overflow:hidden; }
 .estate-living .estate-living__frame > img[data-scroll] { position:absolute; top:-12vh; left:0; width:100%; height:calc(100% + 24vh); object-fit:cover; }
 .estate-living__visual figcaption { position:relative; background:var(--paper); z-index:1; }
+.estate-living__caption-rule { position:absolute; bottom:-1px; left:0; width:100%; height:1px; background:var(--ink); transform-origin:left; }
 .estate-neighbourhoods { padding-block:80px 110px; border-top:1px solid var(--rule); }
 .estate-neighbourhoods .estate-section-head > p,.estate-journey .estate-section-head > p { max-width:310px; font-size:14px; line-height:1.9; color:var(--ink-soft); }
 .estate-neighbourhoods__grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--rule); }

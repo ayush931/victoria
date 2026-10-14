@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import EditorialScrollScene from "@/components/sections/EditorialScrollScene";
 import Footer from "@/components/layout/Footer";
 import ConciergeModal from "@/components/modals/ConciergeModal";
 import { ArrowLeftIcon, ArrowUpRightIcon, SparklesIcon, MapPinIcon } from "@/components/ui/Icons";
@@ -454,6 +455,20 @@ export default function ResidenceDetailPage({
           </div>
         </div>
       </section>
+
+      <EditorialScrollScene
+        variant="panels"
+        label="Look a little closer"
+        title="Picture your"
+        emphasis="everyday here."
+        description={`Explore the mood and spaces behind ${residence.title}. Ask our team for current project photography, plans and specifications.`}
+        word="make it home."
+        images={[
+          { src: residence.gallery[0], alt: 'Architectural inspiration for a home', caption: 'The spaces' },
+          { src: residence.gallery[1], alt: 'Residential lifestyle inspiration', caption: 'The atmosphere' },
+          { src: residence.gallery[2], alt: 'Architecture and surroundings inspiration', caption: 'The details' },
+        ]}
+      />
 
       <Footer />
 

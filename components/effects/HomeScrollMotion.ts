@@ -49,6 +49,46 @@ export function useHomeScrollMotion(ref: RefObject<HTMLElement | null>) {
           ));
         }
       });
+      media.add('(min-width: 900px) and (min-height: 600px) and (prefers-reduced-motion: no-preference)', () => {
+        const living = root.querySelector('.estate-living');
+        if (living) {
+          // Open the view as its own scene; image depth remains owned by Locomotive.
+          const panorama = gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: {
+            trigger: living.querySelector('.estate-living__visual'),
+            start: 'top 90%', end: 'center 45%', scrub: .9, invalidateOnRefresh: true,
+          } });
+          panorama.fromTo(living.querySelector('.estate-living__frame'),
+            { clipPath: 'inset(10% 25% 10% 25% round 45% 45% 45% 45%)' },
+            { clipPath: 'inset(0% 0% 0% 0% round 0% 0% 0% 0%)', duration: 1 }, 0)
+            .fromTo(living.querySelector('.estate-living__caption-rule'),
+              { scaleX: 0 }, { scaleX: 1, duration: .6 }, .4);
+          gsap.fromTo(living.querySelectorAll('[data-living-line]'),
+            { x: index => index ? 36 : -24, y: 20 },
+            { x: 0, y: 0, stagger: .12, ease: 'none', scrollTrigger: {
+              trigger: living.querySelector('.estate-section-head'), start: 'top 90%', end: 'top 35%', scrub: .8,
+            } });
+          gsap.fromTo(living.querySelectorAll('.estate-living__notes > div'),
+            { y: index => 40 + index * 30 },
+            { y: 0, stagger: .18, ease: 'none', scrollTrigger: {
+              trigger: living.querySelector('.estate-living__notes'), start: 'top 100%', end: 'top 50%', scrub: .8,
+            } });
+        }
+      });
+      media.add('(min-width: 1000px) and (min-height: 760px) and (prefers-reduced-motion: no-preference)', () => {
+        const design = root.querySelector('.estate-design');
+        if (design) {
+          gsap.fromTo(design.querySelector('.estate-design__visual'),
+            { rotationY: -14, rotationZ: -3, scale: .92, transformPerspective: 1200, transformOrigin: 'left center' },
+            { rotationY: 0, rotationZ: 0, scale: 1, ease: 'none', scrollTrigger: {
+              trigger: design, start: 'top 85%', end: 'center 50%', scrub: .9,
+            } });
+          gsap.fromTo(design.querySelectorAll('.estate-design__details article'),
+            { x: index => 20 + index * 14 },
+            { x: 0, stagger: .12, ease: 'none', scrollTrigger: {
+              trigger: design, start: 'top 60%', end: 'bottom 85%', scrub: .8,
+            } });
+        }
+      });
       cleanup = () => media.revert();
     }).catch(() => { /* Static content remains usable if a motion chunk fails to load. */ });
     return () => { disposed = true; cleanup?.(); };

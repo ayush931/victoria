@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
+import EditorialScrollScene from "@/components/sections/EditorialScrollScene";
 import Footer from "@/components/layout/Footer";
 import ConciergeModal from "@/components/modals/ConciergeModal";
 import ArchitecturalCompass from "@/components/effects/ArchitecturalCompass";
@@ -65,6 +66,15 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <EditorialScrollScene
+        variant="collage"
+        label="The studio’s point of view"
+        title="A sense of place."
+        emphasis="A personal touch."
+        description="Our starting points are simple: the landscape, the light and the people who will call a place home. Each informs the next detail."
+        word="made with care."
+      />
 
       <StudioTimeline />
 

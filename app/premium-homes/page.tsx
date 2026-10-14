@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import EditorialScrollScene from "@/components/sections/EditorialScrollScene";
 import Footer from "@/components/layout/Footer";
 import ConciergeModal from "@/components/modals/ConciergeModal";
 import PageHero from "@/components/layout/PageHero";
@@ -61,6 +62,15 @@ export default function PremiumHomesPage() {
         title={<>Heritage Portuguese <em className="text-[#B84A39]">Homes</em></>}
         description="Boutique low-density residences in Curtorim and Assagao engineered for lock-and-leave ease. Ideal for international NRIs and second-home patrons who require flawless security, zero-maintenance estate management, and tranquil Goan Susegad serenity."
         meta={["Curtorim Village", "Verna Plateau", "Lock-and-Leave", "Estate Concierge"]}
+      />
+
+      <EditorialScrollScene
+        variant="panels"
+        label="A home, in three moments"
+        title="Light. Space."
+        emphasis="A slower pace."
+        description="The garden beyond a window. A quiet corner to read. A room that brings everyone together. Discover the pleasures of a considered home."
+        word="the everyday."
       />
 
       {/* Portfolio Grid with Generous Spacing */}

@@ -78,4 +78,12 @@ Each major sequence has a different mechanism:
 - Closing typography: two large lines travel in opposite directions through curved boundaries.
 - Footer: a curved letter arrangement settles into the wordmark as it enters view.
 
+## Scroll scene variations across routes
+
+`components/sections/EditorialScrollScene.tsx` owns three reusable, scoped scene variants with styling in `editorial-scroll-scene.css`. Villas uses a photo fan that spreads from a loose stack; Premium Homes uses three tall panels travelling in alternating directions; About uses a collage of independently floating photographs; residence detail pages use the panel variation with their own inspiration galleries. Each holds a native sticky stage while the reader scrolls, with counter-moving decorative type, a rotating architectural seal and a progress rule. Captions and copy remain readable; photographs are explicitly labeled inspiration.
+
+The homepage also opens its Goa panorama from a rounded window and unfolds its interior photograph in perspective with staggered detail rows. The original Goa story remains the reference composition. All new motion follows the existing GSAP/Locomotive driver, runs only at 1000px width and 760px height or larger with motion allowed, and reverts on preference changes or unmount. Smaller viewports, reduced motion and failed JavaScript use normal-flow photo grids. New scenes own their animation targets so generic entrance effects cannot overwrite them. Keep enquiry forms and essential controls static.
+
 GSAP ScrollTrigger reads Locomotive’s existing scroll driver. Native CSS sticky scenes only enable after the motion module loads, on sufficiently large desktop viewports with no reduced-motion preference. Mobile, short screens, reduced motion and JavaScript failure keep readable document-flow layouts. Every scene owns and reverts its transforms, media queries and enhancement attributes when cached routes become inactive. Never add a loader or an opacity-zero content gate.
+
+The Goa lifestyle section has a dedicated panoramic reveal: an oval coastal window expands to the full image, heading lines settle from opposite sides, the caption rule draws across, and three notes rise in sequence. This section enables motion from 900px width and 600px height so standard laptop viewports receive the scene; mobile and reduced motion remain static. Its section owns all animation targets, while Locomotive alone owns the image parallax.
