@@ -73,13 +73,13 @@ export default function JournalPage() {
       <PageHero
         index="03"
         eyebrow="Editorial Dispatches • Essays"
-        title={<>The Victorino <em className="text-[#B84A39]">Journal</em></>}
+        title={<>The Victorino <em className="text-[var(--accent-text)]">Journal</em></>}
         description="Reflections on tropical modernism, Portuguese-Goan vernacular architecture, materials that age with dignity, and the tranquil Susegad lifestyle of Goa."
         meta={["Vernacular Essays", "Climate Studies", "Goa Dispatches"]}
       />
 
       {/* Filter Tabs */}
-      <section className="w-full py-8 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
+      <section className="w-full py-8 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[var(--ink)]/10">
         <div className="flex flex-wrap gap-4 sm:gap-8">
           {categories.map((cat) => (
             <button
@@ -88,8 +88,8 @@ export default function JournalPage() {
               onClick={() => setActiveCategory(cat)}
               className={`text-xs font-sans tracking-[0.15em] uppercase pb-2 transition-all relative ${
                 activeCategory === cat
-                  ? "text-[#121210] font-semibold"
-                  : "text-[#7E796E] hover:text-[#121210]"
+                  ? "text-[var(--ink)] font-semibold"
+                  : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
               }`}
             >
               <span>{cat}</span>
@@ -123,7 +123,7 @@ export default function JournalPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-[11px] font-mono text-[#7E796E] mb-2">
+                <div className="flex items-center gap-3 text-[11px] font-mono text-[var(--ink-soft)] mb-2">
                   <span>{article.date}</span>
                   <span>•</span>
                   <span>{article.readTime}</span>
@@ -131,20 +131,20 @@ export default function JournalPage() {
                   <span>By {article.author}</span>
                 </div>
 
-                <h3 className="text-2xl font-serif text-[#121210] group-hover:text-[#B84A39] transition-colors mb-3 leading-snug">
+                <h3 className="text-2xl font-serif text-[var(--ink)] group-hover:text-[var(--accent-text)] transition-colors mb-3 leading-snug">
                   {article.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm font-sans text-[#7E796E] leading-relaxed font-light">
+                <p className="text-xs sm:text-sm font-sans text-[var(--ink-soft)] leading-relaxed font-light">
                   {article.excerpt}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-[#121210]/10 flex items-center justify-between text-xs font-sans">
-                <span className="arch-link font-medium group-hover:text-[#B84A39]">
+              <div className="pt-6 mt-6 border-t border-[var(--ink)]/10 flex items-center justify-between text-xs font-sans">
+                <span className="arch-link font-medium group-hover:text-[var(--accent-text)]">
                   Read Complete Essay
                 </span>
-                <ArrowUpRightIcon size={14} className="text-[#B84A39] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRightIcon size={14} className="text-[var(--accent-text)] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
             </Link>
           ))}

@@ -12,7 +12,7 @@
 .editorial-scene__photo figcaption { font-family:var(--mono); font-size:10px; padding:12px 4px 5px; }
 .editorial-scene__seal { display:none; position:absolute; width:76px; height:76px; fill:none; stroke:currentColor; stroke-width:.7; }
 .editorial-scene__word,.editorial-scene__progress { display:none; }
-.editorial-scene--panels { background:var(--forest, #0c1a14); color:var(--paper); }
+.editorial-scene--panels { background:var(--forest, #0c1a14); color:var(--on-dark); }
 .editorial-scene--panels .estate-label { color:inherit; }
 .editorial-scene--panels .editorial-scene__photo { padding:0; box-shadow:none; background:transparent; color:inherit; }
 .editorial-scene--collage { background:var(--paper); border-block:1px solid var(--rule); }

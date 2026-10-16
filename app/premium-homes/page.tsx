@@ -59,7 +59,7 @@ export default function PremiumHomesPage() {
       <PageHero
         index="02"
         eyebrow="Atelier Portfolio • Boutique Manors"
-        title={<>Heritage Portuguese <em className="text-[#B84A39]">Homes</em></>}
+        title={<>Heritage Portuguese <em className="text-[var(--accent-text)]">Homes</em></>}
         description="Boutique low-density residences in Curtorim and Assagao engineered for lock-and-leave ease. Ideal for international NRIs and second-home patrons who require flawless security, zero-maintenance estate management, and tranquil Goan Susegad serenity."
         meta={["Curtorim Village", "Verna Plateau", "Lock-and-Leave", "Estate Concierge"]}
       />
@@ -95,18 +95,18 @@ export default function PremiumHomesPage() {
               </div>
 
               <div className="flex flex-col gap-3">
-                <div className="border-b border-[#121210]/15 pb-4">
-                  <h3 className="text-xl font-serif text-[#121210] group-hover:text-[#B84A39] transition-colors">
+                <div className="border-b border-[var(--ink)]/15 pb-4">
+                  <h3 className="text-xl font-serif text-[var(--ink)] group-hover:text-[var(--accent-text)] transition-colors">
                     {home.title}
                   </h3>
-                  <p className="text-xs font-sans text-[#7E796E] mt-0.5">
+                  <p className="text-xs font-sans text-[var(--ink-soft)] mt-0.5">
                     {home.location} • {home.beds}
                   </p>
                 </div>
 
-                <div className="flex justify-between items-center text-xs font-sans text-[#7E796E]">
+                <div className="flex justify-between items-center text-xs font-sans text-[var(--ink-soft)]">
                   <span>{home.builtUp}</span>
-                  <span className="text-[#121210] font-medium flex items-center gap-1 group-hover:text-[#B84A39]">
+                  <span className="text-[var(--ink)] font-medium flex items-center gap-1 group-hover:text-[var(--accent-text)]">
                     <span>Inspect</span>
                     <ArrowUpRightIcon size={12} />
                   </span>

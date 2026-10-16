@@ -21,29 +21,29 @@ export default function AboutPage() {
       <PageHero
         index="05"
         eyebrow="Atelier Heritage • 2014–2026"
-        title={<>Architects of dreams, <em className="text-[#B84A39]">designers of reality.</em></>}
+        title={<>Architects of dreams, <em className="text-[var(--accent-text)]">designers of reality.</em></>}
         description="“Homes conceived as heirlooms. Built once, cherished for generations in the soul of Goa.”"
         meta={["Est. 2014 Margao", "Salcete & Assagao", "Row Villas & Estates"]}
       />
 
       {/* The 10-Year Narrative with Wide Breathing Room */}
-      <section className="w-full py-36 md:py-48 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
+      <section className="w-full py-36 md:py-48 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[var(--ink)]/10">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-16 lg:gap-28 items-start">
           <div>
-            <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[#B84A39] block mb-3 font-semibold">
+            <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[var(--accent-text)] block mb-3 font-semibold">
               THE GOAN MEMOIR
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif text-[#121210] mb-6 font-light">
+            <h2 className="text-3xl sm:text-4xl font-serif text-[var(--ink)] mb-6 font-light">
               A Decade of Quiet Susegad Restraint in Curtorim &amp; Margao
             </h2>
-            <div className="flex flex-col gap-4 text-xs font-mono text-[#7A756B]">
+            <div className="flex flex-col gap-4 text-xs font-mono text-[var(--ink-soft)]">
               <span>ESTABLISHED: 2014</span>
               <span>PRINCIPAL GEOGRAPHY: SALCETE TALUKA &amp; ASSAGAO, GOA</span>
               <span>SPECIALTY: BESPOKE ROW VILLAS &amp; BOUTIQUE ESTATES</span>
             </div>
           </div>
 
-          <div className="flex flex-col gap-6 text-sm sm:text-base font-sans text-[#7A756B] leading-relaxed font-light">
+          <div className="flex flex-col gap-6 text-sm sm:text-base font-sans text-[var(--ink-soft)] leading-relaxed font-light">
             <p>
               When Victorino Luxury Homes was founded in Margao over a decade ago,
               Goa was undergoing rapid commercialization. We made an intentional,
@@ -79,48 +79,48 @@ export default function AboutPage() {
       <StudioTimeline />
 
       {/* The 4 Architectural Pillars */}
-      <section className="w-full py-36 md:py-48 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
+      <section className="w-full py-36 md:py-48 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[var(--ink)]/10">
         <div className="mb-20">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-3 font-semibold">
+          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[var(--accent-text)] block mb-3 font-semibold">
             FOUNDATIONAL TENETS
           </span>
-          <h2 className="text-3xl sm:text-5xl font-serif text-[#121210] font-light">
+          <h2 className="text-3xl sm:text-5xl font-serif text-[var(--ink)] font-light">
             The Four Pillars of Our Craft
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="p-8 md:p-10 bg-white border border-[#121210]/10 rounded-sm">
-            <span className="font-mono text-xs text-[#B84A39] block mb-4 font-semibold">PILLAR 01</span>
-            <h3 className="font-serif text-xl text-[#121210] mb-3">Vernacular Susegad</h3>
-            <p className="text-xs font-sans text-[#7A756B] leading-relaxed font-light">
+          <div className="p-8 md:p-10 bg-[var(--paper-raised)] border border-[var(--ink)]/10 rounded-sm">
+            <span className="font-mono text-xs text-[var(--accent-text)] block mb-4 font-semibold">PILLAR 01</span>
+            <h3 className="font-serif text-xl text-[var(--ink)] mb-3">Vernacular Susegad</h3>
+            <p className="text-xs font-sans text-[var(--ink-soft)] leading-relaxed font-light">
               We revive ancestral Portuguese-Goan architectural devices — the balcão porch, high timber rafters,
               and internal courtyards — adapting them for contemporary life.
             </p>
           </div>
 
-          <div className="p-8 md:p-10 bg-white border border-[#121210]/10 rounded-sm">
-            <span className="font-mono text-xs text-[#B84A39] block mb-4 font-semibold">PILLAR 02</span>
-            <h3 className="font-serif text-xl text-[#121210] mb-3">Low-Density Landbanks</h3>
-            <p className="text-xs font-sans text-[#7A756B] leading-relaxed font-light">
+          <div className="p-8 md:p-10 bg-[var(--paper-raised)] border border-[var(--ink)]/10 rounded-sm">
+            <span className="font-mono text-xs text-[var(--accent-text)] block mb-4 font-semibold">PILLAR 02</span>
+            <h3 className="font-serif text-xl text-[var(--ink)] mb-3">Low-Density Landbanks</h3>
+            <p className="text-xs font-sans text-[var(--ink-soft)] leading-relaxed font-light">
               We strictly reject high-density development. Every project preserves natural topography,
               100-year-old fruit trees, and expansive negative space.
             </p>
           </div>
 
-          <div className="p-8 md:p-10 bg-white border border-[#121210]/10 rounded-sm">
-            <span className="font-mono text-xs text-[#B84A39] block mb-4 font-semibold">PILLAR 03</span>
-            <h3 className="font-serif text-xl text-[#121210] mb-3">Generational Materials</h3>
-            <p className="text-xs font-sans text-[#7A756B] leading-relaxed font-light">
+          <div className="p-8 md:p-10 bg-[var(--paper-raised)] border border-[var(--ink)]/10 rounded-sm">
+            <span className="font-mono text-xs text-[var(--accent-text)] block mb-4 font-semibold">PILLAR 03</span>
+            <h3 className="font-serif text-xl text-[var(--ink)] mb-3">Generational Materials</h3>
+            <p className="text-xs font-sans text-[var(--ink-soft)] leading-relaxed font-light">
               Natural Goan laterite stone, carepas oyster shell panes, and seasoned reclaimed Burma teak.
               Surfaces that develop magnificent patina instead of wearing down.
             </p>
           </div>
 
-          <div className="p-8 md:p-10 bg-white border border-[#121210]/10 rounded-sm">
-            <span className="font-mono text-xs text-[#B84A39] block mb-4 font-semibold">PILLAR 04</span>
-            <h3 className="font-serif text-xl text-[#121210] mb-3">Estate Stewardship</h3>
-            <p className="text-xs font-sans text-[#7A756B] leading-relaxed font-light">
+          <div className="p-8 md:p-10 bg-[var(--paper-raised)] border border-[var(--ink)]/10 rounded-sm">
+            <span className="font-mono text-xs text-[var(--accent-text)] block mb-4 font-semibold">PILLAR 04</span>
+            <h3 className="font-serif text-xl text-[var(--ink)] mb-3">Estate Stewardship</h3>
+            <p className="text-xs font-sans text-[var(--ink-soft)] leading-relaxed font-light">
               Full turn-key property stewardship for global NRIs and second-home owners.
               Landscape care, security, and private concierge when you return to Goa.
             </p>
@@ -133,10 +133,10 @@ export default function AboutPage() {
 
       {/* Call to Action with Spacious Spacing */}
       <section className="w-full py-36 text-center px-6">
-        <h2 className="text-3xl sm:text-5xl font-serif text-[#121210] mb-6 font-light">
+        <h2 className="text-3xl sm:text-5xl font-serif text-[var(--ink)] mb-6 font-light">
           Meet Our Architects in Margao &amp; Curtorim
         </h2>
-        <p className="text-xs sm:text-sm font-sans text-[#7A756B] max-w-md mx-auto mb-10 font-light">
+        <p className="text-xs sm:text-sm font-sans text-[var(--ink-soft)] max-w-md mx-auto mb-10 font-light">
           Arrange a private discussion at our heritage studio or a walkthrough of our Curtorim lakefront parcels.
         </p>
         <button

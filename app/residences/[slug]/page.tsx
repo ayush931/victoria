@@ -250,32 +250,32 @@ export default function ResidenceDetailPage({
       </section>
 
       {/* Key Metric Specs Bar */}
-      <section className="w-full bg-[var(--paper)] border-b border-[#121210]/10 py-6">
+      <section className="w-full bg-[var(--paper)] border-b border-[var(--ink)]/10 py-6">
         <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 text-xs font-sans">
             <div>
-              <span className="block text-[#7E796E] text-[10px] uppercase tracking-wider mb-1">Configuration</span>
-              <span className="font-medium text-[#121210]">{residence.beds}</span>
+              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Configuration</span>
+              <span className="font-medium text-[var(--ink)]">{residence.beds}</span>
             </div>
             <div>
-              <span className="block text-[#7E796E] text-[10px] uppercase tracking-wider mb-1">Plot Enclave</span>
-              <span className="font-medium text-[#121210]">{residence.plot}</span>
+              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Plot Enclave</span>
+              <span className="font-medium text-[var(--ink)]">{residence.plot}</span>
             </div>
             <div>
-              <span className="block text-[#7E796E] text-[10px] uppercase tracking-wider mb-1">Built-Up Area</span>
-              <span className="font-medium text-[#121210]">{residence.builtUp}</span>
+              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Built-Up Area</span>
+              <span className="font-medium text-[var(--ink)]">{residence.builtUp}</span>
             </div>
             <div>
-              <span className="block text-[#7E796E] text-[10px] uppercase tracking-wider mb-1">Pool Specification</span>
-              <span className="font-medium text-[#121210]">{residence.pools}</span>
+              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Pool Specification</span>
+              <span className="font-medium text-[var(--ink)]">{residence.pools}</span>
             </div>
             <div>
-              <span className="block text-[#7E796E] text-[10px] uppercase tracking-wider mb-1">Construction Status</span>
-              <span className="font-medium text-[#121210]">{residence.status}</span>
+              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Construction Status</span>
+              <span className="font-medium text-[var(--ink)]">{residence.status}</span>
             </div>
             <div>
-              <span className="block text-[#7E796E] text-[10px] uppercase tracking-wider mb-1">Commercials</span>
-              <span className="font-medium text-[#B84A39]">{residence.price}</span>
+              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Commercials</span>
+              <span className="font-medium text-[var(--accent-text)]">{residence.price}</span>
             </div>
           </div>
         </div>
@@ -286,20 +286,20 @@ export default function ResidenceDetailPage({
         <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 mb-32 items-start">
             <div className="lg:col-span-5">
-              <span className="text-[10px] font-sans uppercase tracking-[0.32em] text-[#B84A39] block mb-4 font-semibold">
+              <span className="text-[10px] font-sans uppercase tracking-[0.32em] text-[var(--accent-text)] block mb-4 font-semibold">
                 ARCHITECTURAL INTENT • SUSEGAD LIVING
               </span>
-              <h2 className="text-3xl sm:text-5xl font-serif text-[#121210] font-light leading-tight mb-6">
+              <h2 className="text-3xl sm:text-5xl font-serif text-[var(--ink)] font-light leading-tight mb-6">
                 A sanctuary of quietude nestled in Goa.
               </h2>
-              <p className="text-sm sm:text-base font-sans text-[#7E796E] leading-relaxed mb-6 font-light">
+              <p className="text-sm sm:text-base font-sans text-[var(--ink-soft)] leading-relaxed mb-6 font-light">
                 {residence.overview}
               </p>
-              <div className="p-6 bg-[var(--paper)] border border-[#121210]/10 rounded-sm">
-                <span className="block text-xs font-mono text-[#B84A39] uppercase mb-1">
+              <div className="p-6 bg-[var(--paper)] border border-[var(--ink)]/10 rounded-sm">
+                <span className="block text-xs font-mono text-[var(--accent-text)] uppercase mb-1">
                   HERITAGE CONSERVATION NOTE
                 </span>
-                <p className="text-xs font-sans text-[#7E796E] leading-relaxed">
+                <p className="text-xs font-sans text-[var(--ink-soft)] leading-relaxed">
                   Designed with strict setback compliance, passive rainwater ground aquifers,
                   and preservation of indigenous 100-year-old coconut and mango tree canopies.
                 </p>
@@ -326,30 +326,30 @@ export default function ResidenceDetailPage({
 
           {/* Architectural Features Grid */}
           <div className="mb-32">
-            <h3 className="text-2xl sm:text-3xl font-serif text-[#121210] mb-8 pb-4 border-b border-[#121210]/10">
+            <h3 className="text-2xl sm:text-3xl font-serif text-[var(--ink)] mb-8 pb-4 border-b border-[var(--ink)]/10">
               Goan Craftsmanship &amp; Finishes
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {residence.features.map((feat: FeatureItem) => (
-                <div key={feat.name} className="p-6 bg-white border border-[#121210]/10 rounded-sm">
-                  <span className="w-6 h-6 rounded-full bg-[#B84A39]/10 text-[#B84A39] flex items-center justify-center text-xs mb-4">
+                <div key={feat.name} className="p-6 bg-[var(--paper-raised)] border border-[var(--ink)]/10 rounded-sm">
+                  <span className="w-6 h-6 rounded-full bg-[#B84A39]/10 text-[var(--accent-text)] flex items-center justify-center text-xs mb-4">
                     <SparklesIcon size={12} />
                   </span>
-                  <h4 className="font-serif text-lg text-[#121210] mb-2">{feat.name}</h4>
-                  <p className="text-xs font-sans text-[#7E796E] leading-relaxed">{feat.desc}</p>
+                  <h4 className="font-serif text-lg text-[var(--ink)] mb-2">{feat.name}</h4>
+                  <p className="text-xs font-sans text-[var(--ink-soft)] leading-relaxed">{feat.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Interactive Floorplan Levels Switcher */}
-          <div className="mb-32 p-8 sm:p-14 bg-[var(--paper)] border border-[#121210]/10 rounded-sm">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8 pb-6 border-b border-[#121210]/10">
+          <div className="mb-32 p-8 sm:p-14 bg-[var(--paper)] border border-[var(--ink)]/10 rounded-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8 pb-6 border-b border-[var(--ink)]/10">
               <div>
-                <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#B84A39] block mb-1">
+                <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[var(--accent-text)] block mb-1">
                   SPATIAL LAYOUT BLUEPRINT
                 </span>
-                <h3 className="text-2xl sm:text-4xl font-serif text-[#121210]">
+                <h3 className="text-2xl sm:text-4xl font-serif text-[var(--ink)]">
                   Architectural Floorplans
                 </h3>
               </div>
@@ -364,7 +364,7 @@ export default function ResidenceDetailPage({
                     className={`px-4 py-2 text-xs font-sans uppercase tracking-wider rounded-sm transition-all ${
                       activePlan === idx
                         ? "bg-[#08130F] text-[#FAF8F5] font-semibold"
-                        : "bg-white border border-[#121210]/10 text-[#7E796E] hover:text-[#121210]"
+                        : "bg-[var(--paper-raised)] border border-[var(--ink)]/10 text-[var(--ink-soft)] hover:text-[var(--ink)]"
                     }`}
                   >
                     {fp.level}
@@ -375,13 +375,13 @@ export default function ResidenceDetailPage({
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-5">
-                <span className="text-xs font-mono text-[#B84A39] block mb-2">
+                <span className="text-xs font-mono text-[var(--accent-text)] block mb-2">
                   ENCLOSED AREA: {residence.floorplans[activePlan].area}
                 </span>
-                <h4 className="text-2xl font-serif text-[#121210] mb-4">
+                <h4 className="text-2xl font-serif text-[var(--ink)] mb-4">
                   {residence.floorplans[activePlan].level}
                 </h4>
-                <p className="text-xs sm:text-sm font-sans text-[#7E796E] leading-relaxed mb-6 font-light">
+                <p className="text-xs sm:text-sm font-sans text-[var(--ink-soft)] leading-relaxed mb-6 font-light">
                   {residence.floorplans[activePlan].highlights}
                 </p>
                 <button
@@ -394,8 +394,8 @@ export default function ResidenceDetailPage({
               </div>
 
               {/* Schematic Blueprint Drawing Graphic */}
-              <div className="lg:col-span-7 h-[320px] sm:h-[400px] bg-white border border-[#121210]/15 rounded-sm p-6 flex flex-col justify-between relative overflow-hidden">
-                <div className="flex justify-between items-center text-[10px] font-mono text-[#7E796E] border-b border-[#121210]/10 pb-2">
+              <div className="lg:col-span-7 h-[320px] sm:h-[400px] bg-[var(--paper-raised)] border border-[var(--ink)]/15 rounded-sm p-6 flex flex-col justify-between relative overflow-hidden">
+                <div className="flex justify-between items-center text-[10px] font-mono text-[var(--ink-soft)] border-b border-[var(--ink)]/10 pb-2">
                   <span>SCALE: 1:100 • ARCHITECTURAL SCHEMATIC</span>
                   <span>ORIENTATION: 15.2894° N (NORTH FACING)</span>
                 </div>
@@ -409,7 +409,7 @@ export default function ResidenceDetailPage({
                   <text x="320" y="70" fill="#121210" fontSize="11" fontFamily="serif">LIVING ATRIUM (5.2m TEAK CEILING)</text>
                   <text x="60" y="70" fill="#7E796E" fontSize="10" fontFamily="sans-serif">TRADITIONAL BALCÃO</text>
                 </svg>
-                <div className="text-[10px] font-mono text-[#B84A39] text-right">
+                <div className="text-[10px] font-mono text-[var(--accent-text)] text-right">
                   APPROVED UNDER GOA TOWN &amp; COUNTRY PLANNING ACT
                 </div>
               </div>
@@ -419,23 +419,23 @@ export default function ResidenceDetailPage({
           {/* Location Vicinity & Travel Distances */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-6">
-              <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[#B84A39] block mb-2">
+              <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[var(--accent-text)] block mb-2">
                 LOCATION &amp; GEOGRAPHY
               </span>
-              <h3 className="text-2xl sm:text-4xl font-serif text-[#121210] mb-4">
+              <h3 className="text-2xl sm:text-4xl font-serif text-[var(--ink)] mb-4">
                 {residence.subtitle}
               </h3>
-              <p className="text-xs sm:text-sm font-sans text-[#7E796E] leading-relaxed mb-8 font-light">
+              <p className="text-xs sm:text-sm font-sans text-[var(--ink-soft)] leading-relaxed mb-8 font-light">
                 Nestled within serene Goan village landscapes, shielded from transient traffic while offering seamless connectivity to international transit hubs and private dining enclaves.
               </p>
-              <div className="flex flex-col divide-y divide-[#121210]/10">
+              <div className="flex flex-col divide-y divide-[var(--ink)]/10">
                 {residence.distances.map((d: DistanceItem) => (
                   <div key={d.place} className="py-3 flex justify-between items-center text-xs font-sans">
-                    <span className="flex items-center gap-2 text-[#121210]">
-                      <MapPinIcon size={14} className="text-[#B84A39]" />
+                    <span className="flex items-center gap-2 text-[var(--ink)]">
+                      <MapPinIcon size={14} className="text-[var(--accent-text)]" />
                       <span>{d.place}</span>
                     </span>
-                    <span className="font-mono text-[#7E796E]">{d.time}</span>
+                    <span className="font-mono text-[var(--ink-soft)]">{d.time}</span>
                   </div>
                 ))}
               </div>

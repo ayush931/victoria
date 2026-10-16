@@ -5,6 +5,8 @@ import SmoothScroll from "@/components/effects/SmoothScroll";
 import CustomCursor from "@/components/effects/CustomCursor";
 import CookieConsent from "@/components/layout/CookieConsent";
 import Chrome from "@/components/effects/Chrome";
+import ThemeRuntime from "@/components/effects/ThemeRuntime";
+import { themeBootstrap } from "@/lib/theme";
 
 export const metadata: Metadata = {
   title: "Victorino Luxury Homes | Architects of Dreams, Designers of Reality | South Goa",
@@ -48,6 +50,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -59,6 +62,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen" suppressHydrationWarning>
+        <ThemeRuntime />
         <CustomCursor />
         <Suspense fallback={null}>
           <Chrome />

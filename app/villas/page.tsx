@@ -71,7 +71,7 @@ export default function VillasPage() {
       <PageHero
         index="01"
         eyebrow="Atelier Portfolio • Goan Estates"
-        title={<>Luxury Villas <em className="text-[#B84A39]">of Goa</em></>}
+        title={<>Luxury Villas <em className="text-[var(--accent-text)]">of Goa</em></>}
         description="Bespoke low-density row villas and independent manor estates in Curtorim and Assagao. Crafted for generational Susegad living with private Sukabumi plunge pools, hand-cut red laterite, and soaring teak eaves."
         meta={["Curtorim Lakefront", "Assagao Ridge", "4–5 BHK Estates", "Goa RERA Approved"]}
       />
@@ -107,23 +107,23 @@ export default function VillasPage() {
               </div>
 
               <div className="flex flex-col gap-3">
-                <div className="flex items-baseline justify-between border-b border-[#121210]/15 pb-4">
+                <div className="flex items-baseline justify-between border-b border-[var(--ink)]/15 pb-4">
                   <div>
-                    <h3 className="text-2xl font-serif text-[#121210] group-hover:text-[#B84A39] transition-colors">
+                    <h3 className="text-2xl font-serif text-[var(--ink)] group-hover:text-[var(--accent-text)] transition-colors">
                       {villa.title}
                     </h3>
-                    <p className="text-xs font-sans text-[#7E796E] mt-0.5">
+                    <p className="text-xs font-sans text-[var(--ink-soft)] mt-0.5">
                       {villa.location} • {villa.beds}
                     </p>
                   </div>
-                  <span className="text-xs font-mono text-[#B84A39]">
+                  <span className="text-xs font-mono text-[var(--accent-text)]">
                     {villa.builtUp}
                   </span>
                 </div>
 
-                <div className="flex justify-between items-center text-xs font-sans text-[#7E796E] pt-1">
+                <div className="flex justify-between items-center text-xs font-sans text-[var(--ink-soft)] pt-1">
                   <span>{villa.status}</span>
-                  <span className="text-[#121210] font-medium flex items-center gap-1 group-hover:text-[#B84A39]">
+                  <span className="text-[var(--ink)] font-medium flex items-center gap-1 group-hover:text-[var(--accent-text)]">
                     <span>Inspect Residence</span>
                     <ArrowUpRightIcon size={12} />
                   </span>

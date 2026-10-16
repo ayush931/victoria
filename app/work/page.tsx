@@ -122,13 +122,13 @@ export default function WorkArchivePage() {
       <PageHero
         index="04"
         eyebrow="Portfolio Archive • Goa 2014–2026"
-        title={<>Selected Works <sup className="font-serif text-[0.35em] text-[#B84A39]">({ALL_WORKS.length})</sup></>}
+        title={<>Selected Works <sup className="font-serif text-[0.35em] text-[var(--accent-text)]">({ALL_WORKS.length})</sup></>}
         description="A comprehensive record of bespoke row villas, private estates, and boutique residences crafted across South Goa's historic enclaves."
         meta={["Row Villas", "Heritage Manors", "Boutique Homes", "6 Commissions"]}
       />
 
       {/* Typology Filter Bar */}
-      <section className="w-full py-6 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[#121210]/10">
+      <section className="w-full py-6 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[var(--ink)]/10">
         <div className="flex flex-wrap gap-4 sm:gap-8">
           {filters.map((f) => (
             <button
@@ -137,8 +137,8 @@ export default function WorkArchivePage() {
               onClick={() => setActiveFilter(f)}
               className={`text-xs font-sans tracking-[0.15em] uppercase pb-2 transition-all relative ${
                 activeFilter === f
-                  ? "text-[#121210] font-semibold"
-                  : "text-[#7E796E] hover:text-[#121210]"
+                  ? "text-[var(--ink)] font-semibold"
+                  : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
               }`}
             >
               <span>{f}</span>
@@ -172,21 +172,21 @@ export default function WorkArchivePage() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between border-b border-[#121210]/15 pb-3 pt-1">
+                <div className="flex items-center justify-between border-b border-[var(--ink)]/15 pb-3 pt-1">
                   <div>
-                    <h3 className="text-base sm:text-lg font-serif text-[#121210] group-hover:text-[#B84A39] transition-colors">
+                    <h3 className="text-base sm:text-lg font-serif text-[var(--ink)] group-hover:text-[var(--accent-text)] transition-colors">
                       {proj.title}
                     </h3>
-                    <p className="text-[11px] font-sans text-[#7E796E]">
+                    <p className="text-[11px] font-sans text-[var(--ink-soft)]">
                       {proj.location} • {proj.beds}
                     </p>
                   </div>
 
                   <div className="slide-swap text-right text-xs font-sans">
-                    <span className="slide-swap-item slide-swap-default font-mono text-[#7E796E]">
+                    <span className="slide-swap-item slide-swap-default font-mono text-[var(--ink-soft)]">
                       {proj.area}
                     </span>
-                    <span className="slide-swap-item slide-swap-hover text-[#B84A39] font-medium flex items-center gap-1 justify-end">
+                    <span className="slide-swap-item slide-swap-hover text-[var(--accent-text)] font-medium flex items-center gap-1 justify-end">
                       <span>Visit</span>
                       <ArrowUpRightIcon size={12} />
                     </span>
@@ -201,31 +201,31 @@ export default function WorkArchivePage() {
       {/* VIEW MODE 2: Kononenko Refined List Table View */}
       {viewMode === "list" && (
         <section className="w-full py-16 px-6 md:px-12 max-w-[1720px] mx-auto">
-          <div className="flex flex-col border-t border-[#121210]/15">
+          <div className="flex flex-col border-t border-[var(--ink)]/15">
             {filteredWorks.map((proj, idx) => (
               <Link
                 key={proj.title}
                 href={proj.slug}
-                className="group py-8 px-4 border-b border-[#121210]/15 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300 hover:bg-[#08130F] hover:text-[#FAF8F5]"
+                className="group py-8 px-4 border-b border-[var(--ink)]/15 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300 hover:bg-[#08130F] hover:text-[#FAF8F5]"
                 data-cursor="RESIDENCE"
               >
                 {/* Col 1: Number & Title */}
                 <div className="md:w-4/12 flex items-center gap-6">
-                  <span className="text-xs font-mono text-[#B84A39]">0{idx + 1}</span>
+                  <span className="text-xs font-mono text-[var(--accent-text)]">0{idx + 1}</span>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-serif">{proj.title}</h3>
-                    <span className="text-xs text-[#7E796E] group-hover:text-[#D49B44]">{proj.subtitle}</span>
+                    <span className="text-xs text-[var(--ink-soft)] group-hover:text-[#D49B44]">{proj.subtitle}</span>
                   </div>
                 </div>
 
                 {/* Col 2: Typology & Location */}
-                <div className="md:w-3/12 text-xs font-sans text-[#7E796E] group-hover:text-[#FAF8F5]/70">
-                  <p className="font-mono text-[#B84A39] mb-0.5">{proj.typology}</p>
+                <div className="md:w-3/12 text-xs font-sans text-[var(--ink-soft)] group-hover:text-[#FAF8F5]/70">
+                  <p className="font-mono text-[var(--accent-text)] mb-0.5">{proj.typology}</p>
                   <p>{proj.location}</p>
                 </div>
 
                 {/* Col 3: Specs & Year */}
-                <div className="md:w-3/12 text-xs font-sans text-[#7E796E] group-hover:text-[#FAF8F5]/70 flex items-center gap-6">
+                <div className="md:w-3/12 text-xs font-sans text-[var(--ink-soft)] group-hover:text-[#FAF8F5]/70 flex items-center gap-6">
                   <div>
                     <span className="block text-[10px] uppercase tracking-wider text-current/50">Built-Up</span>
                     <span className="font-mono text-current font-medium">{proj.area}</span>
@@ -241,7 +241,7 @@ export default function WorkArchivePage() {
                   <div className="w-16 h-11 rounded-sm overflow-hidden bg-black/20 shrink-0">
                     <img src={proj.image} alt={proj.title} className="w-full h-full object-cover" />
                   </div>
-                  <div className="w-8 h-8 rounded-full border border-current/20 flex items-center justify-center text-current group-hover:border-[#B84A39] group-hover:text-[#B84A39]">
+                  <div className="w-8 h-8 rounded-full border border-current/20 flex items-center justify-center text-current group-hover:border-[#B84A39] group-hover:text-[var(--accent-text)]">
                     <ArrowUpRightIcon size={14} />
                   </div>
                 </div>

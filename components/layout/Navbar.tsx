@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { openEnquiry } from '@/lib/enquiry';
+import ThemeToggle from './ThemeToggle';
 
 const ROUTES = [
   { href: '/', label: 'Home', index: '01' },
@@ -97,6 +98,7 @@ export default function Navbar({ onOpenConcierge, overHero }: { onOpenConcierge?
         <div className="vx-bar__right">
           <Clock />
           <button type="button" className="vx-mono vx-mono--ink" onClick={() => (onOpenConcierge ? onOpenConcierge() : openEnquiry())}>Enquire</button>
+          <ThemeToggle />
           <button type="button" className="vx-bar__menu vx-bar__mobile-toggle" aria-expanded={open} onClick={() => setOpen(value => !value)}>
             {open ? 'close' : 'menu'}
           </button>
@@ -109,6 +111,7 @@ export default function Navbar({ onOpenConcierge, overHero }: { onOpenConcierge?
             <div className="vx-bar__brand"><Mark /><span className="vx-bar__name">victorino</span></div>
             <span />
             <div className="vx-bar__right">
+              <ThemeToggle />
               <button type="button" className="vx-bar__menu" onClick={() => setOpen(false)} autoFocus>close</button>
             </div>
           </div>

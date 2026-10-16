@@ -87,7 +87,7 @@ export function FadeUp({
 
 /** Eyebrow + hairline — shared editorial section header */
 export function Eyebrow({ children, tone = "terracotta" }: { children: React.ReactNode; tone?: "terracotta" | "brass" | "light" }) {
-  const color = tone === "terracotta" ? "text-[#B84A39]" : tone === "brass" ? "text-[#D49B44]" : "text-[#FAF8F5]/70";
+  const color = tone === "terracotta" ? "text-[var(--accent-text)]" : tone === "brass" ? "text-[#D49B44]" : "text-[#FAF8F5]/70";
   return (
     <div className="flex items-center gap-4 mb-6">
       <span className="h-px w-10 bg-current opacity-40" />
