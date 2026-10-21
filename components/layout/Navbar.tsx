@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { openEnquiry } from '@/lib/enquiry';
-import ThemeToggle from './ThemeToggle';
 
 const ROUTES = [
   { href: '/', label: 'Home', index: '01' },
@@ -44,8 +44,18 @@ function Clock() {
 /** `onOpenConcierge` is honoured for pages that still own their modal state; otherwise the enquiry event opens it. */
 export default function Navbar({ onOpenConcierge, overHero }: { onOpenConcierge?: () => void; overHero?: boolean } = {}) {
   const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [light, setLight] = useState(Boolean(overHero));
+  const isCurrent = (href: string) => {
+    if (href === '/') return pathname === '/';
+    if (href === '/villas') {
+      return pathname === '/villas'
+        || (pathname.startsWith('/residences/') && pathname !== '/residences/natures-cove');
+    }
+    return pathname === href;
+  };
   // On the index the bar floats clear over the film, then settles onto paper once the hero is behind it.
   useEffect(() => {
     if (!overHero) return;
@@ -78,11 +88,26 @@ export default function Navbar({ onOpenConcierge, overHero }: { onOpenConcierge?
   }, [overHero]);
   useEffect(() => {
     if (!open) return;
-    const escape = (event: KeyboardEvent) => { if (event.key === 'Escape') setOpen(false); };
+    const dialog = document.querySelector<HTMLElement>('.vx-menu');
+    const restoreFocus = menuButtonRef.current;
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { setOpen(false); return; }
+      if (event.key !== 'Tab' || !dialog) return;
+      const focusable = Array.from(dialog.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    };
     document.addEventListener('keydown', escape);
     const previous = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    return () => { document.removeEventListener('keydown', escape); document.body.style.overflow = previous; };
+    return () => {
+      document.removeEventListener('keydown', escape);
+      document.body.style.overflow = previous;
+      requestAnimationFrame(() => restoreFocus?.focus({ preventScroll: true }));
+    };
   }, [open]);
 
   return (
@@ -93,31 +118,29 @@ export default function Navbar({ onOpenConcierge, overHero }: { onOpenConcierge?
           <span className="vx-bar__name">victorino</span>
         </Link>
         <nav className="vx-bar__links" aria-label="Main navigation">
-          {ROUTES.map(route => <Link key={route.href} href={route.href}>{route.label}</Link>)}
+          {ROUTES.map(route => <Link key={route.href} href={route.href} aria-current={isCurrent(route.href) ? 'page' : undefined}>{route.label}</Link>)}
         </nav>
         <div className="vx-bar__right">
           <Clock />
           <button type="button" className="vx-mono vx-mono--ink" onClick={() => (onOpenConcierge ? onOpenConcierge() : openEnquiry())}>Enquire</button>
-          <ThemeToggle />
-          <button type="button" className="vx-bar__menu vx-bar__mobile-toggle" aria-expanded={open} onClick={() => setOpen(value => !value)}>
+          <button ref={menuButtonRef} type="button" className="vx-bar__menu vx-bar__mobile-toggle" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(value => !value)}>
             {open ? 'close' : 'menu'}
           </button>
         </div>
       </header>
 
       {open && (
-        <div className="vx-menu" role="dialog" aria-modal="true" aria-label="Site index">
+        <div id="site-menu" className="vx-menu" role="dialog" aria-modal="true" aria-label="Site index">
           <div className="vx-bar" style={{ position: 'static', background: 'transparent', backdropFilter: 'none' }}>
             <div className="vx-bar__brand"><Mark /><span className="vx-bar__name">victorino</span></div>
             <span />
             <div className="vx-bar__right">
-              <ThemeToggle />
               <button type="button" className="vx-bar__menu" onClick={() => setOpen(false)} autoFocus>close</button>
             </div>
           </div>
           <nav className="vx-menu__list">
             {ROUTES.map(route => (
-              <Link key={route.href} href={route.href} onClick={() => setOpen(false)} aria-current={window.location.pathname === route.href ? 'page' : undefined}>
+              <Link key={route.href} href={route.href} onClick={() => setOpen(false)} aria-current={isCurrent(route.href) ? 'page' : undefined}>
                 <span>{route.index}</span>
                 {route.label}
               </Link>

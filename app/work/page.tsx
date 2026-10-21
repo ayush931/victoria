@@ -24,7 +24,7 @@ const ALL_WORKS = [
     image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-8",
     marginTop: "",
-    height: "h-[420px] sm:h-[540px] lg:h-[620px]",
+    media: "work-media--tall",
   },
   {
     slug: "/residences/natures-cove",
@@ -39,7 +39,7 @@ const ALL_WORKS = [
     image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-7",
     marginTop: "lg:mt-32",
-    height: "h-[380px] sm:h-[480px] lg:h-[560px]",
+    media: "work-media--mid",
   },
   {
     slug: "/residences/quinta-da-rosa",
@@ -54,7 +54,7 @@ const ALL_WORKS = [
     image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-6",
     marginTop: "lg:mt-16",
-    height: "h-[400px] sm:h-[500px] lg:h-[580px]",
+    media: "work-media--low",
   },
   {
     slug: "/residences/casa-do-sol",
@@ -69,7 +69,7 @@ const ALL_WORKS = [
     image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-9",
     marginTop: "lg:mt-24",
-    height: "h-[420px] sm:h-[520px] lg:h-[600px]",
+    media: "work-media--tall",
   },
   {
     slug: "/residences/natures-cove",
@@ -84,7 +84,7 @@ const ALL_WORKS = [
     image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-7",
     marginTop: "lg:mt-12",
-    height: "h-[380px] sm:h-[480px] lg:h-[540px]",
+    media: "work-media--mid",
   },
   {
     slug: "/residences/casa-do-sol",
@@ -99,7 +99,7 @@ const ALL_WORKS = [
     image: "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?q=80&w=1600&auto=format&fit=crop",
     colSpan: "lg:col-span-8",
     marginTop: "lg:mt-28",
-    height: "h-[400px] sm:h-[500px] lg:h-[580px]",
+    media: "work-media--low",
   },
 ];
 
@@ -115,7 +115,7 @@ export default function WorkArchivePage() {
     : ALL_WORKS.filter((w) => w.typology === activeFilter);
 
   return (
-    <main className="relative w-full min-h-screen vx-site-page pb-24">
+    <main id="main-content" className="relative w-full min-h-screen vx-site-page pb-28">
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Header with Expansive Whitespace */}
@@ -128,31 +128,39 @@ export default function WorkArchivePage() {
       />
 
       {/* Typology Filter Bar */}
-      <section className="w-full py-6 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[var(--ink)]/10">
-        <div className="flex flex-wrap gap-4 sm:gap-8">
-          {filters.map((f) => (
-            <button
-              key={f}
-              type="button"
-              onClick={() => setActiveFilter(f)}
-              className={`text-xs font-sans tracking-[0.15em] uppercase pb-2 transition-all relative ${
-                activeFilter === f
-                  ? "text-[var(--ink)] font-semibold"
-                  : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
-              }`}
-            >
-              <span>{f}</span>
-              {activeFilter === f && (
-                <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#B84A39]" />
-              )}
-            </button>
-          ))}
+      <section className="w-full py-6 site-wrap border-b border-[var(--ink)]/10">
+        <div className="vx-filterbar">
+          <div className="vx-filters" role="group" aria-label="Filter the work archive by typology">
+            {filters.map((f) => (
+              <button
+                key={f}
+                type="button"
+                onClick={() => setActiveFilter(f)}
+                aria-pressed={activeFilter === f}
+                className="vx-filter"
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+          <span className="vx-filterbar__count" aria-live="polite">
+            {String(filteredWorks.length).padStart(2, "0")} / {String(ALL_WORKS.length).padStart(2, "0")} projects
+          </span>
         </div>
       </section>
 
+      {filteredWorks.length === 0 && (
+        <section className="w-full py-24 site-wrap">
+          <div className="vx-empty">
+            <h2>No projects in this typology yet.</h2>
+            <p>Choose another category to browse the archive.</p>
+          </div>
+        </section>
+      )}
+
       {/* VIEW MODE 1: Kononenko Asymmetric Masonry Grid */}
-      {viewMode === "grid" && (
-        <section className="w-full py-24 md:py-32 px-6 md:px-12 max-w-[1720px] mx-auto">
+      {viewMode === "grid" && filteredWorks.length > 0 && (
+        <section className="w-full py-24 md:py-32 site-wrap">
           <div className="grid grid-cols-1 lg:grid-cols-15 gap-8 lg:gap-12">
             {filteredWorks.map((proj) => (
               <Link
@@ -161,15 +169,15 @@ export default function WorkArchivePage() {
                 className={`group flex flex-col ${proj.colSpan} ${proj.marginTop}`}
                 data-cursor="VIEW"
               >
-                <div className={`relative w-full ${proj.height} overflow-hidden rounded-sm bg-[#08130F] mb-4`}>
+                <div className={`relative w-full ${proj.media} overflow-hidden rounded-sm bg-[var(--forest-deep)] mb-4`}>
                   <img
                     src={proj.image}
                     alt={proj.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center filter brightness-[0.93] contrast-[1.02] transition-transform duration-[1100ms] ease-[cubic-bezier(0.17,0.84,0.44,1)] group-hover:scale-[1.035]"
                   />
-                  <div className="absolute top-5 left-5 bg-[#08130F]/80 backdrop-blur-md px-3 py-1 text-[9px] font-mono tracking-widest text-[#FAF8F5] uppercase rounded-sm border border-[#FAF8F5]/10">
-                    {proj.typology}
-                  </div>
+                  <div className="vx-media-badge">{proj.typology}</div>
                 </div>
 
                 <div className="flex items-center justify-between border-b border-[var(--ink)]/15 pb-3 pt-1">
@@ -199,14 +207,14 @@ export default function WorkArchivePage() {
       )}
 
       {/* VIEW MODE 2: Kononenko Refined List Table View */}
-      {viewMode === "list" && (
-        <section className="w-full py-16 px-6 md:px-12 max-w-[1720px] mx-auto">
+      {viewMode === "list" && filteredWorks.length > 0 && (
+        <section className="w-full py-16 site-wrap">
           <div className="flex flex-col border-t border-[var(--ink)]/15">
             {filteredWorks.map((proj, idx) => (
               <Link
                 key={proj.title}
                 href={proj.slug}
-                className="group py-8 px-4 border-b border-[var(--ink)]/15 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all duration-300 hover:bg-[#08130F] hover:text-[#FAF8F5]"
+                className="group py-8 px-4 border-b border-[var(--ink)]/15 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-colors duration-300 hover:bg-[var(--forest-deep)] hover:text-[var(--on-dark)]"
                 data-cursor="RESIDENCE"
               >
                 {/* Col 1: Number & Title */}
@@ -214,34 +222,34 @@ export default function WorkArchivePage() {
                   <span className="text-xs font-mono text-[var(--accent-text)]">0{idx + 1}</span>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-serif">{proj.title}</h3>
-                    <span className="text-xs text-[var(--ink-soft)] group-hover:text-[#D49B44]">{proj.subtitle}</span>
+                    <span className="text-xs text-[var(--ink-soft)] group-hover:text-[var(--signal)]">{proj.subtitle}</span>
                   </div>
                 </div>
 
                 {/* Col 2: Typology & Location */}
-                <div className="md:w-3/12 text-xs font-sans text-[var(--ink-soft)] group-hover:text-[#FAF8F5]/70">
-                  <p className="font-mono text-[var(--accent-text)] mb-0.5">{proj.typology}</p>
+                <div className="md:w-3/12 text-xs font-sans text-[var(--ink-soft)] group-hover:text-[var(--on-dark)]/70">
+                  <p className="font-mono text-[var(--accent-text)] group-hover:text-[var(--signal)] mb-0.5">{proj.typology}</p>
                   <p>{proj.location}</p>
                 </div>
 
                 {/* Col 3: Specs & Year */}
-                <div className="md:w-3/12 text-xs font-sans text-[var(--ink-soft)] group-hover:text-[#FAF8F5]/70 flex items-center gap-6">
+                <div className="md:w-3/12 text-xs font-sans text-[var(--ink-soft)] group-hover:text-[var(--on-dark)]/70 flex items-center gap-6">
                   <div>
-                    <span className="block text-[10px] uppercase tracking-wider text-current/50">Built-Up</span>
+                    <span className="block text-[0.625rem] uppercase tracking-wider text-current/50">Built-Up</span>
                     <span className="font-mono text-current font-medium">{proj.area}</span>
                   </div>
                   <div>
-                    <span className="block text-[10px] uppercase tracking-wider text-current/50">Timeline</span>
+                    <span className="block text-[0.625rem] uppercase tracking-wider text-current/50">Timeline</span>
                     <span className="text-current">{proj.status}</span>
                   </div>
                 </div>
 
                 {/* Col 4: Thumbnail & Arrow */}
                 <div className="md:w-2/12 flex items-center justify-end gap-4">
-                  <div className="w-16 h-11 rounded-sm overflow-hidden bg-black/20 shrink-0">
-                    <img src={proj.image} alt={proj.title} className="w-full h-full object-cover" />
+                  <div className="w-20 h-14 rounded-sm overflow-hidden bg-[var(--forest-deep)] shrink-0">
+                    <img src={proj.image} alt={proj.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                   </div>
-                  <div className="w-8 h-8 rounded-full border border-current/20 flex items-center justify-center text-current group-hover:border-[#B84A39] group-hover:text-[var(--accent-text)]">
+                  <div className="w-8 h-8 rounded-full border border-current/20 flex items-center justify-center text-current group-hover:border-[var(--signal)] group-hover:text-[var(--signal)]">
                     <ArrowUpRightIcon size={14} />
                   </div>
                 </div>
@@ -252,29 +260,31 @@ export default function WorkArchivePage() {
       )}
 
       {/* VIEW MODE 3: Full-Bleed Magazine Gallery View */}
-      {viewMode === "gallery" && (
-        <section className="w-full py-16 px-6 md:px-12 max-w-[1720px] mx-auto">
+      {viewMode === "gallery" && filteredWorks.length > 0 && (
+        <section className="w-full py-16 site-wrap">
           <div className="flex flex-col gap-24">
             {filteredWorks.map((proj, idx) => (
               <div key={proj.title} className="flex flex-col gap-6">
-                <div className="relative w-full h-[520px] sm:h-[660px] rounded-sm overflow-hidden bg-[#08130F]">
+                <div className="work-media--gallery relative w-full h-[520px] sm:h-[660px] rounded-sm overflow-hidden bg-[var(--forest-deep)]">
                   <img
                     src={proj.image}
                     alt={proj.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.02]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#08130F] via-transparent to-transparent" />
-                  <div className="absolute bottom-8 left-8 right-8 flex flex-col sm:flex-row sm:items-end justify-between gap-6 text-[#FAF8F5]">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--forest-deep)] via-transparent to-transparent" />
+                  <div className="vx-dark absolute bottom-8 left-8 right-8 flex flex-col sm:flex-row sm:items-end justify-between gap-6 text-[var(--on-dark)]">
                     <div>
-                      <span className="text-[10px] font-mono tracking-widest text-[#D49B44] uppercase block mb-1">
+                      <span className="text-[0.625rem] font-mono tracking-widest text-[var(--signal)] uppercase block mb-1">
                         0{idx + 1} / {proj.typology}
                       </span>
                       <h3 className="text-3xl sm:text-5xl font-serif">{proj.title}</h3>
-                      <p className="text-xs sm:text-sm font-sans text-[#FAF8F5]/70 mt-1">{proj.location} • {proj.beds} • {proj.area}</p>
+                      <p className="text-xs sm:text-sm font-sans text-[var(--on-dark)]/70 mt-1">{proj.location} • {proj.beds} • {proj.area}</p>
                     </div>
                     <Link
                       href={proj.slug}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#08130F] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.2em] font-medium rounded-full hover:bg-[#D49B44] hover:text-[#08130F] transition-colors"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--forest-deep)] text-[var(--on-dark)] text-xs font-sans uppercase tracking-[0.2em] font-medium rounded-full hover:bg-[var(--signal)] hover:text-[var(--forest-deep)] transition-colors"
                     >
                       <span>Explore Residence</span>
                       <ArrowUpRightIcon size={14} />
@@ -287,43 +297,31 @@ export default function WorkArchivePage() {
         </section>
       )}
 
-      {/* Kononenko Floating View Toggle Pill (.xgy .ouf) */}
-      <div className="fixed bottom-6 left-0 w-full flex justify-center z-50 pointer-events-none">
-        <div className="bg-[#08130F]/90 backdrop-blur-md border border-[#FAF8F5]/15 text-[#FAF8F5] px-4 py-2 rounded-full shadow-2xl flex items-center gap-4 pointer-events-auto">
+      {/* Floating view switch — stays clear of phone gesture areas. */}
+      <div className="work-toggle-wrap">
+        <div className="work-toggle vx-dark" role="group" aria-label="Portfolio view mode">
           <button
             type="button"
             onClick={() => setViewMode("grid")}
-            className={`px-3 py-1 text-xs font-sans uppercase tracking-wider rounded-full transition-all flex items-center gap-1.5 ${
-              viewMode === "grid"
-                ? "bg-[#B84A39] text-[#FAF8F5] font-semibold"
-                : "text-[#FAF8F5]/60 hover:text-[#FAF8F5]"
-            }`}
+            aria-pressed={viewMode === "grid"}
           >
-            <GridIcon size={12} />
+            <GridIcon size={13} />
             <span>Grid</span>
           </button>
           <button
             type="button"
             onClick={() => setViewMode("list")}
-            className={`px-3 py-1 text-xs font-sans uppercase tracking-wider rounded-full transition-all flex items-center gap-1.5 ${
-              viewMode === "list"
-                ? "bg-[#B84A39] text-[#FAF8F5] font-semibold"
-                : "text-[#FAF8F5]/60 hover:text-[#FAF8F5]"
-            }`}
+            aria-pressed={viewMode === "list"}
           >
-            <ListIcon size={12} />
+            <ListIcon size={13} />
             <span>List</span>
           </button>
           <button
             type="button"
             onClick={() => setViewMode("gallery")}
-            className={`px-3 py-1 text-xs font-sans uppercase tracking-wider rounded-full transition-all flex items-center gap-1.5 ${
-              viewMode === "gallery"
-                ? "bg-[#B84A39] text-[#FAF8F5] font-semibold"
-                : "text-[#FAF8F5]/60 hover:text-[#FAF8F5]"
-            }`}
+            aria-pressed={viewMode === "gallery"}
           >
-            <GalleryIcon size={12} />
+            <GalleryIcon size={13} />
             <span>Gallery</span>
           </button>
         </div>

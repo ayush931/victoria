@@ -66,7 +66,7 @@ export default function JournalPage() {
     : ALL_ARTICLES.filter((a) => a.category === activeCategory);
 
   return (
-    <main className="relative w-full min-h-screen vx-site-page">
+    <main id="main-content" className="relative w-full min-h-screen vx-site-page">
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Hero Header with Expansive Whitespace */}
@@ -79,30 +79,35 @@ export default function JournalPage() {
       />
 
       {/* Filter Tabs */}
-      <section className="w-full py-8 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[var(--ink)]/10">
-        <div className="flex flex-wrap gap-4 sm:gap-8">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              onClick={() => setActiveCategory(cat)}
-              className={`text-xs font-sans tracking-[0.15em] uppercase pb-2 transition-all relative ${
-                activeCategory === cat
-                  ? "text-[var(--ink)] font-semibold"
-                  : "text-[var(--ink-soft)] hover:text-[var(--ink)]"
-              }`}
-            >
-              <span>{cat}</span>
-              {activeCategory === cat && (
-                <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-[#B84A39]" />
-              )}
-            </button>
-          ))}
+      <section className="w-full py-8 site-wrap border-b border-[var(--ink)]/10">
+        <div className="vx-filterbar">
+          <div className="vx-filters" role="group" aria-label="Filter journal essays">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setActiveCategory(cat)}
+                aria-pressed={activeCategory === cat}
+                className="vx-filter"
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+          <span className="vx-filterbar__count" aria-live="polite">
+            {String(filtered.length).padStart(2, "0")} {filtered.length === 1 ? "essay" : "essays"}
+          </span>
         </div>
       </section>
 
       {/* Articles Grid with Generous Spacing */}
-      <section className="w-full py-28 md:py-36 px-6 md:px-12 max-w-[1720px] mx-auto">
+      <section className="w-full py-28 md:py-36 site-wrap">
+        {filtered.length === 0 ? (
+          <div className="vx-empty">
+            <h2>No essays in this chapter yet.</h2>
+            <p>Choose another category, or return to the complete journal.</p>
+          </div>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-20">
           {filtered.map((article) => (
             <Link
@@ -112,18 +117,18 @@ export default function JournalPage() {
               data-cursor="READ"
             >
               <div>
-                <div className="relative w-full h-[360px] sm:h-[440px] overflow-hidden rounded-sm bg-[#08130F] mb-6">
+                <div className="portfolio-image relative w-full h-[360px] sm:h-[440px] overflow-hidden rounded-sm bg-[var(--forest-deep)] mb-6">
                   <img
                     src={article.image}
                     alt={article.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.02] transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4 bg-[#08130F]/80 backdrop-blur-md px-3 py-1 text-[9px] font-mono tracking-widest text-[#FAF8F5] uppercase rounded-sm border border-[#FAF8F5]/10">
-                    {article.category}
-                  </div>
+                  <div className="vx-media-badge">{article.category}</div>
                 </div>
 
-                <div className="flex items-center gap-3 text-[11px] font-mono text-[var(--ink-soft)] mb-2">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.6875rem] font-mono text-[var(--ink-soft)] mb-2">
                   <span>{article.date}</span>
                   <span>•</span>
                   <span>{article.readTime}</span>
@@ -149,6 +154,7 @@ export default function JournalPage() {
             </Link>
           ))}
         </div>
+        )}
       </section>
 
       <Footer />

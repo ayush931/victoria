@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 type Choice = 'accept' | 'reject' | 'essentials';
-const KEY = 'victorino-consent-v1';
+const KEY = 'victorino-consent-v2';
 const MAX_AGE = 180 * 24 * 60 * 60 * 1000;
 export default function CookieConsent() {
   const [open, setOpen] = useState(false);
@@ -37,7 +37,7 @@ export default function CookieConsent() {
     <span role="status" className="sr-only">{message}</span>
     {open && <section className="vx-consent" aria-label="Cookie preferences">
       <span className="vx-mono vx-bracket" style={{ flex: 'none' }}>Privacy</span>
-      <p>We store your cookie choice on this device. Accept allows optional cookies; Reject and Essentials keep them off. No optional trackers are currently used. <Link href="/privacy-policy" className="vx-consent__policy">Read our Privacy Policy</Link>.</p>
+      <p>We store your cookie choice on this device. Accept allows optional cookies; Reject and Essentials keep them off. Accept enables visitor analytics for pages, clicks and scroll depth. Reject and Essentials leave analytics off. <Link href="/privacy-policy" className="vx-consent__policy">Read our Privacy Policy</Link>.</p>
       <div className="vx-consent__actions"><button onClick={() => choose('accept')}>Accept</button><button onClick={() => choose('reject')}>Reject</button><button onClick={() => choose('essentials')}>Essentials</button></div>
     </section>}
   </>;

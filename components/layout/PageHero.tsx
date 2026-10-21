@@ -17,7 +17,7 @@ export default function PageHero({
   meta?: string[];
 }) {
   return (
-    <section className="vx-section" style={{ paddingTop: "clamp(96px, 16vh, 190px)", paddingBottom: "clamp(40px, 6vh, 72px)" }}>
+    <section className="vx-section vx-pagehero">
       <div className="vx-wrap">
         <FadeUp>
           <div className="vx-head__meta">

@@ -52,7 +52,7 @@ export default function PremiumHomesPage() {
   const [isConciergeOpen, setIsConciergeOpen] = useState(false);
 
   return (
-    <main className="relative w-full min-h-screen vx-site-page">
+    <main id="main-content" className="relative w-full min-h-screen vx-site-page">
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Hero Header with Expansive Whitespace */}
@@ -74,8 +74,8 @@ export default function PremiumHomesPage() {
       />
 
       {/* Portfolio Grid with Generous Spacing */}
-      <section className="w-full py-28 md:py-36 px-6 md:px-12 max-w-[1720px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
+      <section className="w-full py-28 md:py-36 site-wrap">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 lg:gap-12">
           {HOMES.map((home) => (
             <Link
               key={home.title}
@@ -83,15 +83,13 @@ export default function PremiumHomesPage() {
               className="group flex flex-col justify-between"
               data-cursor="VIEW"
             >
-              <div className="relative w-full h-[360px] sm:h-[440px] overflow-hidden rounded-sm bg-[#08130F] mb-6">
+              <div className="portfolio-image relative w-full h-[360px] sm:h-[440px] overflow-hidden rounded-sm bg-[var(--forest-deep)] mb-6">
                 <img
                   src={home.image}
                   alt={home.title}
                   className="w-full h-full object-cover object-center filter brightness-[0.93] contrast-[1.02] transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute top-4 left-4 bg-[#08130F]/80 backdrop-blur-md px-3 py-1 text-[9px] font-mono tracking-widest text-[#FAF8F5] uppercase rounded-sm border border-[#FAF8F5]/10">
-                  {home.tag}
-                </div>
+                <div className="vx-media-badge">{home.tag}</div>
               </div>
 
               <div className="flex flex-col gap-3">
@@ -102,9 +100,12 @@ export default function PremiumHomesPage() {
                   <p className="text-xs font-sans text-[var(--ink-soft)] mt-0.5">
                     {home.location} • {home.beds}
                   </p>
+                  <p className="text-[0.6875rem] font-mono text-[var(--ink-faint)] mt-1.5">
+                    {home.status}
+                  </p>
                 </div>
 
-                <div className="flex justify-between items-center text-xs font-sans text-[var(--ink-soft)]">
+                <div className="flex flex-wrap justify-between items-center gap-2 text-xs font-sans text-[var(--ink-soft)]">
                   <span>{home.builtUp}</span>
                   <span className="text-[var(--ink)] font-medium flex items-center gap-1 group-hover:text-[var(--accent-text)]">
                     <span>Inspect</span>

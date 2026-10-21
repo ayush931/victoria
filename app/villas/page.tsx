@@ -64,7 +64,7 @@ export default function VillasPage() {
   const [isConciergeOpen, setIsConciergeOpen] = useState(false);
 
   return (
-    <main className="relative w-full min-h-screen vx-site-page">
+    <main id="main-content" className="relative w-full min-h-screen vx-site-page">
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Hero Header with Expansive Whitespace */}
@@ -86,7 +86,7 @@ export default function VillasPage() {
       />
 
       {/* Portfolio Grid with Generous Spacing */}
-      <section className="w-full py-28 md:py-36 px-6 md:px-12 max-w-[1720px] mx-auto">
+      <section className="w-full py-28 md:py-36 site-wrap">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-20">
           {VILLAS.map((villa) => (
             <Link
@@ -95,15 +95,13 @@ export default function VillasPage() {
               className="group flex flex-col justify-between"
               data-cursor="VIEW"
             >
-              <div className="relative w-full h-[400px] sm:h-[500px] overflow-hidden rounded-sm bg-[#08130F] mb-6">
+              <div className="portfolio-image relative w-full h-[400px] sm:h-[500px] overflow-hidden rounded-sm bg-[var(--forest-deep)] mb-6">
                 <img
                   src={villa.image}
                   alt={villa.title}
                   className="w-full h-full object-cover object-center filter brightness-[0.93] contrast-[1.02] transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute top-5 left-5 bg-[#08130F]/80 backdrop-blur-md px-3 py-1 text-[9px] font-mono tracking-widest text-[#FAF8F5] uppercase rounded-sm border border-[#FAF8F5]/10">
-                  {villa.tag}
-                </div>
+                <div className="vx-media-badge">{villa.tag}</div>
               </div>
 
               <div className="flex flex-col gap-3">
@@ -121,7 +119,7 @@ export default function VillasPage() {
                   </span>
                 </div>
 
-                <div className="flex justify-between items-center text-xs font-sans text-[var(--ink-soft)] pt-1">
+                <div className="flex flex-wrap justify-between items-center gap-2 text-xs font-sans text-[var(--ink-soft)] pt-1">
                   <span>{villa.status}</span>
                   <span className="text-[var(--ink)] font-medium flex items-center gap-1 group-hover:text-[var(--accent-text)]">
                     <span>Inspect Residence</span>

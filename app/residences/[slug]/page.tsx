@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import EditorialScrollScene from "@/components/sections/EditorialScrollScene";
@@ -185,52 +185,47 @@ export default function ResidenceDetailPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const [resolvedParams, setResolvedParams] = React.useState<{ slug: string } | null>(null);
+  const { slug } = use(params);
   const [isConciergeOpen, setIsConciergeOpen] = useState(false);
   const [activePlan, setActivePlan] = useState(0);
 
-  React.useEffect(() => {
-    params.then(setResolvedParams);
-  }, [params]);
-
-  const slug = resolvedParams?.slug || "natures-cove";
   const residence = RESIDENCES[slug] || RESIDENCES["natures-cove"];
 
   return (
-    <main className="relative w-full min-h-screen vx-site-page">
-      <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
+    <main id="main-content" className="relative w-full min-h-screen vx-site-page">
+      <Navbar overHero onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Hero Header */}
-      <section className="relative w-full h-[75vh] min-h-[580px] bg-[#08130F] text-[#FAF8F5] overflow-hidden flex flex-col justify-between pt-32 pb-10">
+      <section id="top" className="vx-dark relative w-full min-h-[max(620px,100svh)] bg-[var(--forest-deep)] text-[var(--on-dark)] overflow-hidden flex flex-col justify-between pt-32 pb-10">
         <div className="absolute inset-0 z-0">
           <img
             src={residence.heroImage}
             alt={residence.title}
             className="w-full h-full object-cover object-center filter brightness-[0.7] contrast-[1.05]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#08130F] via-transparent to-[#08130F]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--forest-deep)] via-[var(--forest-deep)]/20 to-[var(--forest-deep)]/40" />
         </div>
 
-        <div className="relative z-10 w-full px-6 md:px-12 max-w-[1720px] mx-auto flex items-center justify-between">
+        <div className="relative z-10 w-full site-wrap flex flex-wrap items-center justify-between gap-3">
           <Link
             href="/villas"
-            className="inline-flex items-center gap-2 text-xs font-sans uppercase tracking-[0.2em] text-[#FAF8F5]/80 hover:text-[#D49B44] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-sans uppercase tracking-[0.2em] text-[var(--on-dark)]/80 hover:text-[var(--signal)] transition-colors"
           >
             <ArrowLeftIcon size={14} />
             <span>Return to Portfolio</span>
           </Link>
-          <span className="text-[10px] font-mono tracking-widest text-[#D49B44] uppercase">
+          <span className="text-[0.625rem] font-mono tracking-widest text-[var(--signal)] uppercase">
             {residence.category}
           </span>
         </div>
 
-        <div className="relative z-10 w-full px-6 md:px-12 max-w-[1720px] mx-auto mt-auto">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-[#FAF8F5]/20">
-            <div>
-              <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.28em] text-[#D49B44] block mb-2 font-medium">
+        <div className="relative z-10 w-full site-wrap mt-auto">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-[var(--on-dark)]/20">
+            <div className="min-w-0">
+              <span className="text-[0.625rem] sm:text-xs font-sans uppercase tracking-[0.28em] text-[var(--signal)] block mb-3 font-medium">
                 {residence.subtitle}
               </span>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-[#FAF8F5] font-light leading-none">
+              <h1 className="text-[clamp(2.75rem,6.2vw,7.5rem)] font-serif text-[var(--on-dark)] font-light leading-[0.92] text-balance">
                 {residence.title}
               </h1>
             </div>
@@ -239,7 +234,7 @@ export default function ResidenceDetailPage({
               <button
                 type="button"
                 onClick={() => setIsConciergeOpen(true)}
-                className="px-6 py-3 bg-[#D49B44] text-[#0C1A14] text-xs font-sans uppercase tracking-[0.2em] font-semibold hover:bg-[var(--paper)] transition-all rounded-full flex items-center gap-2"
+                className="px-6 py-3.5 bg-[var(--signal)] text-[var(--forest-deep)] text-xs font-sans uppercase tracking-[0.2em] font-semibold hover:bg-[var(--on-dark)] focus-visible:outline-[var(--on-dark)] transition-colors rounded-full flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 <span>Book Private Site Visit</span>
                 <ArrowUpRightIcon size={14} />
@@ -251,30 +246,30 @@ export default function ResidenceDetailPage({
 
       {/* Key Metric Specs Bar */}
       <section className="w-full bg-[var(--paper)] border-b border-[var(--ink)]/10 py-6">
-        <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 text-xs font-sans">
+        <div className="w-full site-wrap">
+          <div className="residence-specs text-xs font-sans">
             <div>
-              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Configuration</span>
+              <span className="block text-[var(--ink-soft)] text-[0.625rem] uppercase tracking-wider mb-1">Configuration</span>
               <span className="font-medium text-[var(--ink)]">{residence.beds}</span>
             </div>
             <div>
-              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Plot Enclave</span>
+              <span className="block text-[var(--ink-soft)] text-[0.625rem] uppercase tracking-wider mb-1">Plot Enclave</span>
               <span className="font-medium text-[var(--ink)]">{residence.plot}</span>
             </div>
             <div>
-              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Built-Up Area</span>
+              <span className="block text-[var(--ink-soft)] text-[0.625rem] uppercase tracking-wider mb-1">Built-Up Area</span>
               <span className="font-medium text-[var(--ink)]">{residence.builtUp}</span>
             </div>
             <div>
-              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Pool Specification</span>
+              <span className="block text-[var(--ink-soft)] text-[0.625rem] uppercase tracking-wider mb-1">Pool Specification</span>
               <span className="font-medium text-[var(--ink)]">{residence.pools}</span>
             </div>
             <div>
-              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Construction Status</span>
+              <span className="block text-[var(--ink-soft)] text-[0.625rem] uppercase tracking-wider mb-1">Construction Status</span>
               <span className="font-medium text-[var(--ink)]">{residence.status}</span>
             </div>
             <div>
-              <span className="block text-[var(--ink-soft)] text-[10px] uppercase tracking-wider mb-1">Commercials</span>
+              <span className="block text-[var(--ink-soft)] text-[0.625rem] uppercase tracking-wider mb-1">Commercials</span>
               <span className="font-medium text-[var(--accent-text)]">{residence.price}</span>
             </div>
           </div>
@@ -283,10 +278,10 @@ export default function ResidenceDetailPage({
 
       {/* Narrative & Cinematic Spatial Showcase with Expansive Whitespace */}
       <section className="w-full py-36 md:py-48">
-        <div className="w-full px-6 md:px-12 max-w-[1720px] mx-auto">
+        <div className="w-full site-wrap">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 mb-32 items-start">
             <div className="lg:col-span-5">
-              <span className="text-[10px] font-sans uppercase tracking-[0.32em] text-[var(--accent-text)] block mb-4 font-semibold">
+              <span className="text-[0.625rem] font-sans uppercase tracking-[0.32em] text-[var(--accent-text)] block mb-4 font-semibold">
                 ARCHITECTURAL INTENT • SUSEGAD LIVING
               </span>
               <h2 className="text-3xl sm:text-5xl font-serif text-[var(--ink)] font-light leading-tight mb-6">
@@ -308,7 +303,7 @@ export default function ResidenceDetailPage({
 
             {/* Cinematic Spatial Showcase */}
             <div className="lg:col-span-7">
-              <div className="relative h-[54vh] min-h-[380px] md:h-[72vh] overflow-hidden rounded-sm bg-[#0C1A14]">
+              <div className="residence-media relative overflow-hidden rounded-sm bg-[var(--forest)]">
                 <img
                   src={residence.gallery[0] || residence.heroImage}
                   alt={residence.title}
@@ -317,7 +312,7 @@ export default function ResidenceDetailPage({
                   className="absolute inset-0 h-full w-full object-cover object-center goa-grade"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-6 left-6 bg-[#0C1A14]/80 backdrop-blur-md px-4 py-2 text-[10px] font-sans tracking-[0.22em] uppercase text-[#FAF8F5] rounded-sm border border-[#FAF8F5]/10">
+                <div className="vx-dark absolute bottom-6 left-6 bg-[var(--forest)]/80 backdrop-blur-md px-4 py-2 text-[0.625rem] font-sans tracking-[0.22em] uppercase text-[var(--on-dark)] rounded-sm border border-[var(--on-dark)]/10">
                   {residence.title} • {residence.category}
                 </div>
               </div>
@@ -332,7 +327,7 @@ export default function ResidenceDetailPage({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {residence.features.map((feat: FeatureItem) => (
                 <div key={feat.name} className="p-6 bg-[var(--paper-raised)] border border-[var(--ink)]/10 rounded-sm">
-                  <span className="w-6 h-6 rounded-full bg-[#B84A39]/10 text-[var(--accent-text)] flex items-center justify-center text-xs mb-4">
+                  <span className="w-6 h-6 rounded-full bg-[var(--accent)]/10 text-[var(--accent-text)] flex items-center justify-center text-xs mb-4">
                     <SparklesIcon size={12} />
                   </span>
                   <h4 className="font-serif text-lg text-[var(--ink)] mb-2">{feat.name}</h4>
@@ -346,7 +341,7 @@ export default function ResidenceDetailPage({
           <div className="mb-32 p-8 sm:p-14 bg-[var(--paper)] border border-[var(--ink)]/10 rounded-sm">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8 pb-6 border-b border-[var(--ink)]/10">
               <div>
-                <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[var(--accent-text)] block mb-1">
+                <span className="text-[0.625rem] font-sans uppercase tracking-[0.28em] text-[var(--accent-text)] block mb-1">
                   SPATIAL LAYOUT BLUEPRINT
                 </span>
                 <h3 className="text-2xl sm:text-4xl font-serif text-[var(--ink)]">
@@ -361,9 +356,10 @@ export default function ResidenceDetailPage({
                     key={fp.level}
                     type="button"
                     onClick={() => setActivePlan(idx)}
-                    className={`px-4 py-2 text-xs font-sans uppercase tracking-wider rounded-sm transition-all ${
+                    aria-pressed={activePlan === idx}
+                    className={`px-4 py-2 text-xs font-sans uppercase tracking-wider rounded-sm transition-colors ${
                       activePlan === idx
-                        ? "bg-[#08130F] text-[#FAF8F5] font-semibold"
+                        ? "bg-[var(--forest-deep)] text-[var(--on-dark)] font-semibold"
                         : "bg-[var(--paper-raised)] border border-[var(--ink)]/10 text-[var(--ink-soft)] hover:text-[var(--ink)]"
                     }`}
                   >
@@ -387,29 +383,29 @@ export default function ResidenceDetailPage({
                 <button
                   type="button"
                   onClick={() => setIsConciergeOpen(true)}
-                  className="px-5 py-2.5 bg-[#08130F] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.2em] rounded-sm hover:bg-[#B84A39] hover:text-[#FAF8F5] transition-colors"
+                  className="vx-on-dark px-5 py-2.5 bg-[var(--forest-deep)] text-[var(--on-dark)] text-xs font-sans uppercase tracking-[0.2em] rounded-sm hover:bg-[var(--accent)] hover:text-[var(--on-dark)] focus-visible:outline-[var(--on-dark)] transition-colors"
                 >
                   Request Full High-Res Blueprints (PDF)
                 </button>
               </div>
 
               {/* Schematic Blueprint Drawing Graphic */}
-              <div className="lg:col-span-7 h-[320px] sm:h-[400px] bg-[var(--paper-raised)] border border-[var(--ink)]/15 rounded-sm p-6 flex flex-col justify-between relative overflow-hidden">
-                <div className="flex justify-between items-center text-[10px] font-mono text-[var(--ink-soft)] border-b border-[var(--ink)]/10 pb-2">
+              <div className="residence-plan lg:col-span-7 bg-[var(--paper-raised)] border border-[var(--ink)]/15 rounded-sm p-6 flex flex-col justify-between relative overflow-hidden">
+                <div className="flex flex-wrap justify-between gap-1 items-center text-[0.625rem] font-mono text-[var(--ink-soft)] border-b border-[var(--ink)]/10 pb-2">
                   <span>SCALE: 1:100 • ARCHITECTURAL SCHEMATIC</span>
                   <span>ORIENTATION: 15.2894° N (NORTH FACING)</span>
                 </div>
                 {/* SVG Blueprint Wireframe */}
                 <svg className="w-full h-full my-auto opacity-70" viewBox="0 0 600 300" fill="none">
-                  <rect x="20" y="20" width="560" height="260" stroke="#121210" strokeWidth="1.5" />
-                  <rect x="40" y="40" width="240" height="150" stroke="#121210" strokeWidth="1" strokeDasharray="3 3" />
-                  <rect x="300" y="40" width="260" height="220" stroke="#121210" strokeWidth="1" />
-                  <rect x="60" y="210" width="160" height="70" fill="#B84A39" fillOpacity="0.15" stroke="#B84A39" strokeWidth="1" />
-                  <text x="70" y="250" fill="#B84A39" fontSize="10" fontFamily="sans-serif">SUKABUMI PLUNGE POOL (6m x 3.2m)</text>
-                  <text x="320" y="70" fill="#121210" fontSize="11" fontFamily="serif">LIVING ATRIUM (5.2m TEAK CEILING)</text>
-                  <text x="60" y="70" fill="#7E796E" fontSize="10" fontFamily="sans-serif">TRADITIONAL BALCÃO</text>
+                  <rect x="20" y="20" width="560" height="260" stroke="var(--ink)" strokeWidth="1.5" />
+                  <rect x="40" y="40" width="240" height="150" stroke="var(--ink)" strokeWidth="1" strokeDasharray="3 3" />
+                  <rect x="300" y="40" width="260" height="220" stroke="var(--ink)" strokeWidth="1" />
+                  <rect x="60" y="210" width="160" height="70" fill="var(--accent)" fillOpacity="0.15" stroke="var(--accent)" strokeWidth="1" />
+                  <text x="70" y="250" fill="var(--accent-text)" fontSize="10" fontFamily="sans-serif">SUKABUMI PLUNGE POOL (6m x 3.2m)</text>
+                  <text x="320" y="70" fill="var(--ink)" fontSize="11" fontFamily="serif">LIVING ATRIUM (5.2m TEAK CEILING)</text>
+                  <text x="60" y="70" fill="var(--ink-soft)" fontSize="10" fontFamily="sans-serif">TRADITIONAL BALCÃO</text>
                 </svg>
-                <div className="text-[10px] font-mono text-[var(--accent-text)] text-right">
+                <div className="text-[0.625rem] font-mono text-[var(--accent-text)] text-right">
                   APPROVED UNDER GOA TOWN &amp; COUNTRY PLANNING ACT
                 </div>
               </div>
@@ -419,7 +415,7 @@ export default function ResidenceDetailPage({
           {/* Location Vicinity & Travel Distances */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-6">
-              <span className="text-[10px] font-sans uppercase tracking-[0.28em] text-[var(--accent-text)] block mb-2">
+              <span className="text-[0.625rem] font-sans uppercase tracking-[0.28em] text-[var(--accent-text)] block mb-2">
                 LOCATION &amp; GEOGRAPHY
               </span>
               <h3 className="text-2xl sm:text-4xl font-serif text-[var(--ink)] mb-4">
@@ -441,15 +437,17 @@ export default function ResidenceDetailPage({
               </div>
             </div>
 
-            <div className="lg:col-span-6 relative h-[360px] sm:h-[420px] rounded-sm overflow-hidden bg-[#08130F]">
+            <div className="residence-map lg:col-span-6 relative rounded-sm overflow-hidden bg-[var(--forest-deep)]">
               <img
                 src={residence.gallery[0]}
-                alt="Goa Surroundings"
+                alt={`Landscape around ${residence.title}`}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-center filter brightness-[0.9]"
               />
-              <div className="absolute bottom-6 left-6 right-6 bg-[#08130F]/80 backdrop-blur-md p-4 rounded-sm border border-[#FAF8F5]/10 text-xs font-sans text-[#FAF8F5] flex justify-between items-center">
+              <div className="vx-dark absolute bottom-6 left-6 right-6 bg-[var(--forest-deep)]/80 backdrop-blur-md p-4 rounded-sm border border-[var(--on-dark)]/10 text-xs font-sans text-[var(--on-dark)] flex flex-wrap justify-between items-center gap-2">
                 <span>Goa Heritage Zone</span>
-                <span className="text-[#D49B44] font-mono">15.2894° N, 74.0247° E</span>
+                <span className="text-[var(--signal)] font-mono">15.2894° N, 74.0247° E</span>
               </div>
             </div>
           </div>

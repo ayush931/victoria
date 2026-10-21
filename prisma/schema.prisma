@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+datasource db {
+  provider = "postgresql"
+}
+model Admin {
+  id           String   @id @default(uuid()) @db.Uuid
+  login        String   @unique
+  name         String
+  passwordHash String
+  role         String   @default("ADMIN")
+  enabled      Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  session      AdminSession?
+  audits       Audit[]
+}
+model AdminSession {
+  adminId   String   @id @db.Uuid
+  admin     Admin    @relation(fields: [adminId], references: [id], onDelete: Cascade)
+  id        String   @unique @default(uuid()) @db.Uuid
+  tokenHash String   @unique
+  createdAt DateTime @default(now())
+  lastSeen  DateTime @default(now())
+  expiresAt DateTime
+  userAgent String
+  ip        String
+}
+model Audit {
+  id        String   @id @default(uuid()) @db.Uuid
+  adminId   String?  @db.Uuid
+  admin     Admin?   @relation(fields: [adminId], references: [id], onDelete: SetNull)
+  actor     String
+  action    String
+  target    String?
+  ip        String
+  userAgent String
+  createdAt DateTime @default(now())
+  @@index([createdAt])
+}
+model Visitor {
+  id        String   @id @default(uuid()) @db.Uuid
+  tokenHash String   @unique
+  firstSeen DateTime @default(now())
+  lastSeen  DateTime @default(now())
+  visits    Visit[]
+  leads     Lead[]
+}
+model Visit {
+  id        String   @id @default(uuid()) @db.Uuid
+  visitorId String   @db.Uuid
+  visitor   Visitor  @relation(fields: [visitorId], references: [id], onDelete: Cascade)
+  startedAt DateTime @default(now())
+  lastSeen  DateTime @default(now())
+  device    String
+  browser   String
+  referrer  String?
+  events    Activity[]
+  @@index([lastSeen])
+  @@index([visitorId, startedAt])
+}
+model Activity {
+  id        String   @id @default(uuid()) @db.Uuid
+  visitId   String   @db.Uuid
+  visit     Visit    @relation(fields: [visitId], references: [id], onDelete: Cascade)
+  kind      String
+  path      String
+  target    String?
+  depth     Int?
+  createdAt DateTime @default(now())
+  @@index([createdAt])
+  @@index([visitId, createdAt])
+}
+model Lead {
+  id           String   @id @default(uuid()) @db.Uuid
+  requestId    String   @unique @db.Uuid
+  visitorId    String?  @db.Uuid
+  visitor      Visitor? @relation(fields: [visitorId], references: [id], onDelete: SetNull)
+  name         String
+  email        String
+  phone        String
+  country      String?
+  residence    String
+  message      String?
+  preferredDate String?
+  transfer     Boolean  @default(false)
+  status       String   @default("NEW")
+  sourcePath   String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  @@index([createdAt])
+}
+model RateBucket {
+  key       String   @id
+  count     Int      @default(1)
+  expiresAt DateTime
+  @@index([expiresAt])
+}
+model WebsiteSettings {
+  id              String   @id @default("website")
+  trackingEnabled Boolean  @default(true)
+  updatedAt       DateTime @updatedAt
+}

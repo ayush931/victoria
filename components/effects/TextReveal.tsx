@@ -53,7 +53,7 @@ export function Reveal({
     // @ts-expect-error dynamic tag
     <M ref={ref} className={className} data-anim-owned>
       {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
+        <span key={i} className="block overflow-hidden pb-[0.18em] -mb-[0.18em]">
           <span data-reveal-line-inner className={`block ${lineClassName}`}>
             {line}
           </span>
@@ -87,11 +87,11 @@ export function FadeUp({
 
 /** Eyebrow + hairline — shared editorial section header */
 export function Eyebrow({ children, tone = "terracotta" }: { children: React.ReactNode; tone?: "terracotta" | "brass" | "light" }) {
-  const color = tone === "terracotta" ? "text-[var(--accent-text)]" : tone === "brass" ? "text-[#D49B44]" : "text-[#FAF8F5]/70";
+  const color = tone === "terracotta" ? "text-[var(--accent-text)]" : tone === "brass" ? "text-[var(--signal)]" : "text-[var(--on-dark)]/70";
   return (
     <div className="flex items-center gap-4 mb-6">
       <span className="h-px w-10 bg-current opacity-40" />
-      <span className={`text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] font-semibold ${color}`}>
+      <span className={`text-[0.625rem] sm:text-xs font-sans uppercase tracking-[0.32em] font-semibold ${color}`}>
         {children}
       </span>
     </div>

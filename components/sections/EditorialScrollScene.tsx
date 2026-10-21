@@ -76,7 +76,7 @@ export default function EditorialScrollScene({
     return () => { disposed = true; cleanup?.(); };
   }, [variant, title, emphasis]);
 
-  return <section ref={ref} className={`editorial-scene editorial-scene--${variant}`} aria-labelledby={`${id}-title`} data-anim-owned>
+  return <section ref={ref} className={`editorial-scene editorial-scene--${variant}${variant === 'panels' ? ' vx-dark' : ''}`} aria-labelledby={`${id}-title`} data-anim-owned>
     <div className="editorial-scene__stage">
       <div className="editorial-scene__copy">
         <p className="estate-label">{label}</p>

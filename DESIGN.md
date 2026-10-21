@@ -47,9 +47,9 @@ The native pointer remains visible. Its decorative accent is disabled on touch a
 
 Contact and modal enquiries share `components/forms/EnquiryForm.tsx`, including inline validation, associated labels and first-invalid-field focus. Native select and date controls are deliberately browser-owned for reliable mobile interaction; ownership is recorded in `premium-ui.json`. The modal uses the native dialog focus boundary, Escape dismissal, scroll locking and trigger-focus restoration.
 
-Enquiries are reviewed locally, then handed to the existing studio WhatsApp number. The visitor must press Send in WhatsApp. Never display a submitted success message before actual delivery; no backend delivery service is configured. Clipboard failure leaves selectable preview text available.
+Enquiries are reviewed locally. Visitors can explicitly send a contact-permissioned enquiry to the PostgreSQL database, or use the separate WhatsApp handoff and press Send there. Success messages distinguish a database save from a WhatsApp handoff. Clipboard failure leaves selectable preview text available.
 
-Cookie choices have equal emphasis: Accept, Reject and Essentials. Reject and Essentials both disable optional categories. Preferences remain current for 180 days and can be revised through the single footer Privacy settings control. Valid saved choices suppress the banner on later visits. The banner links to /privacy-policy, which documents current storage, enquiry and external-resource behavior. No optional trackers are installed. Future integrations must check consent before loading and handle revocation.
+Cookie choices have equal emphasis: Accept, Reject and Essentials. Reject and Essentials both disable optional categories. Preferences remain current for 180 days and can be revised through the single footer Privacy settings control. Valid saved choices suppress the banner on later visits. The banner links to /privacy-policy, which documents current storage, enquiry and external-resource behavior. Optional event analytics runs only after Accept and stops on revocation. Consent storage is versioned to v2 so visitors see the updated disclosure before collection begins.
 
 ## Verification
 
@@ -88,9 +88,15 @@ GSAP ScrollTrigger reads Locomotive’s existing scroll driver. Native CSS stick
 
 The Goa lifestyle section has a dedicated panoramic reveal: an oval coastal window expands to the full image, heading lines settle from opposite sides, the caption rule draws across, and three notes rise in sequence. This section enables motion from 900px width and 600px height so standard laptop viewports receive the scene; mobile and reduced motion remain static. Its section owns all animation targets, while Locomotive alone owns the image parallax.
 
+## Light palette and fluid desktop layout
 
-## Light and dark themes
+The site uses its original light palette in all device colour schemes. Theme switching, the pre-paint theme script and theme preference storage have been removed; older saved choices no longer affect rendering.
 
-The header includes a keyboard-accessible Dark theme switch on every route and inside the mobile menu. The default follows the device colour scheme; an explicit light/dark choice is stored under `victorino-theme`, persists across navigation and reloads, and syncs across tabs. A small head script applies the palette before first paint. Storage failures still permit switching for the current visit. Clearing the saved choice restores device preference on the next sync.
+Section backgrounds fill the viewport. Shared `--gutter` spacing aligns navigation, content and footer, with fluid 22–96px margins and a 1920px maximum content span on wider displays. Secondary route wrappers use `.site-wrap`; individual paragraphs, privacy copy and dialogs retain reading-width limits. The hero fills the viewport without a 1200px height cap. Standard content sections use natural height rather than forced full-screen whitespace. At desktop widths of 1600px and above, images have bounded viewport-relative heights, body copy increases to 16px, property cards use a more balanced aspect ratio, and scroll scene compositions align with the shared gutters. Tune for 1920×1080 and 2560×1440 as well as larger displays; physical monitor size alone does not define the CSS viewport.
 
-`app/globals.css` owns both palettes. Dark uses neutral near-black paper `#0b0b0b`, charcoal raised surfaces `#171717`, black inset surfaces `#050505`, warm ink `#eeeae2`, secondary text `#bdbdbd` and copper accent `#d7a07d`. The large footer wordmark uses light silver `#c8cfce` in dark mode for clear visibility. Existing page utility colours use these semantic variables. Photo overlays and permanently dark feature panels use fixed `--on-dark`/`--on-light` colours so they retain contrast in either theme. Forms, dialogs, consent, navigation, footer and scroll scenes inherit the active palette; focus rings and error text adapt too. Theme changes do not animate layout or recolour photography.
+
+## Private studio dashboard
+
+The public website retains its editorial motion and typography. `/victoria-admin-panel` is a separate product register: a static forest-green sidebar, light sage work surface, sans-serif data hierarchy, restrained serif welcome panel and compact native tables. Controls use 44px minimum heights, semantic links/buttons, labeled native fields, visible focus, inline feedback and native dialog confirmation. Public smooth scrolling, cursor decoration, cookie banner and analytics are excluded from the admin route. All applicable behavior is recorded in UX-CONTRACT.md. Dates use IST in the dashboard; reporting day buckets explicitly use UTC.
+
+The admin APIs and Prisma schema implement the owner-approved role/session/retention contract. Public contact forms save details only on a separate consented submission. Cookie acceptance now enables the documented optional analytics collector. Never represent anonymous browser identifiers as identified people or claim the setup is connected before the owner supplies Neon credentials and runs migrations.

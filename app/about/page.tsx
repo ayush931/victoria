@@ -14,7 +14,7 @@ export default function AboutPage() {
   const [isConciergeOpen, setIsConciergeOpen] = useState(false);
 
   return (
-    <main className="relative w-full min-h-screen vx-site-page">
+    <main id="main-content" className="relative w-full min-h-screen vx-site-page">
       <Navbar onOpenConcierge={() => setIsConciergeOpen(true)} />
 
       {/* Hero Header with Expansive Whitespace */}
@@ -27,10 +27,10 @@ export default function AboutPage() {
       />
 
       {/* The 10-Year Narrative with Wide Breathing Room */}
-      <section className="w-full py-36 md:py-48 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[var(--ink)]/10">
+      <section className="w-full py-36 md:py-48 site-wrap border-b border-[var(--ink)]/10">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-16 lg:gap-28 items-start">
           <div>
-            <span className="text-[10px] font-sans uppercase tracking-[0.25em] text-[var(--accent-text)] block mb-3 font-semibold">
+            <span className="text-[0.625rem] font-sans uppercase tracking-[0.25em] text-[var(--accent-text)] block mb-3 font-semibold">
               THE GOAN MEMOIR
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif text-[var(--ink)] mb-6 font-light">
@@ -79,9 +79,9 @@ export default function AboutPage() {
       <StudioTimeline />
 
       {/* The 4 Architectural Pillars */}
-      <section className="w-full py-36 md:py-48 px-6 md:px-12 max-w-[1720px] mx-auto border-b border-[var(--ink)]/10">
+      <section className="w-full py-36 md:py-48 site-wrap border-b border-[var(--ink)]/10">
         <div className="mb-20">
-          <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.32em] text-[var(--accent-text)] block mb-3 font-semibold">
+          <span className="text-[0.625rem] sm:text-xs font-sans uppercase tracking-[0.32em] text-[var(--accent-text)] block mb-3 font-semibold">
             FOUNDATIONAL TENETS
           </span>
           <h2 className="text-3xl sm:text-5xl font-serif text-[var(--ink)] font-light">
@@ -89,7 +89,7 @@ export default function AboutPage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-8">
           <div className="p-8 md:p-10 bg-[var(--paper-raised)] border border-[var(--ink)]/10 rounded-sm">
             <span className="font-mono text-xs text-[var(--accent-text)] block mb-4 font-semibold">PILLAR 01</span>
             <h3 className="font-serif text-xl text-[var(--ink)] mb-3">Vernacular Susegad</h3>
@@ -132,17 +132,17 @@ export default function AboutPage() {
       <ArchitecturalCompass />
 
       {/* Call to Action with Spacious Spacing */}
-      <section className="w-full py-36 text-center px-6">
-        <h2 className="text-3xl sm:text-5xl font-serif text-[var(--ink)] mb-6 font-light">
+      <section className="w-full py-36 site-wrap text-center border-t border-[var(--ink)]/10">
+        <h2 className="text-3xl sm:text-5xl font-serif text-[var(--ink)] mb-6 font-light max-w-3xl mx-auto text-balance">
           Meet Our Architects in Margao &amp; Curtorim
         </h2>
-        <p className="text-xs sm:text-sm font-sans text-[var(--ink-soft)] max-w-md mx-auto mb-10 font-light">
+        <p className="text-sm font-sans text-[var(--ink-soft)] max-w-xl mx-auto mb-10 font-light leading-relaxed">
           Arrange a private discussion at our heritage studio or a walkthrough of our Curtorim lakefront parcels.
         </p>
         <button
           type="button"
           onClick={() => setIsConciergeOpen(true)}
-          className="px-8 py-4 bg-[#0C1A14] text-[#FAF8F5] text-xs font-sans uppercase tracking-[0.22em] font-semibold hover:bg-[#D49B44] hover:text-[#0C1A14] transition-all rounded-full inline-flex items-center gap-2 shadow-lg"
+          className="vx-on-dark px-8 py-4 bg-[var(--forest)] text-[var(--on-dark)] text-xs font-sans uppercase tracking-[0.22em] font-semibold hover:bg-[var(--signal)] hover:text-[var(--forest-deep)] focus-visible:outline-[var(--on-dark)] transition-all rounded-full inline-flex items-center gap-2 shadow-lg"
         >
           <span>Schedule Private Consultation</span>
           <ArrowUpRightIcon size={14} />

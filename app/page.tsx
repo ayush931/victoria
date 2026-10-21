@@ -23,7 +23,7 @@ export default function Home() {
   useHomeScrollMotion(ref);
   return <>
     <Navbar overHero />
-    <main ref={ref} className="estate-home">
+    <main ref={ref} id="main-content" className="estate-home">
       <HeroStage />
       <section className="estate-intro estate-wrap">
         <p className="estate-label">Rooted in Goa. Made for you.</p>

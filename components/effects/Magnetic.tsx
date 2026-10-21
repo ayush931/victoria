@@ -62,16 +62,16 @@ export function MagneticButton({
 } & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const styles =
     variant === "solid"
-      ? "bg-[#D49B44] text-[#0C1A14] hover:text-[#FAF8F5]"
+      ? "bg-[var(--signal)] text-[var(--forest-deep)] hover:text-[var(--on-dark)]"
       : variant === "dark"
-      ? "bg-[#0C1A14] text-[#FAF8F5] hover:text-[#0C1A14]"
-      : "border border-current hover:text-[#0C1A14]";
-  const fill = variant === "ghost" ? "bg-[#D49B44]" : variant === "dark" ? "bg-[#D49B44]" : "bg-[#0C1A14]";
+      ? "bg-[var(--forest)] text-[var(--on-dark)] hover:text-[var(--forest-deep)]"
+      : "border border-current hover:text-[var(--forest-deep)]";
+  const fill = variant === "ghost" || variant === "dark" ? "bg-[var(--signal)]" : "bg-[var(--forest-deep)]";
   return (
     <Magnetic>
       <button
         {...props}
-        className={`group relative inline-flex items-center gap-3 overflow-hidden rounded-full px-7 py-4 text-[11px] font-sans font-semibold uppercase tracking-[0.22em] transition-colors duration-500 ${styles} ${className}`}
+        className={`group relative inline-flex items-center gap-3 overflow-hidden rounded-full px-7 py-4 text-[0.6875rem] font-sans font-semibold uppercase tracking-[0.22em] transition-colors duration-500 ${styles} ${className}`}
       >
         <span className={`absolute inset-0 ${fill} translate-y-full rounded-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0`} />
         <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
